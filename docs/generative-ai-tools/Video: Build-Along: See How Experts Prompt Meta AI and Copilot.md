@@ -10,7 +10,11 @@ Dive into different prompting styles (descriptive, concise, tailored) and learn 
 - Placeholder graphics from Meta AI
 - Lerp animations
 
-Video:
+Video thumbnail version:
 
 [![See How Experts Prompt Meta AI and Copilot Overview Thumbnail](https://img.youtube.com/vi/wIoXLM-uoto/hqdefault.jpg)](https://www.youtube.com/watch?v=wIoXLM-uoto
 )
+
+Embed version:
+
+<iframe width="821" height="462" src="https://www.youtube.com/embed/wIoXLM-uoto" title="Build-Along: See How Experts Prompt Meta AI with Tellous" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

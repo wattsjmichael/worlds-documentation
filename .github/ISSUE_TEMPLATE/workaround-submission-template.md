@@ -2,7 +2,7 @@
 name: Workaround submission template
 about: Use this form for submissions to the Worlds Workarounds page
 title: ''
-labels: ''
+labels: 'workarounds-submission'
 assignees: MKE-TheGuru
 
 ---

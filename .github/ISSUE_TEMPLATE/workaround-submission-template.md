@@ -7,7 +7,7 @@ assignees: MKE-TheGuru
 
 ---
 
-ISSUE TITLE HERE***
+***ISSUE TITLE HERE***
 ISSUE DESCRIPTION HERE
 
 **Steps:**

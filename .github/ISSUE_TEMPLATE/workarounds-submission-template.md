@@ -1,5 +1,5 @@
 ---
-name: Workaround submission template
+name: Workarounds Submission Template
 about: Use this form for submissions to the Worlds Workarounds page
 title: '[Workarounds Submission]'
 labels: 'workarounds-submission'

@@ -26,7 +26,7 @@ To complete this tutorial, you’ll complete the following tasks:
 
 ## Text Gizmo Formatting Cheat Sheet
 
-When writing text on the Horizon Text Gizmo, the formatting options listed below are great for creating rich text and style. In the “text” property of the properties panel or using “text.set” in a TextGizmo Entity in Typescript, you can insert these codes to create the associated formats. These work because the Text Gizmo uses TextMeshPro (notably the Custom UI Gizmo does not support TextMeshPro formatting options). TextMeshPro is built into the backend of Unity and thus Horizon. It is what enables these formatting options. It is not specifically endorsed by, or made available by Horizon, but it has been used by creators for years to create stylistic text. Consider downloading [this image](https://drive.google.com/file/d/1YhXm8MMNFZ_b8mO0Ec4fSs75S4uKEN4r/view?usp=sharing) and keeping a copy of it in a convenient location for all your Text Gizmo formatting needs (reminder these are not supported on the Custom UI Gizmo).
+When writing text on the Horizon Text Gizmo, the formatting options listed below are great for creating rich text and style. In the “text” property of the properties panel or using “text.set” in a TextGizmo Entity in Typescript, you can insert these codes to create the associated formats. These work because the Text Gizmo uses TextMeshPro (notably the Custom UI Gizmo does not support TextMeshPro formatting options). TextMeshPro is built into the backend of Unity and thus Horizon. It is what enables these formatting options. It is not specifically endorsed by, or made available by Horizon, but it has been used by creators for years to create stylistic text.
 
 The Text Gizmo in Horizon can hold up to 1000 characters. This includes formatting characters. This limit is easy to hit when you want to create rich text blocks. In many cases, it might be useful to use multiple Text Gizmos. The new Custom UI Gizmo is also a great option, but it has a steep learning curve, and creating rich text is a lot more difficult as it uses CSS-like styling (but more on that in a different tutorial).
 
@@ -141,7 +141,7 @@ To complete the following procedure, you’ll need:
 
 1. Create a new world. Give your world a name, and then select **Custom Model Import**.
 
-    ![Select Custom Model Import](docs/getting-started-with-scripting/images/text-entry-tutorial_1.png)
+    ![Select Custom Model Import](images/text-entry-tutorial_1.png)
 
 Adding the Text Gizmo, to a scene using the Desktop Editor is difficult. Meta recommends that you add the Text Gizmos in VR. But writing text in VR is also difficult, especially if you want to add any of the formatting options. If you want to use the Desktop Editor, see Adding text gizmos using the desktop editor.
 
@@ -151,7 +151,7 @@ Adding the Text Gizmo, to a scene using the Desktop Editor is difficult. Meta re
 
 1. Edit the text field in the Property Panel. You can also adjust properties, like font size and color, just like you can in VR.
 
-    ![Add the Text Gizmo to a scene use the Desktop Editor](/images/text-entry-tutorial_2.png)
+    ![Add the Text Gizmo to a scene use the Desktop Editor](images/text-entry-tutorial_2.png)
 
 You can use the text field to write text and to copy and paste text into the text gizmo.
 
@@ -161,28 +161,28 @@ Here are some tips to help you if you want to add a text gizmo using the Desktop
 
 1. Add a text gizmo to your scene, here are a couple of tips to make your life easier.
 
-    ![Add a text gizmo to your scene](/images/text-entry-tutorial_3.png)
+    ![Add a text gizmo to your scene](images/text-entry-tutorial_3.png)
 
 1. Add some filler text on the properties panel, in this case, in the image below, we have added “Hello World.”
 
-    ![](/images/text-entry-tutorial_4.png)
+    ![](images/text-entry-tutorial_4.png)
 
 1. Then, presuming you have an object you want to place the text up against, click on that reference object and right-click to copy the position of the reference object.
 
-    ![](/images/text-entry-tutorial_5.png)
+    ![](images/text-entry-tutorial_5.png)
 
 1. You can then click on the Text Gizmo and right-click to paste the position. You may have to repeat these steps to paste the rotation from the reference object as well.
 
-    ![](/images/text-entry-tutorial_6.png)
+    ![](images/text-entry-tutorial_6.png)
 
 1. Then, with the slide tool selected, and snapping turned off, grab one of the slide arrows to pull the text out of the reference object.
 
-    ![](/images/text-entry-tutorial_7.png)
+    ![](images/text-entry-tutorial_7.png)
 
 1. Now that you have positioned the text, it may need to be rotated. If you copy and paste the rotation of the reference object, and it is still off, you may consider manually adjusting the values from the properties panel. Or you can use snap rotation, I like to set it to 90 degrees.
 
-    ![](/images/text-entry-tutorial_8.png)
-    ![](/images/text-entry-tutorial_9.png)
+    ![](images/text-entry-tutorial_8.png)
+    ![](images/text-entry-tutorial_9.png)
 
 You should now have your text positioned and can fill out the text and properties to your liking.
 
@@ -194,67 +194,67 @@ It’s important to start by noting the limitations of Codeblocks strings and li
 
 This tutorial uses the Meta Horizon Worlds TypeScript 2.0 API. which as of July 2024 is the default, however, if you are not in 2.0, you may need to adjust your version from the Scripts tab, select the gear icon, and then Settings.
 
-![](/images/text-entry-tutorial_10.png)![](/images/text-entry-tutorial_11.png)
+![](images/text-entry-tutorial_10.png)![](images/text-entry-tutorial_11.png)
 
 1. If you would like experience writing TypeScript you can create a new script from the Scripts drop-down, in this case, we will name it **SendStringToCodeblocks_Entity.**
 
-    ![](/images/text-entry-tutorial_12.png)
+    ![](images/text-entry-tutorial_12.png)
 
 1. You can then write the following script out.
 
-    ![](/images/text-entry-tutorial_13.png)
+    ![](images/text-entry-tutorial_13.png)
 
-1. If you have never used TypeScript before, you should download this script by [clicking here](https://drive.google.com/file/d/1aYxgHRxceWXIJ8epHN01XXvWdzKKZ9s_/view?usp=sharing).
+1. If you have never used TypeScript before, you should download this script by [clicking here](text-entry-utils/SendStringToCodeblocks_Entity.ts).
 
 1. Open the Scripts folder. Click on the **Scripts** drop-down, then select the three-dot icon, and “**Open the Scripts Folder in Explorer**.
 
-    ![](/images/text-entry-tutorial_14.png)
+    ![](images/text-entry-tutorial_14.png)
 
 1. Drag the script into the scripts folder.
 
-    ![](/images/text-entry-tutorial_15.png)
+    ![](images/text-entry-tutorial_15.png)
 
 As you are writing or downloading these scripts, here is the second script you will want to [click here](https://drive.google.com/file/d/1aRek4QMU_r3GB-YstadaXiTX2IVtH8aY/view?usp=sharing) to download.
 
 Create a new script. Name it `SendStringsToCodeblocks_Entity`.
 
-![](/images/text-entry-tutorial_16.png)
+![](images/text-entry-tutorial_16.png)
 
 These two scripts serve slightly different purposes, the first one is for sending a single string, and the second an Array/List of strings. Unlike Codeblocks, not all TypeScript scripts have to be attached to an Entity (referred to as an object in Codeblocks), these two scripts, however, do need to run on an Entity so that you get access to the properties panel, allowing us to reference and send an event to another Entity, one that is running the Codeblock script you want to receive the string(s) on.
 
 With the single string, you can reuse the script over and over, only needing to attach the script to another entity and adjust the “message” being sent from the properties panel. Don’t forget to reference the receiver on the properties panel too (notice in this photo no receiver is selected).
 
-![](/images/text-entry-tutorial_17.png)
+![](images/text-entry-tutorial_17.png)
 
 For multiple strings, you’d need to be more creative with your scripting to reuse the script. So instead, for simplicity, it is recommended to duplicate the script and give it a slightly different name. Note that you will need to have installed VS Code to modify the script (remember to restart your computer after installing). You can then modify the script by pressing the three dot icon next to the script name in the scripts drop down, and clicking “open in external editor.”
 
-![](/images/text-entry-tutorial_18.png)![](/images/text-entry-tutorial_19.png)
+![](images/text-entry-tutorial_18.png)![](images/text-entry-tutorial_19.png)
 
 Here inside VS Code, you can modify the array of messages to suit our needs, adding as many lines as you want.
 
-![](/images/text-entry-tutorial_20.png)
+![](images/text-entry-tutorial_20.png)
 
 With these scripts ready to go, you’ll need a Codeblock script to receive the message(s), a very simple script is shown below to demonstrate that it works by printing the message to the console:
 
-![](/images/text-entry-tutorial_21.png)
+![](images/text-entry-tutorial_21.png)
 
 Be sure to attach the scripts to entities. Attaching scripts is done at the bottom of the properties panel. In this case, text gizmos are used to run each of the scripts. If you give them good names, it’s easier to find them in the hierarchy.
 
-![](/images/text-entry-tutorial_22.png)
+![](images/text-entry-tutorial_22.png)
 
 You can then drag the codeblocks receiver from the Hierarchy to the empty pill slot (the pill-shaped field in the bottom right corner with a circle-like icon.).
 
 **Note**: You can also click on the pill slot to see a list of all the items in our world, and from there, at the top, you can search from the drop-down.
 
-![](/images/text-entry-tutorial_23.png)
+![](images/text-entry-tutorial_23.png)
 
 **Bonus Tip:** You can find entities running a specific script by using the hierarchy filter, and selecting entities running a specific script.
 
-![](/images/text-entry-tutorial_24.png)
+![](images/text-entry-tutorial_24.png)
 
 Run the world and see a console message displaying our messages.
 
-![](/images/text-entry-tutorial_25.png)
+![](images/text-entry-tutorial_25.png)
 
 ## Script 3: Send Q&As From TypeScript To Codeblock Scripts
 
@@ -266,17 +266,17 @@ You won’t be diving too deep into this script, which you can download [here](h
 
 **Mentor’s Note:** The “getRandomItemFromArray” function comes from a file that I add to all my worlds, and when it gets updated is shared in Discord. You can download the arrayUtils (created by the Vidyuu team) by clicking [here](https://drive.google.com/file/d/1Wlaru7gyQRTzjov5rACVMsr3lm3pG7PV/view?usp=sharing). Feel free to ask questions in Discord if you’d like to learn more.
 
-![](/images/text-entry-tutorial_26.png)
+![](images/text-entry-tutorial_26.png)
 
 If you would prefer not to use the Vidyuu arrayUtils file, below is what that would look like. Instead you use a copy of the function from the arrayUtils file, pasted at the bottom of the script.
 
-![](/images/text-entry-tutorial_27.png)
+![](images/text-entry-tutorial_27.png)
 
 To send this data to a Codeblock script, you created and then used a CodeBlockEvent with two parameters; String, and StringArray. This is received as a string, and string list, as seen in the screenshot below.
 
 Note that this demo Codeblock script, receiver, will also need to be attached to an entity to run, and reference the entity running the QuestionData script. The QuestionData script will also need to reference this “receiver.” For this demo, you get a new question on world start and when received, print it to the console.
 
-![](/images/text-entry-tutorial_28.png)
+![](images/text-entry-tutorial_28.png)
 
 **Mentor’s Note:** This is just a taste of what easier text entry with TypeScript can unlock. Really looking forward to seeing how you use this in your worlds.
 
@@ -286,11 +286,11 @@ Next up we have one last Codeblock integration example.
 
 In this case, you’ll send a message to TypeScript from Codeblocks. You can imagine an event in Codeblocks like this, with a string parameter as the message.
 
-![](/images/text-entry-tutorial_29.png)
+![](images/text-entry-tutorial_29.png)
 
 Then to receive the message in TypeScript, you will need to create a new CodeBlockEvent, which includes a parameter (slightly different from the previous example with no parameters). Then just connect the event like before, and in this case, you will log it to the console to show that it was received. You can download this script [here](https://drive.google.com/file/d/1Q7NFlLBJ6MpjLrh3O5gaYDLdWbrt3ejc/view?usp=sharing).
 
-![](/images/text-entry-tutorial_30.png)
+![](images/text-entry-tutorial_30.png)
 
 **Note:** If you are planning to stick with Codeblocks, this is the end of the Codeblock integration examples.
 
@@ -298,13 +298,13 @@ Then to receive the message in TypeScript, you will need to create a new CodeBlo
 
 If you haven’t used MegaText in Horizon, it a script written by the  Vidyuu team in the Asset Library under interactive. It allows you to write text on a Text Gizmo with multiple lines. This makes formatting so much easier. The example below is the same script, rewritten in TypeScript, you can download it [here](https://drive.google.com/file/d/1hKw0YV-o_zjuGbXMPMI1fT1Yo0bfArKs/view?usp=sharing).
 
-![](/images/text-entry-tutorial_31.png)
+![](images/text-entry-tutorial_31.png)
 
 The biggest difference is that this example only has 16 lines, and the Codeblocks asset has 32. You can duplicate row 20 and 31 to add more lines. Just make sure they are added in order and named appropriately.
 
 To use MegaText, attach this script to a TextGizmo, and on the properties panel you can fill out multiple lines, making it much easier to write large blocks of text, and even add formatting. I’ve always recommended leaving gaps between lines so that you can come back later if you ever need to insert or add formatting styles. You can use this script both in the Horizon Desktop Editor and in VR.
 
-![](/images/text-entry-tutorial_32.png)
+![](images/text-entry-tutorial_32.png)
 
 ## Script 6: Writing Text With Formatting In TypeScript
 
@@ -314,13 +314,13 @@ You’ve defined font and lineBreak string variables. This makes our lives a lit
 
 In start, you define a couple lines, add them all together using displayMe, and then apply the displayMe string to a TextGizmo.
 
-![](/images/text-entry-tutorial_33.png)
+![](images/text-entry-tutorial_33.png)
 
 You will need to make copies of this script if you want to have different text on multiple TextGizmos. Note that the name of the script needs to be unique, but the class in the script can have the same name, in this case “EasyText.”
 
 Below you can see creating a new script with a different name, I would advise naming this based on the text they display. Then in VS Code you can copy paste the first script to replace the default script in EasyText2, filling it out with your new text. Notice that when you assign the script, on the left is the script name, and on the right is the class name.
 
-![](/images/text-entry-tutorial_34.png)![](/images/text-entry-tutorial_35.png)
+![](images/text-entry-tutorial_34.png)![](images/text-entry-tutorial_35.png)
 
 This example script has shown you how you can take the formatting options shown at the beginning, and apply them on your own. While this works wonderfully, as a part of this tutorial, I put together a formatting library, which you’ll see in the next step makes our lives even easier.
 
@@ -334,17 +334,17 @@ In this example, you imported “Formats” and “formatting” from the UtilTe
 
 And then similar to Script 6, you add the title and lines together. In this case, you use formatting to get an easier way of typing in line breaks. And then finally you display the string on the TextGizmo that has this script attached.
 
-![](/images/text-entry-tutorial_36.png)
+![](images/text-entry-tutorial_36.png)
 
 Using this on multiple TextGizmos will require you to duplicate the script. give it a good name, and then attach the new script to the relevant TextGizmo. This isn’t the only method, as you could have one text manager that has the TextGizmos referenced on its properties panel. So depending on your needs, be creative and feel free to ask for help in Discord.
 
 In addition to “Formats” there are three other enums, which have their own formatting.apply functions you can use:
 
-![](/images/text-entry-tutorial_37.png)
+![](images/text-entry-tutorial_37.png)
 
 You can also use these on their own, if you don’t need to clear them at the end, ie:
 
-![](/images/text-entry-tutorial_38.png)
+![](images/text-entry-tutorial_38.png)
 
 Feel free to dig into the utility file on your own and learn more about how it works and what options are available.
 
@@ -361,35 +361,35 @@ You can download the files here:
 
 Let’s start with `Story_Data.ts`, which is a relatively simple file that creates four string arrays, and then stores them in an exported JSON object called storyData. You can access all of these strings from your main script by importing storyData. You can imagine having as many of these string arrays as you need for your story.
 
-![](/images/text-entry-tutorial_39.png)![](/images/text-entry-tutorial_40.png)
+![](images/text-entry-tutorial_39.png)![](images/text-entry-tutorial_40.png)
 
-![](/images/text-entry-tutorial_41.png)
+![](images/text-entry-tutorial_41.png)
 
 You can now see this all come together in the EasyStoryTrigger\_Entity.ts script above. The first thing you’ve probably already noticed is that you attach this demo script to a Trigger Gizmo. This allows you to test our script by simply touching a trigger. This does mean you need to reference the TextGizmo, which you do on line 8 in the propsDefinition. You must make sure to fill this out on the properties panel of our trigger that is running this script.
 
-![](/images/text-entry-tutorial_42.png)
+![](images/text-entry-tutorial_42.png)
 
 In preStart, you connect the OnPlayerEnterTrigger event to our local method. In start(), you load a default story using ‘adventurer’ to fill in as the name for a player. You can see the playerEnterTrigger method also calls updateStory.
 
-![](/images/text-entry-tutorial_43.png)
+![](images/text-entry-tutorial_43.png)
 
 The updateStory method starts by getting a story and then displays the story. Each of these are separate methods shown below. One returns a string, and the other updates the TextGizmo.
 
-![](/images/text-entry-tutorial_44.png)
+![](images/text-entry-tutorial_44.png)
 
 The getStory method is where all the magic occurs. It takes a name, ie. the player name, and returns a string, which is the story. The first thing you do in this method is set several variables by selecting a random string from storyData, and providing a fallback, in case our array of strings is empty.
 
-![](/images/text-entry-tutorial_45.png)
+![](images/text-entry-tutorial_45.png)
 
 You then use formatting to capitalize the first letter in the greeting. There’s a second example on line 39, which sets the text to be the same as what’s on line 37\. This is to show that you can choose the method of writing your story that makes the most sense to you. I personally prefer plusses “+” but the line 39 method takes up less space, and for some is easier to read.
 
-![](/images/text-entry-tutorial_46.png)
+![](images/text-entry-tutorial_46.png)
 
 Now that you’ve calculated the story, you can now return it.
 
 Display story is similar to what you’ve done earlier in this tutorial, except you added a check and console log if the text property has not been referenced or doesn’t reference a TextGizmo.
 
-![](/images/text-entry-tutorial_47.png)
+![](images/text-entry-tutorial_47.png)
 
 From this, you can extrapolate to create your own custom ad lib story. If you have questions or need help, don’t hesitate to ask in Discord.
 
@@ -404,17 +404,17 @@ You can download the new files here:
 
 Let’s start with something familiar, looking at Story_Func. This is similar to our data file in that you have an exported variable, but instead of storing string data, it stores an array of functions. The creation of storyFunc declares itself to be an Array of functions that take a string parameter and return a string. This is just like our getStory method from script 8\. In fact, line 10 is the same method, but as a function called story1. You can then duplicate this for as many stories as you want. Just make sure they are included in the array on line 5.
 
-![](/images/text-entry-tutorial_48.png)
+![](images/text-entry-tutorial_48.png)
 
 Next, you can take a look and see how this is used in the trigger script. The first difference you’ll notice is that you have an array of activePlayers, and in preStart you connect PlayerEnter and PlayerExit world events. Seen below on lines 23 and 27, you add players to the activePlayers array using push, and remove them using the arrayUtils removeItemFromArray function.
 
 The next major difference is that in the playerEnterTrigger, you now select a randomPlayer and update the story using that player’s name.
 
-![](/images/text-entry-tutorial_49.png)
+![](images/text-entry-tutorial_49.png)
 
 The next change is inside of getStory. You’ll get a randomStoryFunc from the array of storyFunc. If it is defined, then you’ll use it to generate a story. Otherwise, the list of functions may be empty, and you’ll log an error to the console, returning an empty string.
 
-![](/images/text-entry-tutorial_50.png)
+![](images/text-entry-tutorial_50.png)
 
 And like that, you can have as many random ad-lib stories as you want.
 

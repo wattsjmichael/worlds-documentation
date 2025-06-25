@@ -354,7 +354,7 @@ header {
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.2);
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   border: none;
   cursor: pointer;
   z-index: 2;

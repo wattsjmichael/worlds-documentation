@@ -13,7 +13,6 @@ Ready to start your 3D modeling journey in Meta Horizon Worlds? This hands-on cr
 <iframe width="1689" height="959" src="https://www.youtube.com/embed/qu7RuXeup1Y" title="3D Modeling 101: Skyboxes &amp; Environments (Part 2)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ➡️ *Sky Box Demo Files:*
-MHCPCreators/worlds-documentation/docs/meshes-materials-import/assets/modeling-101/Skyboxes-and-environments
 
 ## 3D Modeling 101: Land Modeling & Texture Baking (Part 3)
 
@@ -34,6 +33,4 @@ Continue your 3D modeling journey and learn to build beautiful, custom landscape
 
 *Complete your 3D modeling journey by mastering the art of texturing in Substance Painter in Meta Horizon.* This hands-on workshop with *MHCP mentor SpaceGlitterUnicorn* demystifies the entire process. You will learn the practical skills to create professional-grade textures, covering UVs, mesh map baking, and the use of layers, masks, and advanced material properties.
 
-➡️ *Substance Painter Demo Files:* MHCPCreators/worlds-documentation/docs/meshes-materials-import/assets/modeling-101/substance-painter/BR
-MHCPCreators/worlds-documentation/docs/meshes-materials-import/assets/modeling-101/substance-painter
-
+➡️ *Substance Painter Demo Files:* 

@@ -141,7 +141,7 @@ To complete the following procedure, you’ll need:
 
 1. Create a new world. Give your world a name, and then select **Custom Model Import**.
 
-    ![Select Custom Model Import](/images/text-entry-tutorial_1.png)
+    ![Select Custom Model Import](docs/getting-started-with-scripting/images/text-entry-tutorial_1.png)
 
 Adding the Text Gizmo, to a scene using the Desktop Editor is difficult. Meta recommends that you add the Text Gizmos in VR. But writing text in VR is also difficult, especially if you want to add any of the formatting options. If you want to use the Desktop Editor, see Adding text gizmos using the desktop editor.
 

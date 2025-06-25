@@ -1,17 +1,3 @@
----
-title: Text Entry and Formatting Tutorial
-description: Explains how to efficently create and format text, and provides eleven TypeScript code samples
-tags:
-  - horizon
-  - creation
-gk:
-  - horizon_nda_creators
-  - horizon_hur_creation_tools_ga_release_docs
-  - horizon_second_party_studio_devs
-  - horizon_developer_site_internal_only
-last_updated: 2025-02-27
----
-
 In this tutorial, you'll explore efficient methods for importing and manipulating text in Meta Horizon Worlds using TypeScript. You'll learn the simplest ways to integrate large blocks of text, to format text using TypeScript code, and you'll even learn how to create text dynamically.
 
 You can use the example code in this tutorial can be used by creators of all skill levels. Don't worry if you're new to TypeScript. By the end of this tutorial, you'll be able to import text, format text, and create exciting, randomized game mechanics that surprise and engage your visitors.
@@ -447,4 +433,4 @@ Integrate a randomly generated story into one of your worlds.
 
 ## Further Assistance
 
-For any questions or further assistance, creators are encouraged to join the discussion on the Discord server or to schedule a mentor session for personalized guidance.
+For any questions or further assistance, creators are encouraged to join the discussion on the community forum.

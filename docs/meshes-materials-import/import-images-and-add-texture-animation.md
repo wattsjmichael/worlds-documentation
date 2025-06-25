@@ -1,17 +1,3 @@
----
-title: 'Meta Horizon CMI & TypeScript API 2.0: Import Images & Add Texture Animation'
-description: 'Meta Horizon CMI & TypeScript API 2.0: Import Images & Add Texture Animation'
-tags:
-  - horizon
-  - creation
-gk:
-  - horizon_nda_creators
-  - horizon_hur_creation_tools_ga_release_docs
-  - horizon_second_party_studio_devs
-  - horizon_developer_site_internal_only
-last_updated: 2024-07-16
----
-
 ## Introduction
 
 #### Creator Skill Level
@@ -600,7 +586,7 @@ There is a lot to learn in TypeScript, so if you have any questions about the co
 
 ## Extended Learning
 
-Below we have provided some CMI and Scripting challenges for you to try implementing on your own. These require some outside knowledge, and we encourage you to ask questions in Discord if you get stuck or are unsure how to complete these or book a 1:1 mentor session.
+Below we have provided some CMI and Scripting challenges for you to try implementing on your own. These require some outside knowledge, and we encourage you to ask questions in the community forum if you get stuck or are unsure how to complete these.
 
 ### CMI Extended Learning:
 
@@ -635,7 +621,3 @@ Tip: Our trigger script uses “onPlayerEnterTrigger,” you’ll want to use a 
 Add custom VFX. Think muzzle flashes, sparkles, smoke, or if you put the animation on a 3D object (ie. a cylinder), you can attach it to a player and make custom player effects like leveling up, taking damage, healing, etc.
 
 Tip: You’ll want to have a way to run the animation X# of times. And either an off texture (ie. 100% transparent/masked), or set the visibility to false when not being used.
-
-## Further Assistance
-
-For any questions or further assistance, creators are encouraged to join the discussion on the Discord server or to schedule a mentor session for personalized guidance.

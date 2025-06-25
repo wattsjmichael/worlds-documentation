@@ -1,17 +1,3 @@
----
-title: 'Meta Horizon TypeScript API 2.0: JSON PPVs & Versioning'
-description: 'Meta Horizon TypeScript API 2.0: JSON PPVs & Versioning'
-tags:
-  - horizon
-  - creation
-gk:
-  - horizon_nda_creators
-  - horizon_hur_creation_tools_ga_release_docs
-  - horizon_second_party_studio_devs
-  - horizon_developer_site_internal_only
-last_updated: 2024-04-30
----
-
 Author: Laex05
 
 ## Introduction
@@ -285,13 +271,11 @@ When a player arrives to your world, I have experienced in build mode this causi
 
 Thank you for following along! This guide aims to unlock your TypeScript super powers, and add awesome new features to your worlds!
 
-If you need additional support feel free to book me (Vidyuu / Laex05) for a 1:1 lesson.
-
 Consider trying the extra credit tasks below to solidify your learning and take it to the next level!
 
 ## Next Steps
 
-Below we have provided some challenges for you to try implementing on your own. These do require some outside knowledge, and we encourage you to ask questions in Discord if you get stuck or are unsure how to complete these. And as always I’d be happy to help you get unstuck, I’m just a Mentor Session away.
+Below we have provided some challenges for you to try implementing on your own. These do require some outside knowledge, and we encourage you to ask questions in the community forums if you get stuck or are unsure how to complete these
 
 ### Novice
 

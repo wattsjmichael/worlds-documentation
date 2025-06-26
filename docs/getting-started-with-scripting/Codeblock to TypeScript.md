@@ -1,4 +1,5 @@
 # CodeBlocks to TypeScript
+Author: Seeingblue
 
 A guide for Meta Horizon Worlds creators transitioning from CodeBlocks to TypeScript.
 

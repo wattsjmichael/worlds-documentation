@@ -1,3 +1,4 @@
+# Worlds tools overview
 ## Worlds Tools Overview (Session 1)
 
 *Ever wonder how top creators build worlds with smart NPCs, huge maps, and custom camera angles?* This guide reveals the advanced tools they use. In the first part of a two-part series, *MHCP mentor PigeonNo12* walks you through the powerful features that unlock richer, more interactive experiences. You'll get the practical demos and scripting techniques needed to implement the Matchmaking API, guide NPCs with NavMesh, and design enormous levels with World Streaming.

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>docs working</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Docs Viewer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+    .sidebar {
+      width: 260px;
+      background-color: #f3f6fa;
+      padding: 1rem;
+      overflow-y: auto;
+      border-right: 1px solid #ddd;
+    }
+    .sidebar h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li {
+      margin: 0.5rem 0;
+    }
+    .sidebar a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      display: block;
+      border-radius: 4px;
+    }
+    .sidebar a:hover {
+      color: #0064E0;
+      background-color: #e0ebf9;
+    }
+    .sidebar a.active {
+      background-color: #0064E0;
+      color: white;
+    }
+    .right-sidebar {
+      width: 220px;
+      background-color: #fafafa;
+      padding: 1rem;
+      overflow-y: auto;
+      border-left: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    .right-sidebar h3 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .right-sidebar ul {
+      list-style: none;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+    .right-sidebar li {
+      margin: 0.25rem 0;
+    }
+    .right-sidebar a {
+      color: #555;
+      text-decoration: none;
+    }
+    .right-sidebar a:hover {
+      text-decoration: underline;
+    }
+    .content {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+    }
+    .doc-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+    .nav-buttons button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+      background-color: #0064E0;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    .nav-buttons button:disabled {
+      background-color: #ccc;
+      cursor: default;
+    }
+  </style>
+</head>
+  
+<body>
+  <aside class="sidebar">
+    <h2>Documentation</h2>
+    <ul id="doc-list"></ul>
+  </aside>
+
+  <main class="content">
+    <div class="doc-container">
+      <div id="doc-content">Select a document to begin reading.</div>
+      <div class="nav-buttons">
+        <button id="prev-btn">← Previous</button>
+        <button id="next-btn">Next →</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="right-sidebar">
+    <h3>On this page</h3>
+    <ul id="doc-toc"></ul>
+  </aside>
+
+  <script>
+    const docs = [
+      { path: "docs/understanding-the-desktop-editor/Worlds Desktop Tools Basics.md", title: "Worlds Desktop Tools Basics" },
+      { path: "docs/understanding-the-desktop-editor/Worlds Desktop Editor 101.md", title: "Worlds Desktop Editor 101" },
+      { path: "docs/understanding-the-desktop-editor/Trace, Fix, & Optimize World Performance Issues.md", title: "Trace, Fix, & Optimize World Performance Issues" },
+      { path: "docs/understanding-the-desktop-editor/Improve Frame Rates and Custom Asset Bloat.md", title: "Improve Frame Rates and Custom Asset Bloat" },
+      { path: "docs/understanding-the-desktop-editor/Collaboratively Build with Shared Asset Templates.md", title: "Collaboratively Build with Shared Asset Templates" },
+      { path: "docs/understanding-the-desktop-editor/Boost Performance - Top 7 Spawning & Streaming Tricks.md", title: "Boost Performance – Top 7 Spawning & Streaming Tricks" },
+      { path: "docs/generative-ai-tools/Topology Tune-Up for GenAI Props and Sets.md", title: "Topology Tune-Up for GenAI Props and Sets" },
+      { path: "docs/generative-ai-tools/Prompt Meta AI in the Worlds Desktop Editor.md", title: "Prompt Meta AI in the Worlds Desktop Editor" },
+      { path: "docs/creating-a-world/Worlds Tools Overview.md", title: "Worlds Tools Overview" },
+      { path: "docs/creating-a-world/Mobile Worlds Crash Course.md", title: "Mobile Worlds Crash Course" },
+      { path: "docs/creating-a-world/Create a Versatile Holster System in Worlds.md", title: "Create a Versatile Holster System in Worlds" },
+      { path: "docs/creating-a-world/Building Your First World.md", title: "Building Your First World" },
+      { path: "docs/getting-started-with-scripting/text-entry-tutorial.md", title: "Text Entry Tutorial" },
+      { path: "docs/getting-started-with-scripting/json-ppvs-and-versioning.md", title: "JSON PPVs and Versioning" },
+      { path: "docs/getting-started-with-scripting/TypeScript Best Practices 101.md", title: "TypeScript Best Practices 101" },
+      { path: "docs/getting-started-with-scripting/Codeblock to TypeScript.md", title: "Codeblock to TypeScript" },
+      { path: "docs/getting-started-with-scripting/15 Worlds TypeScript API 2.0 Tips and Tricks.md", title: "15 Worlds TypeScript API 2.0 Tips and Tricks" }
+    ];
+
+    const docList = document.getElementById("doc-list");
+    const content = document.getElementById("doc-content");
+    const tocList = document.getElementById("doc-toc");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    let currentIndex = 0;
+
+    docs.forEach((doc, i) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = "#";
+      a.textContent = doc.title;
+      a.dataset.index = i;
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        loadDoc(i);
+      });
+      li.appendChild(a);
+      docList.appendChild(li);
+    });
+
+    function loadDoc(index) {
+      currentIndex = index;
+      fetch(docs[index].path)
+        .then(res => res.text())
+        .then(md => {
+          const html = marked.parse(md);
+          content.innerHTML = html;
+          generateTOC();
+          updateButtons();
+          updateActiveLink();
+        })
+        .catch(err => {
+          content.innerHTML = `<p>Error loading document: ${err}</p>`;
+        });
+    }
+
+    function generateTOC() {
+      tocList.innerHTML = "";
+      const headers = content.querySelectorAll("h2, h3");
+      headers.forEach(header => {
+        if (!header.id) header.id = header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = `#${header.id}`;
+        a.textContent = header.textContent;
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+    }
+
+    function updateButtons() {
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === docs.length - 1;
+    }
+
+    function updateActiveLink() {
+      document.querySelectorAll("#doc-list a").forEach((a, i) => {
+        a.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    prevBtn.addEventListener("click", () => {
+      if (currentIndex > 0) loadDoc(currentIndex - 1);
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentIndex < docs.length - 1) loadDoc(currentIndex + 1);
+    });
+
+    // Load first doc by default
+    loadDoc(0);
+  </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>

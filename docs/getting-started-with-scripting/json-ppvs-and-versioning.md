@@ -27,19 +27,19 @@ By reading and reviewing this written guide you will be able to:
 
 Once the world is loaded, click the systems drop-down and select “Persistent Variables.”
 
-![Screenshot 2024-03-12 165250.png](images/Screenshot 2024-03-12 165250.png)
+![Screenshot 2024-03-12 165250.png](images/Screenshot%202024-03-12%20165250.png)
 
 Click the plus icon to create a variable.
 
 In this example, we will name it “TestVar” making sure to select “{ } Object” from the drop-down.
 
-![Screenshot 2024-03-12 165344.png](images/Screenshot 2024-03-12 165344.png)
+![Screenshot 2024-03-12 165344.png](images/Screenshot%202024-03-12%20165344.png)
 
 Now that JSON Object PPV has been created, it can be used in TypeScript scripts by referencing it using the string name it was given: “TestVar.”
 
 ## Step 2: Create Scripts
 
-To begin, we will create two scripts with the specified names seen below. It’s important to verify that Meta Horizon’s 2.0 API is selected by accessing the settings via the gear icon. ![Screenshot 2024-03-12 165632.png](images/Screenshot 2024-03-12 165632.png)
+To begin, we will create two scripts with the specified names seen below. It’s important to verify that Meta Horizon’s 2.0 API is selected by accessing the settings via the gear icon. ![Screenshot 2024-03-12 165632.png](images/Screenshot%202024-03-12%20165632.png)
 
 ### Specified Script Names:
 
@@ -62,7 +62,7 @@ As of the current Meta Horizon desktop build (March 2024), creating a new world 
 
 Access to this feature is found under the script tab: select the gear icon, followed by Script Settings to view the API Version drop-down:
 
-![](images/Screenshot 2024-03-19 152547.png)
+![](images/Screenshot%202024-03-19%20152547.png)
 
 ## Step 3: Prepare Scripts
 
@@ -74,9 +74,9 @@ Note: This is a personal preference, please choose the approach that works best 
 
 I personally like the explicit approach as you will know all items that have been imported from specific APIs, and you can do less typing, which is always nice!
 
-![](images/Screenshot 2024-03-12 165657.png)
+![](images/Screenshot%202024-03-12%20165657.png)
 
-![](images/Screenshot 2024-03-12 165809.png)
+![](images/Screenshot%202024-03-12%20165809.png)
 
 ## What Are JSON Objects?
 

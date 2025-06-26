@@ -20,9 +20,9 @@ You'll also learn how to use two prewritten scripts to add animation and interac
 
 By reading and reviewing this written guide you will be able to:
 
-- [Import CMI](/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#image-imports) images with or without transparency.
-- [Use and or write typescript code](/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#step-5--create-scripts) to create animated textures.
-- [Billboard](/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#step-7--billboarding) an animated texture to create a unique 3D-like effect.
+- [Import CMI](https://developers.meta.com/horizon-worlds/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#image-imports) images with or without transparency.
+- [Use and or write typescript code](https://developers.meta.com/horizon-worlds/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#step-5--create-scripts) to create animated textures.
+- [Billboard](https://developers.meta.com/horizon-worlds/learn/documentation/mhcp-program/community-tutorials/meta-horizon-cmi--typescript-api-20-import-images--add-texture-animation#step-7--billboarding) an animated texture to create a unique 3D-like effect.
 
 ## Image Imports
 
@@ -70,9 +70,9 @@ At the time of writing (June 2024), uploading PNG textures can only be done thro
 
 In the images below you can see screenshots of the Meta Horizon Worlds desktop editor. From the “Assets” tab you can click “Texture” and then in the right image, you can see that you are able to upload multiple PNG images. We recommend first creating a folder to upload and store these images, it is much harder to move them after they have been imported.
 
-![22 Horizon - Select Folder Add New Texture.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_1.png)
+![22 Horizon - Select Folder Add New Texture.png](images/22-Horizon-Select-Folder-Add-New-Texture.png)
 
-![24 Horizon - Import All PNGs.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_2.png)
+![24 Horizon - Import All PNGs.png](images/24-Horizon-Import-All-PNGs.png)
 
 
 ### How to Swap Textures
@@ -92,36 +92,36 @@ In the first step, we will show how to create FBX files for standard, \_Masked, 
 
 Once you have opened Blender, select and delete all items.
 
-![01 Blender - Delete Hierarchy.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_3.png)
+![01 Blender - Delete Hierarchy.png](images/01-Blender-Delete-Hierarchy.png)
 
 Then we’ll create a mesh plane via Add>Mesh>Plane.
 
-![02 Blender - Add Mesh Plane.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_4.png)
+![02 Blender - Add Mesh Plane.png](images/02-Blender-Add-Mesh-Plane.png)
 
 Next, with the plane selected, click the ‘red beach-ball-like’ material icon on the left. Then, click new.
 
 After creating “Material.001," we can rename it “Image.”
 
-![03 Blender - Material New.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_5.png) ![04 Blender - Rename Image.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_6.png)
+![03 Blender - Material New.png](images/03-Blender-Material-New.png) ![04 Blender - Rename Image.png](images/04-Blender-Rename-Image.png)
 
 This is a simple name, with no “\_” underscore, used for CMI FBX objects being imported into Horizon. Note that most any name can be used, but the PNG texture uploaded with the model must use that name plus “\_BR.” For instance, ours would be “Image_BR.png.” If your name in Blender has underscores, everything after the first underscore will be ignored by Horizon unless the underscore corresponds to a specific material type, ie. \_UIO, which we will see later in this step.
 
 Next, we will export as FBX, via File>Export>FBX. Make sure to give it a good name, we will use “Image.fbx.”
 
-![05 Blender - File Export FBX.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_7.png)
+![05 Blender - File Export FBX.png](images/05-Blender-File-Export-FBX.png)
 
-Now that we have created this simple plane, we can upload it as many times as we want to Horizon with individual PNG images named “Image_BR.” I recommend saving this in a folder to use whenever you want to import an image into Horizon. ![06 Blender - Save And Name FBX.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_8.png)
+Now that we have created this simple plane, we can upload it as many times as we want to Horizon with individual PNG images named “Image_BR.” I recommend saving this in a folder to use whenever you want to import an image into Horizon. ![06 Blender - Save And Name FBX.png](images/06-Blender-Save-And-Name-FBX.png)
 
 Back on the properties panel of our Plane, we are going to rename and export it two more times, one named “Image_Masked,” and another named “Image_UIO.”
 
 Masked is used for images with solid areas of transparency (e.g., logos, icons, etc). UIO also uses masking, but allows the mesh to have the texture swapped in Horizon.
 
-![07 Blender - Name Masked.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_9.png) ![09 Blender - Name UIO.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_10.png)
+![07 Blender - Name Masked.png](images/07-Blender-Name-Masked.png) ![09 Blender - Name UIO.png](images/09-Blender-Name-UIO.png)
 
 The exported names of these FBXs are not required to match, but I found that these names made a lot of sense for our use case. For \_Masked, I named the file “MaskedImage.fbx,” and for the UIO image I used “UIOImage.fbx.”
 
-![Screenshot 2024-04-19 at 11.11.10 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_11.png)
-![Screenshot 2024-04-19 at 11.11.21 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_12.png)
+![Screenshot 2024-04-19 at 11.11.10 AM.png](images/Screenshot-2024-04-19-at-11.11.10 AM.png)
+![Screenshot 2024-04-19 at 11.11.21 AM.png](images/Screenshot-2024-04-19-at-11.11.21 AM.png)
 
 Similar to “Image.fbx” and its corresponding “Image_BR.png,” these can be used for any 2D image. If the image is not perfectly square, you will need to adjust by scaling the plane in Horizon.
 
@@ -133,7 +133,7 @@ In the image below you can see the various material types being applied to the s
 
 What we can see from these images is that four material types support transparency and three do not.
 
-![](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_13.png)
+![](images/Model-Examples.png)
 
 Here is a brief description of each material type:
 
@@ -163,7 +163,7 @@ Here is a brief description of each material type:
 
 This is an example of dithering.
 
-![pasted-image.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_14.png)
+![pasted-image.png](images/Model-Examples.png)
 
 #### UIO Image:
 
@@ -175,15 +175,15 @@ Transparent and MEO images will need to be uploaded with a secondary PNG, named 
 
 Start by opening the “Texture Paint” workspace:
 
-![Screenshot 2024-04-19 at 8.53.37 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_15.png)
+![Screenshot 2024-04-19 at 8.53.37 AM.png](images/Screenshot-2024-04-19-at-8.53.37 AM.png)
 
 Then click “New” to create a new image, and from there select the Color property.
 
-![Screenshot 2024-04-19 at 8.56.04 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_16.png) ![Screenshot 2024-04-19 at 8.56.47 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_17.png)
+![Screenshot 2024-04-19 at 8.56.04 AM.png](images/Screenshot-2024-04-19-at-8.56.04 AM.png) ![Screenshot 2024-04-19 at 8.56.47 AM.png](images/Screenshot-2024-04-19-at-8.56.47 AM.png)
 
 Then select RGB at the bottom, you can then type in the exact values you want for the MEO or MESA channels. In this case, I have set all channels to 50%.
 
-![Screenshot 2024-04-19 at 8.57.03 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_18.png) ![Screenshot 2024-04-19 at 8.58.00 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_19.png)
+![Screenshot 2024-04-19 at 8.57.03 AM.png](images/Screenshot-2024-04-19-at-8.57.03 AM.png) ![Screenshot 2024-04-19 at 8.58.00 AM.png](images/Screenshot-2024-04-19-at-8.58.00 AM.png)
 
 Remember that RGB correlates to MEO. For example, red is how metallic, green is emission, and blue is occlusion, and the same is true for MESA.
 
@@ -196,9 +196,9 @@ Remember that RGB correlates to MEO. For example, red is how metallic, green is 
 
 Next, to finish creating the image, we can click “OK” (in some versions of Blender the OK button has a different name). Then click Image>Save As> and save the image as either Image_MEO.png or Image_MESA.png depending on your intended use case. For practice, consider trying both.
 
-![Screenshot 2024-04-19 at 8.58.28 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_20.png) ![Screenshot 2024-04-19 at 8.58.42 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_21.png)
+![Screenshot 2024-04-19 at 8.58.28 AM.png](images/Screenshot-2024-04-19-at-8.58.28 AM.png) ![Screenshot 2024-04-19 at 8.58.42 AM.png](images/Screenshot-2024-04-19-at-8.58.42 AM.png)
 
-![Screenshot 2024-04-19 at 8.59.39 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_22.png)
+![Screenshot 2024-04-19 at 8.59.39 AM.png](images/Screenshot-2024-04-19-at-8.59.39 AM.png)
 
 You have now created a secondary PNG, great work!
 
@@ -206,7 +206,7 @@ Sometimes when creating transparent images you don’t want them to be evenly tr
 
 You can adjust the radius and strength to determine how wide and how much of the alpha you want to erase. I erased three lines in the secondary image, using 100%, 50%, and 25% strength from left to right. Because the image was already half transparent, 100% and 50% had the same effect.
 
-![Screenshot 2024-04-19 at 9.17.39 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_23.png) ![Screenshot 2024-04-19 at 9.20.46 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_24.png)
+![Screenshot 2024-04-19 at 9.17.39 AM.png](images/Screenshot-2024-04-19-at-9.17.39 AM.png) ![Screenshot 2024-04-19 at 9.20.46 AM.png](images/Screenshot-2024-04-19-at-9.20.46 AM.png)
 
 #### Mentor’s Note:
 
@@ -214,57 +214,57 @@ There are a large number of software options to choose from, but if you want to 
 
 Start by opening the texture, then select the saturation brush effect tool. Then paint over your texture to make it all the same color without affecting the alpha channel.
 
-![](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_25.png)
-![Screenshot 2024-04-19 at 9.26.48 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_26.png)
-![](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_27.png)
+![](images/paint-texture-without-affecting-alpha.png)
+![Screenshot 2024-04-19 at 9.26.48 AM.png](images/Screenshot-2024-04-19-at-9.26.48 AM.png)
+![](images/saturation-brush-effect.png)
 
 You can then select the dump bucket tool, and adjust the color RGB values to the MEO or MESA values you want to use. And change the color, and thus the MEO/MESA properties of the image. Then just save the image as before, ie. “Image_MEO.png” or “Image_MESA.png”
 
-![](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_28.png)
-![](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_29.png)
-![](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_30.png)
+![](images/bucket1.png)
+![](images/bucket2.png)
+![](images/bucket3.png)
 
 ## Step 2: Prepare PNGs
 
 In this Written Guide, we only need the \_UIO FBX, which we exported as UIOImage.fbx. UIO textures need to be uploaded with a \_BA PNG, which we will need to name “Image_BA.png.”
 
-![Screenshot 2024-04-19 at 11.06.55 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_31.png)
+![Screenshot 2024-04-19 at 11.06.55 AM.png](images/Screenshot-2024-04-19-at-11.07.09 AM.png)
 
 For other texture types, refer to the “Image Imports” section. Try uploading one of each of these to your asset library to familiarize yourself with the process and various texture types.
 
 Then upload the UIOImage.fbx & Image_BA.png files together using either the Horizon desktop editor or from the web portal. From the web portal, press import, and then select the two files.
 
-![Screenshot 2024-04-19 at 11.02.04 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_32.png) ![Screenshot 2024-04-19 at 11.01.05 AM.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_33.png)
+![Screenshot 2024-04-19 at 11.02.04 AM.png](images/Screenshot-2024-04-19-at-11.02.04 AM.png) ![Screenshot 2024-04-19 at 11.01.05 AM.png](images/Screenshot-2024-04-19-at-11.01.05 AM.png)
 
 You will also want to have a series of PNGs to animate. We will upload them in Step 3 using the Desktop Editor. Please note that at the time of writing (June 2024) PNG texture assets can only be uploaded using the Desktop Editor.
 
-![23 Horizon - Add All PNGs.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_34.png)
+![23 Horizon - Add All PNGs.png](images/23-Horizon-Add-All-PNGs.png)
 
 ### Desktop Editor Setup
 
 For the best experience, we recommend creating a new world in the Desktop Editor as you follow along with this tutorial. Select “Custom Model Import,” and then click “Create.”
 
-![13 Horizon - Create New World.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_35.png)
+![13 Horizon - Create New World.png](images/13-Horizon-Create-New-World.png)
 
 Once you have loaded in, at the bottom, select the “Assets” tab. Then click Add New>3D Model>. You can then select the two files, presuming you didn’t already use the web portal to import.
 
-![14 Horizon - Assets Add New 3D Model.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_36.png)
+![14 Horizon - Assets Add New 3D Model.png](images/14-Horizon-Assets-Add-New-3D-Model.png)
 
 **Pro Tip:** Create a folder first so that you can organize these files.
 
-![21 Horizon - Create Folder.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_37.png)
+![21 Horizon - Create Folder.png](images/21-Horizon-Create-Folder.pngg)
 
 ## Step 3: Review Assets
 
 Bring out all uploaded assets into your world to review that they look correct. Make sure to set the UIO Image in a notable spot as we will be using it for animation.
 
-![Model Examples.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_38.png)
+![Model Examples.png](images/Model-Examples.png)
 
 **Note:** You don’t need to do all of them, just the UIO is required, but you might find it helpful to test the other texture options.
 
 From left to right in the image below: \_BR, \_Masked, \_UIO.
 
-![16 Horizon - Drag Images Into World.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_39.png)
+![16 Horizon - Drag Images Into World.png](images/16-Horizon-Drag-Images-Into-World.png)
 
 ## Step 4: Animation PNGs
 
@@ -272,13 +272,13 @@ Similar to how we uploaded assets via the desktop editor on the previous page, w
 
 Select “Texture” from the “Add New” drop-down, then select all of the PNG animation frames you wish to upload.
 
-![22 Horizon - Select Folder Add New Texture.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_40.png) ![23 Horizon - Add All PNGs.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_41.png)
+![22 Horizon - Select Folder Add New Texture.png](images/22-Horizon-Select-Folder-Add-New-Texture.png) ![23 Horizon - Add All PNGs.png](images/23-Horizon-Add-All-PNGs.png)
 
 **Note:** The names of these images are not required, but it is recommended to name them in a way that makes it easy for you to identify the order in Horizon later.
 
 Next, click Import. This will upload them into your selected folder. Unfortunately, they are not ordered when you upload in bulk like this, which is why naming is so important.
 
-![24 Horizon - Import All PNGs.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_42.png) ![25 Horizon - Select UIO Object Attach AnimatedGIF Script.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_43.png)
+![24 Horizon - Import All PNGs.png](images/24-Horizon-Import-All-PNGs.png) ![25 Horizon - Select UIO Object Attach AnimatedGIF Script.png](images/25-Horizon-Select-UIO-Object-Attach-AnimatedGIF-Script.png)
 
 ### Typescript 2.0 Script Setup
 
@@ -286,11 +286,9 @@ We are using the Horizon Typescript 2.0 API, at the time of writing (June 2024),
 
 If your world is currently set to 1.0, or another version, you can change this from the script tab by clicking the gear icon and then Script Settings. There you will see the API Version drop-down and can select 2.0.0, then click Apply.
 
-![](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_44.png)
-
 ### AnimatedGIF.ts
 
-You can copy and paste this code into a new script, or download the code as a file by clicking [here](https://drive.google.com/file/d/1L2RWLL8h75ezou6xoWUApNjr-aaH-2_Z/view?usp=sharing). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
+You can copy and paste this code into a new script, or download the code as a file by clicking [here](utils/AnimatedGIF.ts). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
 
 ```typescript
 import { Asset, Component, MeshEntity, PropTypes, TextureAsset } from "horizon/core";
@@ -380,7 +378,7 @@ Component.register(AnimatedGIF);
 
 ### TextureSwappingTrigger.ts
 
-You can copy and paste this code into a new script, or download the code as a file by clicking [here](https://drive.google.com/file/d/1ZCo3ZCAAEOzGzJRaCRmtJ4lxLyoxSk8y/view?usp=sharing). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
+You can copy and paste this code into a new script, or download the code as a file by clicking [here](utils/TextureSwappingTrigger.ts). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
 
 ```typescript
 import { Asset, CodeBlockEvents, Component, MeshEntity, Player, PropTypes, TextureAsset } from "horizon/core";
@@ -477,27 +475,27 @@ If you have downloaded the files, you can open the scripts folder by clicking th
 
 You’ll then hover over the newly created script and on the right side click the three-dot icon to see the drop-down, allowing you to select “Open in External Editor.”
 
-![18 Horizon - Create AnimatedGIF Script.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_45.png) ![19 Horizon - Open In External Editor.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_46.png)
+![18 Horizon - Create AnimatedGIF Script.png](images/18-Horizon-Create-AnimatedGIF-Script.png) ![19 Horizon - Open In External Editor.png](images/19-Horizon-Open-In-External-Editor.png)
 
 From the external editor, you’ll be able to paste the scripts seen on the previous pages or write it out by hand for practice writing Typescript code. You will want to make sure to click “Ctrl + S” to save, then the files will compile. Please note that this tutorial doesn’t cover writing Typescript, so if this is your first time, we recommend copying and pasting, or using the downloaded files.
 
-![20 VS Code - Delete Default Paste AnimatedGIF Script.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_47.png) ![38 Horizon - Create TextureSwappingTriggerScript.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_48.png)
+![20 VS Code - Delete Default Paste AnimatedGIF Script.png](images/20-VS-Code-Delete-Default-Paste-AnimatedGIF-Script.png) ![38 Horizon - Create TextureSwappingTriggerScript.png](images/38-Horizon-Create-TextureSwappingTriggerScript.png)
 
 ## Step 6: Animated GIF
 
 Before we get started, make sure to click the square stop world icon, this is a good practice when working on scripted objects as it reduces the chances of bugs and errors.
 
-![27 Horizon - Stop The World.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_49.png)
+![27 Horizon - Stop The World.png](images/27-Horizon-Stop-The-World.png)
 
 Selecting the UIO Plane will open the properties panel on the right side. At the bottom of the properties panel, you can attach a script. We will attach the AnimatedGIF script.
 
-![25 Horizon - Select UIO Object Attach AnimatedGIF Script.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_50.png)
+![25 Horizon - Select UIO Object Attach AnimatedGIF Script.png](images/25-Horizon-Select-UIO-Object-Attach-AnimatedGIF-Script.png)
 
 With the script attached, we can now drag the assets into the empty texture slots in the correct order.
 
-![26 Horizon - Reference All Texture Assets To Correct Index.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_51.png)
+![26 Horizon - Reference All Texture Assets To Correct Index.png](images/26-Horizon-Reference-All-Texture-Assets-To-Correct-Index.png)
 
-![28 Horizon - Not All References Required Change Speed.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_52.png)
+![28 Horizon - Not All References Required Change Speed.png](images/28-Horizon-Not-All-References-Required-Change-Speed.png)
 
 With the texture assets referenced, we are almost ready to test the script. Notice that not all texture slots need to be filled out, the script we wrote and are using is intelligent enough to ignore these.
 
@@ -505,12 +503,12 @@ Before we test though, we should adjust the speed parameter to better match our 
 
 Now let’s click play world!
 
-![29 Horizon - Play World.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_53.png)
+![29 Horizon - Play World.png](images/29-Horizon-Play-World.png)
 
 The speed was a little slow, so we’ll adjust to 0.1 seconds. You might have also noticed that the first play through the loop had some hiccups due to needing to download the images, but after it played once, it was smooth.
 
-![30 Horizon - Adjust Speed To Your Liking.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_54.png)
-![35 Horizon - Billboarded Nyan Cat.gif](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_55.png)
+![30 Horizon - Adjust Speed To Your Liking.png](images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_54.png)
+![35 Horizon - Billboarded Nyan Cat.gif](images/35-Horizon-Billboarded-Nyan-Cat.png)
 
 ## Step 7: Billboarding
 
@@ -520,15 +518,15 @@ As of the time of writing (June 2024), billboarding can only be applied to group
 
 Note: You can select two objects in the hierarchy on the left side by holding shift or ctrl, and when you right-click the selection will have an option to “Group selection.”
 
-![31 Horizon - Group With Some Object.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_56.png)
+![31 Horizon - Group With Some Object.png](images/31-Horizon-Group-With-Some-Object.png)
 
 Afterwards, we can drop down into the group from the hierarchy, and then right-click to delete the extra plane.
 
-![32 Horizon - Delete That Object.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_57.png)
+![32 Horizon - Delete That Object.png](images/32-Horizon-Delete-That-Object.png)
 
 To apply billboarding we will select the \[EntityGroup\] from the hierarchy. On the right side properties panel, set Motion to Animated, which will reveal the Billboard property. You can then select Lock-Y or Freeform from the drop-down.
 
-![33 Horizon - Select Group Set Motion To Animated.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_58.png) ![34 Horizon - Billboard Freeform.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_59.png)
+![33 Horizon - Select Group Set Motion To Animated.png](images/33-Horizon-Select-Group-Set-Motion-To-Animated.png) ![34 Horizon - Billboard Freeform.png](images/33-Horizon-Select-Group-Set-Motion-To-Animated.png)
 
 Now start the world and run around in preview mode!
 
@@ -538,27 +536,27 @@ This script will allow visitors to change the texture of your UIO mesh, one text
 
 Select the trigger, then attach the script to the trigger gizmo from the bottom of the right-hand side properties panel.
 
-![39 Horizon - Bring Out A Trigger Gizmo.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_60.png) ![40 Horizon - Bring Out A Button Shape.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_61.png) ![41 Horizon - Adjust Scene To Your Liking And Select Trigger.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_62.png)
+![39 Horizon - Bring Out A Trigger Gizmo.png](images/33-Horizon-Select-Group-Set-Motion-To-Animated.png) ![40 Horizon - Bring Out A Button Shape.png](images/40-Horizon-Bring-Out-A-Button-Shape.png) ![41 Horizon - Adjust Scene To Your Liking And Select Trigger.png](images/41-Horizon-Adjust-Scene-To-Your-Liking-And-Select-Trigger.png)
 
-![42 Horizon - Attach Script.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_63.png)
+![42 Horizon - Attach Script.png](images/41-Horizon-Adjust-Scene-To-Your-Liking-And-Select-Trigger.png)
 
 Select the UIO plane, and give it a good name so we can better identify it.
 
-![43 Horizon - Rename New UIO Object As NyanCatFrameByFrame.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_64.png)
+![43 Horizon - Rename New UIO Object As NyanCatFrameByFrame.png](images/41-Horizon-Adjust-Scene-To-Your-Liking-And-Select-Trigger.png)
 
 Select the trigger gizmo again, and now we are going to fill out the uioEntity reference. Clicking the empty pill slot will give us a drop-down, and we can even type to search for our UIO plane.
 
-![44 Horizon - Reference NyanCatFrameByFrame.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_65.png)
+![44 Horizon - Reference NyanCatFrameByFrame.png](images/44-Horizon-Reference-NyanCatFrameByFrame.png)
 
 After filling that out, we still need to reference the texture entities. We can do that the same way we did before for our GIF animation.
 
 Once it is all filled out we can test. Note that there is an optional startingIndex property. You can use this to set the texture you want the UIO plane to start with. But, it only works if you have no gaps in your references up until that index (otherwise the values will be off by 1-2 or so).
 
-![45 Horizon - Reference Desired Frames Optionally Change Starting Index.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_66.png)
+![45 Horizon - Reference Desired Frames Optionally Change Starting Index.png](images/45-Horizon-Reference-Desired-Frames-Optionally-Change-Starting-Index.png)
 
 Going into preview mode, you can now jump up and down in the trigger to test that it changes the texture, moving forward one frame of the animation at a time. This would be great for an instruction board, or anywhere you want users to be able to customize their experience (ie. a skybox, wall art, etc).
 
-![46 Horizon - Jump On Button To Test.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_67.png)
+![46 Horizon - Jump On Button To Test.png](images/46-Horizon-Jump-On-Button-To-Test.png)
 
 ## Step 9: Add More Textures
 
@@ -566,19 +564,19 @@ If you need more animation frames than the default 15, it is relatively easy to 
 
 You’ll first want to create more texture asset references on the properties panel. In Typescript we often refer to these as “props.” An easy way to duplicate is to click on the far right of the texture15 line of code, then Copy and Paste (Ctrl + C and Ctrl + V). You can paste as many copies as you would like. Then rename them, incrementing the number upwards.
 
-![36 Horizon - Duplicate And Rename Props To Add More.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_68.png)
+![36 Horizon - Duplicate And Rename Props To Add More.png](images/46-Horizon-Jump-On-Button-To-Test.png)
 
 Next, we’ll need to add these to the “textures” array. Note that in Typescript an array is similar to a list in Codeblocks. While learning Typescript you’ll find a lot of terms from Codeblocks have similar but different names. For instance, you’ll often hear objects referred to as Entities, this is because Object is a type of data in Typescript.
 
 Next, we’ll duplicate the addTextureToArray line for each new prop added, also renaming to match all the new props.
 
-![37 Horizon - Duplicate Add To Array And Rename.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_69.png)
+![37 Horizon - Duplicate Add To Array And Rename.png](images/46-Horizon-Jump-On-Button-To-Test.png)
 
 A couple of quick things about this “addTextureToArray” function: we call a method or function, these are similar to events in Horizon Codeblocks, but different because they happen instantly. They also require parentheses “( )” to be called, otherwise it is just a reference and nothing happens.
 
 Inside the parentheses is where we put parameters. Below you can see we receive the parameter “prop” which is either an Asset or undefined. It might be undefined because we don’t have to fill out the texture on the properties panel. We account for this using an if statement to check the truthiness of the prop.
 
-![38 Horizon - Create TextureSwappingTriggerScript.png](/images/Meta_Horizon_CMI__TypeScript_API_20_Import_Images__Add_Texture_Animation_31207872014483_70.png)
+![38 Horizon - Create TextureSwappingTriggerScript.png](images/38-Horizon-Create-TextureSwappingTriggerScript.png)
 
 A lot of this will feel like magic early on, and that is totally okay! Over time it will begin to make more and more sense.
 

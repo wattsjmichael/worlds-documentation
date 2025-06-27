@@ -278,7 +278,7 @@
   </div>
 
   <script>
-    const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main/docs";
+    const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main";
   const docs = {
     "creating-a-world": ["Building Your First World.md", "Create a Versatile Holster System in Worlds.md", "Mobile Worlds Crash Course.md", "Worlds Tools Overview.md"],
     "generative-ai-tools": ["Prompt Meta AI in the Worlds Desktop Editor.md", "Topology Tune-Up for GenAI Props and Sets.md"],
@@ -364,11 +364,11 @@ function loadDocByPath(path) {
     content.innerHTML = `<p>Document not found: ${path}</p>`;
     return;
   }
+
   currentIndex = index;
 
   // Construct the correct raw GitHub URL
-  const rawPath = path.replace(/^docs\//, ''); // remove docs/ prefix
-  const fullUrl = `${GITHUB_RAW_BASE}/${rawPath}`;
+  const fullUrl = `${GITHUB_RAW_BASE}/${encodeURI(path)}`;
 
   fetch(fullUrl)
     .then(res => {
@@ -388,6 +388,12 @@ function loadDocByPath(path) {
       content.innerHTML = `<p>Error loading document: ${err.message}</p>`;
       console.error(err);
     });
+}
+
+function loadDoc(index) {
+  if (index >= 0 && index < flatDocs.length) {
+    loadDocByPath(flatDocs[index].path);
+  }
 }
 
   function generateTOC() {
@@ -428,20 +434,23 @@ function loadDocByPath(path) {
     });
   }
 
-  function autoExpandFolders() {
-    const currentPath = flatDocs[currentIndex].path;
-    const folders = currentPath.split("/").slice(1, -1); // skip "docs" and file
-    let current = docList;
-    folders.forEach(folder => {
-      const toggle = [...current.querySelectorAll(".folder-toggle")].find(t => t.textContent.trim().toLowerCase() === folder.replace(/-/g, ' '));
-      if (toggle) {
-        const dropdown = toggle.nextElementSibling;
-        dropdown.classList.add("open");
-        toggle.querySelector(".icon").textContent = "▼";
-        current = dropdown;
-      }
+function autoExpandFolders() {
+  const currentPath = flatDocs[currentIndex].path;
+  const folders = currentPath.split("/").slice(1, -1); // skip "docs" and file
+  let current = docList;
+  folders.forEach(folder => {
+    const toggle = [...current.querySelectorAll(".folder-toggle")].find(t => {
+      const folderNameSpan = t.querySelector(".folder-name");
+      return folderNameSpan && folderNameSpan.textContent.trim().toLowerCase() === folder.replace(/-/g, ' ');
     });
-  }
+    if (toggle) {
+      const dropdown = toggle.nextElementSibling;
+      dropdown.classList.add("open");
+      toggle.querySelector(".icon").textContent = "▼";
+      current = dropdown;
+    }
+  });
+}
 
   prevBtn.addEventListener("click", () => {
     if (currentIndex > 0) loadDoc(currentIndex - 1);

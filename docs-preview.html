@@ -81,6 +81,7 @@
       overflow-y: auto;
       border-right: 1px solid #ddd;
       padding-left: 2rem;
+      text-transform: capitalize;
     }
     .sidebar h2 {
       font-size: 1.5rem;
@@ -106,7 +107,7 @@
       margin: 0;
     }
     .sidebar li {
-      margin: 1.5rem 0;
+      margin: 0.25rem 0;
     }
     .sidebar a {
       text-decoration: none;
@@ -143,7 +144,7 @@
       align-items: center;
       line-height: 1.2;
       margin: 0.25rem 0;
-      padding-right: 0.5rem;
+      padding: 0.5rem;
       justify-content: space-between;
     }
     .folder-toggle .icon {
@@ -203,7 +204,7 @@
       scroll-behavior: smooth;
     }
     .doc-container {
-      max-width: 800px;
+      max-width: 85%;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -275,18 +276,18 @@
 
   <script>
   const docs = {
-    "creating-a-world": ["Building Your First World.md", "Create a Versatile Holster System in Worlds.md", "Mobile Worlds Crash Course.md", "Worlds Tools Overview.md"],
-    "generative-ai-tools": ["Prompt Meta AI in the Worlds Desktop Editor.md", "Topology Tune-Up for GenAI Props and Sets.md"],
-    "getting-started-with-scripting": ["15 Worlds TypeScript API 2.0 Tips and Tricks.md", "Codeblock to TypeScript.md", "TypeScript Best Practices 101.md", "json-ppvs-and-versioning.md", "text-entry-tutorial.md"],
-    "understanding-the-desktop-editor": ["Boost Performance - Top 7 Spawning & Streaming Tricks.md", "Collaboratively Build with Shared Asset Templates.md", "Improve Frame Rates and Custom Asset Bloat.md", "Trace, Fix, & Optimize World Performance Issues.md", "Worlds Desktop Editor 101.md", "Worlds Desktop Tools Basics.md"],
-    "manuals-and-cheat-sheets": [],
-    "scripting-concepts-persistence-apis": {
-      "custom-ui": ["Custom UI Basics to Boost Interaction.md", "cui-api-introduction.md"]
+    "Creating-A-World": ["Building Your First World.md", "Create a Versatile Holster System in Worlds.md", "Mobile Worlds Crash Course.md", "Worlds Tools Overview.md"],
+    "Generative-AI-Tools": ["Prompt Meta AI in the Worlds Desktop Editor.md", "Topology Tune-Up for GenAI Props and Sets.md"],
+    "Getting-Started-With-Scripting": ["15 Worlds TypeScript API 2.0 Tips and Tricks.md", "Codeblock to TypeScript.md", "TypeScript Best Practices 101.md", "json-ppvs-and-versioning.md", "text-entry-tutorial.md"],
+    "Understanding-The-Desktop-Editor": ["Boost Performance - Top 7 Spawning & Streaming Tricks.md", "Collaboratively Build with Shared Asset Templates.md", "Improve Frame Rates and Custom Asset Bloat.md", "Trace, Fix, & Optimize World Performance Issues.md", "Worlds Desktop Editor 101.md", "Worlds Desktop Tools Basics.md"],
+    "Manuals-And-Cheat-Sheets": ["Contribute to Creator Documentation.md", "How To Make Your World Go Viral.md", "MHCP_Publishing_Checklist_r2v1.pdf", "MHCP_WorldPlanningGuide.pdf", "Publishing Checklist for Horizon Worlds.md", "World Building & Pre-Production Guide.md", "Worlds Creator Manual Essentials Made Easy.md", "worlds-workarounds.md"],
+    "Scripting-Concepts-Persistence-APIs": {
+      "Custom-UI": ["Custom UI Basics to Boost Interaction.md", "cui-api-introduction.md"]
     },
-    "meshes-materials-import": [],
-    "asset-library-import": [],
-    "lighting-colliders-audio": [],
-    "gizmos": []
+    "Meshes-Materials-Import": ["15 Blender Tips for Horizon Assets.md", "3D Modeling in Worlds 101.md", "Custom Skydomes Guide - Cinematic Horizons.md", "Improve Custom Model Imports.md", "Optimize IWP Assets for Peak Performance.md", "Roads & Fences in Horizon - Paths 101.md", "import-images-and-add-texture-animation.md"],
+    "Asset-Library-Import": [],
+    "Lighting-Colliders-Audio": [],
+    "Gizmos": []
   };
 
   const docList = document.getElementById("doc-list");
@@ -326,14 +327,14 @@
 
           const li = document.createElement("li");
           const a = document.createElement("a");
-          a.href = "#";
+          a.href = `#${encodeURIComponent(docPath)}`;
           a.textContent = title;
-          a.dataset.index = flatDocs.length - 1;
           a.style.paddingLeft = `${(level + 1) * 1.2}rem`;
           a.addEventListener("click", (e) => {
             e.preventDefault();
-            loadDoc(parseInt(a.dataset.index));
+            loadDocByPath(docPath);
           });
+
           li.appendChild(a);
           subList.appendChild(li);
         });
@@ -354,26 +355,43 @@
     }
   }
 
-  function loadDoc(index) {
-    currentIndex = index;
-    fetch(flatDocs[index].path)
-      .then(res => res.text())
-      .then(md => {
-        const html = marked.parse(md);
-        content.innerHTML = html;
-        generateTOC();
-        updateButtons();
-        updateActiveLink();
-        autoExpandFolders();
-      })
-      .catch(err => {
-        content.innerHTML = `<p>Error loading document: ${err}</p>`;
-      });
+function loadDocByPath(path) {
+  const index = flatDocs.findIndex(doc => doc.path === path);
+  if (index === -1) {
+    content.innerHTML = `<p>Document not found: ${path}</p>`;
+    return;
   }
+
+  currentIndex = index;
+  fetch(path)
+    .then(res => res.text())
+    .then(md => {
+      const html = marked.parse(md);
+      content.innerHTML = html;
+      generateTOC();
+      updateButtons();
+      updateActiveLink();
+      autoExpandFolders();
+      // Update URL without reload
+      history.replaceState(null, "", `#${encodeURIComponent(path)}`);
+    })
+    .catch(err => {
+      content.innerHTML = `<p>Error loading document: ${err}</p>`;
+    });
+}
 
   function generateTOC() {
     tocList.innerHTML = "";
     const headers = content.querySelectorAll("h2, h3");
+
+  const rightSidebar = document.querySelector(".right-sidebar");
+  if (headers.length === 0) {
+    rightSidebar.style.display = "none";
+    return;
+  } else {
+    rightSidebar.style.display = "block"; // Show if headers exist
+  }
+
     headers.forEach(header => {
       if (!header.id) header.id = header.textContent.trim().toLowerCase().replace(/\s+/g, '-');
       const li = document.createElement("li");
@@ -456,7 +474,14 @@ searchInput.addEventListener("input", () => {
 });
 
   buildSidebar();
-  loadDoc(0);
+
+  const hashPath = decodeURIComponent(location.hash.slice(1));
+  if (hashPath && flatDocs.some(doc => doc.path === hashPath)) {
+    loadDocByPath(hashPath);
+  } else {
+    loadDocByPath(flatDocs[0].path); // fallback to first
+  }
+
 </script>
 </body>
 </html>

@@ -250,6 +250,9 @@
       <a href="https://github.com/MHCPCreators/worlds-documentation">Contribute</a>
     </nav>
       </div>
+          <div class="right-controls">
+      <button id="theme-toggle">🌙/☀️</button>
+    </div>
 </header>
 <div class="page-body">
   <aside class="sidebar">
@@ -289,6 +292,26 @@
     "Lighting-Colliders-Audio": [],
     "Gizmos": []
   };
+
+      // Dark/Light Theme Toggle
+    const toggleBtn = document.getElementById("theme-toggle");
+    function updateThemeIcon(theme) {
+      toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
+    }
+    toggleBtn.addEventListener("click", () => {
+      const body = document.body;
+      const newTheme = body.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      body.setAttribute("data-theme", newTheme);
+      localStorage.setItem("theme", newTheme);
+      updateThemeIcon(newTheme);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme") || "dark";
+      document.body.setAttribute("data-theme", savedTheme);
+      updateThemeIcon(savedTheme);
+    });
+
+   
 
   const docList = document.getElementById("doc-list");
   const content = document.getElementById("doc-content");

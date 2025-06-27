@@ -56,7 +56,7 @@ body[data-theme="dark"] .get-started {
 
 /* Light mode override */
 body[data-theme="light"] {
-  background-color: #ffffff;
+  background-color: #f9fafb;
   color: #111;
 }
 

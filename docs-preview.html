@@ -278,40 +278,20 @@
   </div>
 
   <script>
+    const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main/docs";
   const docs = {
     "creating-a-world": ["Building Your First World.md", "Create a Versatile Holster System in Worlds.md", "Mobile Worlds Crash Course.md", "Worlds Tools Overview.md"],
     "generative-ai-tools": ["Prompt Meta AI in the Worlds Desktop Editor.md", "Topology Tune-Up for GenAI Props and Sets.md"],
     "getting-started-with-scripting": ["15 Worlds TypeScript API 2.0 Tips and Tricks.md", "Codeblock to TypeScript.md", "TypeScript Best Practices 101.md", "json-ppvs-and-versioning.md", "text-entry-tutorial.md"],
     "understanding-the-desktop-editor": ["Boost Performance - Top 7 Spawning & Streaming Tricks.md", "Collaboratively Build with Shared Asset Templates.md", "Improve Frame Rates and Custom Asset Bloat.md", "Trace, Fix, & Optimize World Performance Issues.md", "Worlds Desktop Editor 101.md", "Worlds Desktop Tools Basics.md"],
     "manuals-and-cheat-sheets": ["Contribute to Creator Documentation.md", "How To Make Your World Go Viral.md", "MHCP_Publishing_Checklist_r2v1.pdf", "MHCP_WorldPlanningGuide.pdf", "Publishing Checklist for Horizon Worlds.md", "World Building & Pre-Production Guide.md", "Worlds Creator Manual Essentials Made Easy.md", "worlds-workarounds.md"],
-    "scripting-concepts-persistence-apis": {
-      "custom-ui": ["Custom UI Basics to Boost Interaction.md", "cui-api-introduction.md"]
-    },
+    "scripting-concepts-persistence-apis": [],
+    "custom-ui": ["Custom UI Basics to Boost Interaction.md", "cui-api-introduction.md"],
     "meshes-materials-import": ["15 Blender Tips for Horizon Assets.md", "3D Modeling in Worlds 101.md", "Custom Skydomes Guide - Cinematic Horizons.md", "Improve Custom Model Imports.md", "Optimize IWP Assets for Peak Performance.md", "Roads & Fences in Horizon - Paths 101.md", "import-images-and-add-texture-animation.md"],
     "asset-library-import": [],
     "lighting-colliders-audio": [],
     "gizmos": []
   };
-
-      // Dark/Light Theme Toggle
-    const toggleBtn = document.getElementById("theme-toggle");
-    function updateThemeIcon(theme) {
-      toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
-    }
-    toggleBtn.addEventListener("click", () => {
-      const body = document.body;
-      const newTheme = body.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      body.setAttribute("data-theme", newTheme);
-      localStorage.setItem("theme", newTheme);
-      updateThemeIcon(newTheme);
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedTheme = localStorage.getItem("theme") || "dark";
-      document.body.setAttribute("data-theme", savedTheme);
-      updateThemeIcon(savedTheme);
-    });
-
-   
 
   const docList = document.getElementById("doc-list");
   const content = document.getElementById("doc-content");
@@ -330,7 +310,6 @@
     function createFolder(folderName, filesOrSubfolders, parentPath = "docs", level = 0) {
       const container = document.createElement("li");
       const toggle = document.createElement("span");
-       const docPath = `${parent}/${folderName}/${file}`; 
       toggle.className = "folder-toggle";
       toggle.innerHTML = `<span class="folder-name">${folderName.replace(/-/g, ' ')}</span><span class="icon">▶</span>`;     
       toggle.style.paddingLeft = `${level * 1.2}rem`;
@@ -344,7 +323,7 @@
 
       if (Array.isArray(filesOrSubfolders)) {
         filesOrSubfolders.forEach(file => {
-          const docPath = `${parentPath}/${folderName}/${file}`;
+const docPath = `${parentPath}/${folderName}/${file}`;
           const title = file.replace(/\.md$/, '').replace(/[-_]/g, ' ');
           const doc = { path: docPath, title };
           flatDocs.push(doc);
@@ -385,22 +364,29 @@ function loadDocByPath(path) {
     content.innerHTML = `<p>Document not found: ${path}</p>`;
     return;
   }
-
   currentIndex = index;
-  fetch(path)
-    .then(res => res.text())
+
+  // Construct the correct raw GitHub URL
+  const rawPath = path.replace(/^docs\//, ''); // remove docs/ prefix
+  const fullUrl = `${GITHUB_RAW_BASE}/${rawPath}`;
+
+  fetch(fullUrl)
+    .then(res => {
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.text();
+    })
     .then(md => {
-      const html = marked.parse(md);
-      content.innerHTML = html;
+      content.innerHTML = marked.parse(md);
       generateTOC();
       updateButtons();
       updateActiveLink();
       autoExpandFolders();
-      // Update URL without reload
+
       history.replaceState(null, "", `#${encodeURIComponent(path)}`);
     })
     .catch(err => {
-      content.innerHTML = `<p>Error loading document: ${err}</p>`;
+      content.innerHTML = `<p>Error loading document: ${err.message}</p>`;
+      console.error(err);
     });
 }
 
@@ -503,7 +489,7 @@ searchInput.addEventListener("input", () => {
   if (hashPath && flatDocs.some(doc => doc.path === hashPath)) {
     loadDocByPath(hashPath);
   } else {
-    loadDocByPath(flatDocs[0].path); // fallback to first
+    loadDocByPath(flatDocs[0].path);
   }
 
 </script>

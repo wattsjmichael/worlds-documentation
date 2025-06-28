@@ -31,7 +31,7 @@ Forking creates your own copy of the project repository where you can make chang
 
 1. Navigate to the main page of the **original (upstream)** repository on GitHub (this is the project you want to contribute to).  
 2. In the top-right corner of the page, click the **"Fork"** button.  
-   ![][image1]  
+   ![](images/image12.png)
 3. If prompted (e.g., if you belong to multiple organizations), select your GitHub account as the destination for the fork.
 
 4. You will be redirected to your newly created fork (e.g., `https://github.com/your-username/repository-name`). This is now your personal copy.
@@ -66,11 +66,11 @@ On your main branch, add or edit documentation files. **Crucially, place your fi
    * Using the table above, identify the **appropriate category folder** for your new file (e.g., `docs/understanding-the-desktop-editor/`).  
    * Navigate to this folder. If it doesn't exist, GitHub allows you to create it when naming the file: simply type the desired folder path followed by your filename (e.g., `docs/new-category/your-file.md` will create the `new-category` folder if it's not present).  
    * Click the **"Add file"** button and select either **"Create new file"** or **"Upload files"**.  
-     ![][image2]  
+     ![](images/image8.png) 
    * If creating a new file:  
      * Enter the name for your file in the name field (e.g., `new-guide.md`).  
      * Write or paste your Markdown content into the editor.  
-       ![][image3]  
+       ![](images/image6.png) 
    * If uploading files:  
      * Drag and drop your file(s) or use the file chooser to select them.
 
@@ -78,7 +78,7 @@ On your main branch, add or edit documentation files. **Crucially, place your fi
    * Navigate to the file you want to edit within your fork.  
    * Click the **pencil icon** (which usually says "Edit this file") on the right side of the file view.  
    * Make your desired changes in the editor.  
-     ![][image4]
+     ![](images/image1.png)
 
 #### 2.2.2. Linking to YouTube Videos
 
@@ -86,11 +86,11 @@ On your main branch, add or edit documentation files. **Crucially, place your fi
 
 1. Go to the video  
 2. Click Share  
-   ![][image5]  
+   ![](images/image2.png)
 3. Click Embed  
-   ![][image6]  
+   ![](images/image11.png)
 4. Copy and paste the Embed Video code to the File Editor in GitHub  
-   ![][image7]  
+   ![](images/image5.png) 
    
 
 **Note:** No preview will be available because iframe is not supported in markdown. Please use the GitHub 
@@ -100,7 +100,7 @@ On your main branch, add or edit documentation files. **Crucially, place your fi
 Save your work by committing the changes to your branch in your fork.
 
 1. After creating, uploading, or editing a file **in your fork**, press the **"Commit changes"** button.  
-   ![][image8]  
+   ![](images/image9.png)
 2. **Commit message:** Write a clear and concise commit message.  
    * The first line should be a short summary (max 50-72 characters is a good guideline), e.g., `docs: Add guide for Feature X`.  
    * If more detail is needed, leave a blank line after the summary and then provide a more detailed explanation in the larger text box.  
@@ -114,14 +114,14 @@ A Pull Request (PR) is how you propose your changes to the original project.
 
 1. After committing your changes to your branch **in your fork**, navigate to the main page of **your forked repository** on GitHub.  
 2. You should see a prominent notification bar for your recently pushed branch, often with a **"Contribute"** button. Click this button.  
-   ![][image9]  
+   ![](images/image13.png)
 3. If you don't see this prompt:  
    * Go to the **"Pull requests"** tab of **your forked repository** and click **"New pull request"**.  
-     ![][image10]  
+     ![](images/image4.png)
    * Alternatively, go to the **"Pull requests"** tab of the **original (upstream) repository** and click **"New pull request"**. You may then need to click "compare across forks".
 
 4. You will be taken to the **"Open a pull request"** page. Carefully review the branches:  
-   ![][image11]  
+   ![](images/image3.png) 
    * **Base repository:** This should be the **original (upstream) repository** you forked from (e.g., `original-owner/repository-name`).  
    * **Base branch:** This is the branch in the original repository you want your changes merged into (commonly `main` or `master`).  
    * **Head repository:** This should be **your fork** (e.g., `your-username/repository-name`).  
@@ -134,7 +134,7 @@ A Pull Request (PR) is how you propose your changes to the original project.
    * If fixing a reported issue, link to any relevant issues in the **original repository** (e.g., "Closes original-owner/repository-name\#123" to automatically close issue \#123 when the PR is merged).  
    * Clearly state that you've added or updated documentation.  
 7. Click **"Create pull request"**. This submits your changes for review to the maintainers of the original repository.  
-   ![][image12]
+   ![](images/image7.png)
 
 #### 2.2.5. Review Process
 
@@ -154,7 +154,7 @@ Once your PR is approved and any automated checks pass, a maintainer will merge 
 #### 2.2.7. Keep Fork Up-to-Date
 
 Keeping your fork's main branch in sync with the upstream repository is also good practice for future contributions. Occasionally, press the "Sync Fork" button on **your forked repository's** main page to retrieve any updates to the **original (upstream) repository**.  
-![][image13]
+![](images/image10.png)
 
 ---
 

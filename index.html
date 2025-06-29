@@ -51,7 +51,7 @@
   <header class="hero">
       <div class="container">
     <h1 class="hero-title">Fast track your Worlds development</h1>
-    <p class="hero-subheader">Your launchpad for tools, tutorials, and docs made by creators like you</p>
+    <p class="hero-subheader">Your launchpad for tools, tutorials, and docs made by creators like you.</p>
         <div class="hero-button">
       <a href="#get-started">Get Started</a>
     </div>
@@ -60,7 +60,7 @@
   </header>
 
      <!-- Featured Articles -->
-           <h1 class="main-heading">Featured Articles</h1>
+           <h1 class="main-heading-featured">Featured Articles</h1>
    <section class="featured-articles">
   <div class="container">
   <div class="featured-grid">
@@ -148,7 +148,7 @@
     <!-- Left Content -->
     <div class="get-started-text">
       <h2>Get Started</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      <p>Supercharge your creative workflow with these essential articles written by MHCP creators. Learn how to use the desktop editor and integrate the latest Worlds features into your creations.
       </p>
       <a href="https://mhcpcreators.github.io/worlds-documentation/docs-preview.html" class="button">All Docs</a>
     </div>
@@ -343,13 +343,13 @@
     </section>
 
       <!-- Community Section -->
-      <section id="community">
+      <section id="community" class="community">
         <div class="container">
      <h1 class="main-heading">Become an MHCP Creator</h1>
           </div>
     <p class="subheading">Unleash your imagination to create worlds—immersive experiences across mobile and VR. Earn money for what you build, and join a community that's shaping the future of fun.</p>
                      <div class="center-button">
-           <a href="https://developers.meta.com/horizon-worlds" class="button">Learn more</a>
+           <a href="https://developers.meta.com/horizon-worlds" class="button" target="_blank">Learn more</a>
       </div>
     </section>
     
@@ -360,108 +360,99 @@
     
   <!-- JS Scripts -->
 
-  <script>
-  const track = document.querySelector('.carousel-track');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-  const items = document.querySelectorAll('.carousel-item');
-  const itemWidth = items[0].getBoundingClientRect().width + 16; // add padding if needed
+<script>
+  // Set saved or default theme immediately
+  const savedTheme = localStorage.getItem("theme") || "dark";
+  document.body.setAttribute("data-theme", savedTheme);
+
+  // Optional: update theme toggle icon based on saved theme
+  window.addEventListener("DOMContentLoaded", () => {
+    updateThemeIcon(savedTheme);
+  });
+
+  function updateThemeIcon(theme) {
+    const toggleBtn = document.getElementById("theme-toggle");
+    if (toggleBtn) {
+      toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
+    }
+  }
+
+  const toggleTheme = () => {
+    const current = document.body.getAttribute("data-theme");
+    const next = current === "dark" ? "light" : "dark";
+    document.body.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateThemeIcon(next);
+  };
+
+  const toggleBtn = document.getElementById("theme-toggle");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", toggleTheme);
+  }
+
+  // === Carousel Logic ===
+  const track = document.querySelector(".carousel-track");
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
+  const items = document.querySelectorAll(".carousel-item");
+  const itemWidth = items[0].getBoundingClientRect().width + 16;
   let currentPosition = 0;
 
-  prevBtn.addEventListener('click', () => {
+  prevBtn.addEventListener("click", () => {
     currentPosition += itemWidth;
     if (currentPosition > 0) currentPosition = 0;
     track.style.transform = `translateX(${currentPosition}px)`;
   });
 
-  nextBtn.addEventListener('click', () => {
-const containerWidth = document.querySelector('.carousel-track-container').offsetWidth;
-const totalWidth = itemWidth * items.length;
-const maxScroll = containerWidth - totalWidth;
+  nextBtn.addEventListener("click", () => {
+    const containerWidth = document.querySelector(".carousel-track-container").offsetWidth;
+    const totalWidth = itemWidth * items.length;
+    const maxScroll = containerWidth - totalWidth;
 
     currentPosition -= itemWidth;
     if (currentPosition < maxScroll) currentPosition = maxScroll;
     track.style.transform = `translateX(${currentPosition}px)`;
   });
-</script>
 
-
-<script>
-  window.addEventListener('load', () => {
-    const reference = document.querySelector('.video-track-height');
-    const prevBtn = document.querySelector('.carousel-btn.prev');
-    const nextBtn = document.querySelector('.carousel-btn.next');
+  function positionCarouselButtons() {
+    const reference = document.querySelector(".video-track-height");
+    const prevBtn = document.querySelector(".carousel-btn.prev");
+    const nextBtn = document.querySelector(".carousel-btn.next");
 
     if (reference && prevBtn && nextBtn) {
       const height = reference.offsetHeight;
       const offset = height / 2;
-
       prevBtn.style.top = `${offset}px`;
       nextBtn.style.top = `${offset}px`;
     }
-  });
-
-function positionCarouselButtons() {
-  const reference = document.querySelector('.video-track-height');
-  const prevBtn = document.querySelector('.carousel-btn.prev');
-  const nextBtn = document.querySelector('.carousel-btn.next');
-
-  if (reference && prevBtn && nextBtn) {
-    const height = reference.offsetHeight;
-    const offset = height / 2;
-
-    prevBtn.style.top = `${offset}px`;
-    nextBtn.style.top = `${offset}px`;
-  }
-}
-
-window.addEventListener('load', positionCarouselButtons);
-window.addEventListener('resize', positionCarouselButtons);
-  
-  const searchToggle = document.getElementById('search-toggle');
-const searchContainer = document.querySelector('.search-container');
-const searchInput = document.getElementById('search-input');
-
-searchToggle.addEventListener('click', () => {
-  searchContainer.classList.toggle('active');
-  if (searchContainer.classList.contains('active')) {
-    searchInput.focus();
-  } else {
-    searchInput.value = '';
-  }
-});
-
-const hamburger = document.querySelector('.hamburger');
-const siteHeader = document.querySelector('.site-header');
-
-hamburger.addEventListener('click', () => {
-  siteHeader.classList.toggle('active');
-});
-  
-
-
-  const toggleBtn = document.getElementById("theme-toggle");
-
-  function updateThemeIcon(theme) {
-    toggleBtn.textContent = theme === "dark" ? "🌙" : "☀️";
   }
 
-  toggleBtn.addEventListener("click", () => {
-    const body = document.body;
-    const newTheme = body.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    body.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-    updateThemeIcon(newTheme);
+  window.addEventListener("load", positionCarouselButtons);
+  window.addEventListener("resize", positionCarouselButtons);
+
+  // === Search Toggle ===
+  const searchToggle = document.getElementById("search-toggle");
+  const searchContainer = document.querySelector(".search-container");
+  const searchInput = document.getElementById("search-input");
+
+  searchToggle.addEventListener("click", () => {
+    searchContainer.classList.toggle("active");
+    if (searchContainer.classList.contains("active")) {
+      searchInput.focus();
+    } else {
+      searchInput.value = "";
+    }
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    document.body.setAttribute("data-theme", savedTheme);
-    updateThemeIcon(savedTheme);
+  // === Mobile Menu ===
+  const hamburger = document.querySelector(".hamburger");
+  const siteHeader = document.querySelector(".site-header");
+
+  hamburger.addEventListener("click", () => {
+    siteHeader.classList.toggle("active");
   });
+</script>
 
-
-  </script>  
     
 </body>
 </html>

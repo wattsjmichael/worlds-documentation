@@ -550,7 +550,7 @@ body[data-theme="dark"] .hamburger {
     <div class="logo">MHCP Creator Made Docs</div>
     <div class="mobile-title mobile-only">Creator Docs</div>
     <nav class="nav-links">
-      <a href="docs-preview.html#docs/Get%20Started.md">Creator Docs</a>
+      <a href="docs-preview.html#docs/manuals-and-cheat-sheets/Get%20Started.md">Creator Docs</a>
       <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
       <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
       <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
@@ -771,8 +771,8 @@ function autoExpandFolders() {
     if (toggle) {
       const dropdown = toggle.nextElementSibling;
       dropdown.classList.add("open");
-      toggle.querySelector(".icon").textContent = "▼";
-      current = dropdown;
+      const icon = toggle.querySelector(".chevron-icon");
+      if (icon) icon.style.transform = "rotate(360deg)";      current = dropdown;
     }
   });
 }
@@ -872,7 +872,6 @@ searchInput.addEventListener("input", () => {
     });
   }
 
-
   // On page load, use saved theme or default to dark
   document.addEventListener("DOMContentLoaded", () => {
     const savedTheme = localStorage.getItem("theme") || "dark";
@@ -901,8 +900,6 @@ document.getElementById("sidebar-close").addEventListener("click", () => {
   backdrop.classList.remove("show");
   body.classList.remove("sidebar-open");
 });
-
-
 
 </script>
 </body>

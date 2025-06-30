@@ -162,6 +162,7 @@
 .folder-toggle.open .chevron-icon {
   transform: rotate(360deg);
 }
+
     .dropdown {
       margin-left: 1rem;
       display: none;
@@ -197,6 +198,14 @@
       background-color: #d9e9ff;
       border-radius: 4px;
     }
+    .folder-toggle.open {
+      background-color: #d0e4ff; /* light blue background */
+      color: #0064E0; /* dark blue text */
+      font-weight: 600;
+      border-left: 4px solid #0064E0;
+
+    }
+
     .folder-name {
       white-space: normal;
       line-height: 1.3;
@@ -272,7 +281,7 @@
   width: 100%;
   max-width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 9;s
   display: block;
   margin: 1rem 0;
 }
@@ -335,6 +344,11 @@ body[data-theme="dark"] .folder-toggle {
 body[data-theme="dark"] .folder-toggle:hover {
   color: #0a84ff;
       background-color: #333;
+}
+body[data-theme="dark"] .folder-toggle.open {
+  background-color: #2b2b2b;
+  color: #4DA3FF;
+  border-left: 4px solid #0064E0;
 }
   body[data-theme="dark"] .sidebar a,
   body[data-theme="dark"] .right-sidebar a {
@@ -760,6 +774,7 @@ function loadDoc(index) {
   }
 
 function autoExpandFolders() {
+
   const currentPath = flatDocs[currentIndex].path;
   const folders = currentPath.split("/").slice(1, -1); // skip "docs" and file
   let current = docList;
@@ -772,9 +787,16 @@ function autoExpandFolders() {
       const dropdown = toggle.nextElementSibling;
       dropdown.classList.add("open");
       const icon = toggle.querySelector(".chevron-icon");
-      if (icon) icon.style.transform = "rotate(360deg)";      current = dropdown;
+      if (icon) icon.style.transform = "rotate(360deg)";      
+      current = dropdown;
     }
   });
+  if (current && current.closest("li")) {
+  const activeFolder = current.closest("li").querySelector(".folder-toggle");
+  if (activeFolder) {
+    activeFolder.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+}
 }
 
   prevBtn.addEventListener("click", () => {

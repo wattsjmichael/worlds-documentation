@@ -45,6 +45,22 @@ body[data-theme="dark"] .nav-links a {
 body[data-theme="dark"] .nav-links a:hover {
   color: #0a84ff;
 }
+body[data-theme="dark"] .search-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+  display: block;
+  fill: white;
+  transition: fill 0.1s ease;
+    vertical-align: middle;
+}
+
+ body[data-theme="dark"] .suggestions-list {
+    background: #121212;
+  }
+ body[data-theme="dark"] .suggestions-list li:hover {
+    background-color: #333;
+  }
+
 body[data-theme="dark"] .hero {
   background-color: #1a1a1a;
 }
@@ -168,6 +184,13 @@ body[data-theme="light"] {
   width: 100%;
   border-bottom: 1px solid #ccc;
 }
+  #theme-toggle {
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
 .nav-links {
     margin-top: 1rem;
     display: flex;
@@ -209,6 +232,7 @@ body[data-theme="light"] {
   align-items: center;
   justify-content: flex-end;
   margin-left: 2rem;
+  position: relative; /* Anchor for absolute suggestions */
 }
 /* Hide input by default */
 #search-input {
@@ -221,7 +245,33 @@ body[data-theme="light"] {
   transition: width 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
   font-size: 1rem;
   outline: none;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 2;
 }
+  .suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+    margin-top: 0.5rem;
+    list-style: none;
+    padding: 0;
+    background: var(--bg, #fff);
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none;
+  }
+  .suggestions-list li {
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+  .suggestions-list li:hover {
+    background-color: var(--hover, #eee);
+  }
 .search-btn {
   background: none;
   border: none;
@@ -241,7 +291,7 @@ body[data-theme="light"] {
   display: block;
   fill: black;
   transition: fill 0.1s ease;
-    vertical-align: middle;
+  vertical-align: middle;
 }
 .search-btn:hover .search-icon {
   fill: #0064E0;
@@ -267,7 +317,6 @@ body[data-theme="light"] {
 .right-controls {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 header {

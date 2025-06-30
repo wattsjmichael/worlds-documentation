@@ -22,7 +22,7 @@
       </div>
     
 <div class="right-controls">
-  <button id="theme-toggle">🌙/☀️</button>
+  <button id="theme-toggle" aria-label="Toggle dark mode">🌙/☀️</button>
     <div class="search-container">
   <button id="search-toggle" aria-label="Toggle Search" class="search-btn">
  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false" class="search-icon">
@@ -35,6 +35,7 @@
     placeholder="Search docs..."
     aria-label="Search docs"
   />
+  <ul id="search-suggestions" class="suggestions-list"></ul>
 </div>
   
     
@@ -65,40 +66,40 @@
   <div class="container">
   <div class="featured-grid">
       
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Horizon Creator Manual</h3>
         <p>The Horizon Creator Manual is a community-source, Meta-endorsed guide on using the Meta Horizon Worlds creation tools.</p>
         <a href="https://github.com/MHCPCreators/horizonCreatorManual">Read More</a>
       </div>
       
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Worlds Publishing Checklist</h3>
         <p>This guide offers suggestions for late-stage development to enhance retention and reduce bounce rate.</p>
         <a href="https://github.com/MHCPCreators/worlds-documentation/blob/main/docs/manuals-and-cheat-sheets/MHCP_Publishing_Checklist_r2v1.pdf">Read More</a>
       </div>
       
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Worlds Workarounds</h3>
         <p>A running list of community-sourced workarounds and alternative approaches for overcoming creative obstacles.</p>
         <a href="https://github.com/MHCPCreators/worlds-workarounds">Read More</a>
       </div>
       
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Asset Library Import</h3>
         <a href="#">Read More</a>
       </div>
       
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Gizmos</h3>
         <a href="#">Read More</a>
       </div>
       
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Lighting Colliders Audio</h3>
         <a href="#">Read More</a>
       </div>
 
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Manuals And Cheat Sheets</h3>
         <a href="docs-preview.html#docs/manuals-and-cheat-sheets/Contribute%20to%20Creator%20Documentation.md">Contribute To Creator Documentation</a>
         <div></div>
@@ -117,7 +118,7 @@
         <a href="docs-preview.html#docs/manuals-and-cheat-sheets/worlds-workarounds.md">Worlds Workarounds</a>
       </div>
       
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Meshes Materials Import</h3>
         <a href="docs-preview.html#meshes-materials-import/15%20Blender%20Tips%20for%20Horizon%20Assets.md">15 Blender Tips For Horizon Assets</a>
         <div></div>
@@ -134,7 +135,7 @@
         <a href="docs-preview.html#docs/meshes-materials-import/import-images-and-add-texture-animation.md">Import Images And Add Texture Animation</a>
 
       </div>
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Scripting Concepts Persistence APIs</h3>
         <a href="#">Read More</a>
       </div>
@@ -155,9 +156,9 @@
 
     <!-- Right Grid -->
     <div class="get-started-grid">
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Understanding the Desktop Editor</h3>
-        <a href="docs-preview.html#docs/understanding-the-desktop-editor/Boost%20Performance%20-%20Top%207%20Spawning%20%26%20Streaming%20Tricks.md">Boost performance - top 7 spawning & streaming trickse</a>
+        <a href="docs-preview.html#docs/understanding-the-desktop-editor/Boost%20Performance%20-%20Top%207%20Spawning%20%26%20Streaming%20Tricks.md">Boost performance - top 7 spawning & streaming tricks</a>
         <div></div>
         <a href="docs-preview.html#docs/understanding-the-desktop-editor/Collaboratively%20Build%20with%20Shared%20Asset%20Templates.md">Collaboratively Build With Shared Asset Templates</a>
         <div></div>
@@ -170,14 +171,14 @@
         <a href="docs-preview.html#docs/understanding-the-desktop-editor/Worlds%20Desktop%20Tools%20Basics.md">Worlds Desktop Tools Basics</a>
 
       </div>
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Generative AI (GenAI) Tools</h3>
         <a href="docs-preview.html#docs/generative-ai-tools/Prompt%20Meta%20AI%20in%20the%20Worlds%20Desktop%20Editor.md">Prompt Meta AI In The Worlds Desktop Editor</a>
         <div></div>
         <a href="docs-preview.html#docs/generative-ai-tools/Topology%20Tune-Up%20for%20GenAI%20Props%20and%20Sets.md">Topology Tune Up For GenAI Props And Sets</a>
 
       </div>
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Creating a World</h3>
         <a href="docs-preview.html#docs/creating-a-world/Building%20Your%20First%20World.md">Building Your First World</a>
         <div></div>
@@ -188,7 +189,7 @@
         <a href="docs-preview.html#docs/creating-a-world/Worlds%20Tools%20Overview.md">Worlds Tools Overview</a>
 
       </div>
-      <div class="card">
+      <div class="card" class="card searchable">
         <h3>Getting Started with Scripting</h3>
         <a href="docs-preview.html#docs/getting-started-with-scripting/15%20Worlds%20TypeScript%20API%202.0%20Tips%20and%20Tricks.md">15 Worlds TypeScript API 2.0 Tips And Tricks</a>
         <div></div>
@@ -361,11 +362,10 @@
   <!-- JS Scripts -->
 
 <script>
-  // Set saved or default theme immediately
+  // === Theme Toggle ===
   const savedTheme = localStorage.getItem("theme") || "dark";
   document.body.setAttribute("data-theme", savedTheme);
 
-  // Optional: update theme toggle icon based on saved theme
   window.addEventListener("DOMContentLoaded", () => {
     updateThemeIcon(savedTheme);
   });
@@ -386,9 +386,7 @@
   };
 
   const toggleBtn = document.getElementById("theme-toggle");
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", toggleTheme);
-  }
+  if (toggleBtn) toggleBtn.addEventListener("click", toggleTheme);
 
   // === Carousel Logic ===
   const track = document.querySelector(".carousel-track");
@@ -408,7 +406,6 @@
     const containerWidth = document.querySelector(".carousel-track-container").offsetWidth;
     const totalWidth = itemWidth * items.length;
     const maxScroll = containerWidth - totalWidth;
-
     currentPosition -= itemWidth;
     if (currentPosition < maxScroll) currentPosition = maxScroll;
     track.style.transform = `translateX(${currentPosition}px)`;
@@ -416,27 +413,116 @@
 
   function positionCarouselButtons() {
     const reference = document.querySelector(".video-track-height");
-    const prevBtn = document.querySelector(".carousel-btn.prev");
-    const nextBtn = document.querySelector(".carousel-btn.next");
-
-    if (reference && prevBtn && nextBtn) {
-      const height = reference.offsetHeight;
-      const offset = height / 2;
-      prevBtn.style.top = `${offset}px`;
-      nextBtn.style.top = `${offset}px`;
-    }
+    if (!reference) return;
+    const offset = reference.offsetHeight / 2;
+    prevBtn.style.top = `${offset}px`;
+    nextBtn.style.top = `${offset}px`;
   }
 
   window.addEventListener("load", positionCarouselButtons);
   window.addEventListener("resize", positionCarouselButtons);
 
-  // === Search Toggle ===
+  // === Mobile Menu ===
+  const hamburger = document.querySelector(".hamburger");
+  const siteHeader = document.querySelector(".site-header");
+  hamburger.addEventListener("click", () => {
+    siteHeader.classList.toggle("active");
+  });
+
+  // === Search + Suggestions ===
   const searchToggle = document.getElementById("search-toggle");
   const searchContainer = document.querySelector(".search-container");
   const searchInput = document.getElementById("search-input");
 
+  // Ensure suggestion container exists or create it
+  let suggestionsContainer = document.querySelector(".suggestions-list");
+  if (!suggestionsContainer) {
+    suggestionsContainer = document.createElement("div");
+    suggestionsContainer.classList.add("suggestions-list");
+    searchContainer.appendChild(suggestionsContainer);
+  }
+
+  const docsIndex = [
+    { title: "Improve Custom Model Imports", link: "docs-preview.html#docs/meshes-materials-import/Improve%20Custom%20Model%20Imports.md" },
+    { title: "Asset Library Import", link: "#" },
+    { title: "Optimize IWP Assets For Peak Performance", link: "docs-preview.html#docs/meshes-materials-import/Optimize%20IWP%20Assets%20for%20Peak%20Performance.md" },
+    { title: "Import Images And Add Texture Animation", link: "docs-preview.html#docs/meshes-materials-import/import-images-and-add-texture-animation.md" },
+    { title: "Contribute To Creator Documentation", link: "docs-preview.html#docs/manuals-and-cheat-sheets/Contribute%20to%20Creator%20Documentation.md" },
+    { title: "Worlds Creator Manual Essentials Made Easy", link: "docs-preview.html#docs/manuals-and-cheat-sheets/Worlds%20Creator%20Manual%20Essentials%20Made%20Easy.md" },
+    { title: "How To Make Your World Go Viral", link: "docs-preview.html#docs/manuals-and-cheat-sheets/How%20To%20Make%20Your%20World%20Go%20Viral.md" },
+    { title: "MHCP WorldPlanningGuide.Pdf", link: "docs-preview.html#docs/manuals-and-cheat-sheets/MHCP_WorldPlanningGuide.pdf" },
+    { title: "MHCP Publishing Checklist R2V1.Pdf", link: "docs-preview.html#docs/manuals-and-cheat-sheets/MHCP_Publishing_Checklist_r2v1.pdf" },
+    { title: "Publishing Checklist For Horizon Worlds", link: "docs-preview.html#docs/manuals-and-cheat-sheets/Publishing%20Checklist%20for%20Horizon%20Worlds.md" },
+    { title: "World Building & Pre Production Guide", link: "docs-preview.html#docs/manuals-and-cheat-sheets/World%20Building%20%26%20Pre-Production%20Guide.md" },
+    { title: "Worlds Workarounds", link: "docs-preview.html#docs/manuals-and-cheat-sheets/worlds-workarounds.md" },
+    { title: "15 Blender Tips For Horizon Assets", link: "docs-preview.html#meshes-materials-import/15%20Blender%20Tips%20for%20Horizon%20Assets.md" },
+    { title: "3D Modeling In Worlds 101", link: "docs-preview.html#docs/meshes-materials-import/3D%20Modeling%20in%20Worlds%20101.md" },
+    { title: "Custom Skydomes Guide Cinematic Horizons", link: "docs-preview.html#docs/meshes-materials-import/Custom%20Skydomes%20Guide%20-%20Cinematic%20Horizons.md" },
+    { title: "Improve Custom Model Imports", link: "docs-preview.html#docs/meshes-materials-import/Improve%20Custom%20Model%20Imports.md" },
+    { title: "Optimize IWP Assets For Peak Performance", link: "docs-preview.html#docs/meshes-materials-import/Optimize%20IWP%20Assets%20for%20Peak%20Performance.md" },
+    { title: "Roads & Fences In Horizon Paths 10", link: "docs-preview.html#docs/meshes-materials-import/Roads%20%26%20Fences%20in%20Horizon%20-%20Paths%20101.md" },
+    { title: "Import Images And Add Texture Animation", link: "docs-preview.html#docs/meshes-materials-import/import-images-and-add-texture-animation.md" },
+    { title: "Boost performance - top 7 spawning & streaming tricks", link: "docs-preview.html#docs/understanding-the-desktop-editor/Boost%20Performance%20-%20Top%207%20Spawning%20%26%20Streaming%20Tricks.md" },
+    { title: "Collaboratively Build With Shared Asset Templates", link: "docs-preview.html#docs/understanding-the-desktop-editor/Collaboratively%20Build%20with%20Shared%20Asset%20Templates.md" },
+    { title: "Improve Frame Rates And Custom Asset Bloat", link: "docs-preview.html#docs/understanding-the-desktop-editor/Improve%20Frame%20Rates%20and%20Custom%20Asset%20Bloat.md" },
+    { title: "Trace, Fix, & Optimize World Performance Issues", link: "docs-preview.html#docs/understanding-the-desktop-editor/Trace%2C%20Fix%2C%20%26%20Optimize%20World%20Performance%20Issues.md" },
+    { title: "Worlds Desktop Editor 101", link: "docs-preview.html#docs/understanding-the-desktop-editor/Worlds%20Desktop%20Editor%20101.md" },
+    { title: "Worlds Desktop Tools Basics", link: "docs-preview.html#docs/understanding-the-desktop-editor/Worlds%20Desktop%20Tools%20Basics.md" },
+    { title: "Prompt Meta AI In The Worlds Desktop Editor", link: "docs-preview.html#docs/generative-ai-tools/Prompt%20Meta%20AI%20in%20the%20Worlds%20Desktop%20Editor.md" },
+    { title: "Topology Tune Up For GenAI Props And Sets", link: "docs-preview.html#docs/generative-ai-tools/Topology%20Tune-Up%20for%20GenAI%20Props%20and%20Sets.md" },
+    { title: "Building Your First World", link: "docs-preview.html#docs/creating-a-world/Building%20Your%20First%20World.md" },
+    { title: "Creating A Versatile Holster System In Worlds", link: "docs-preview.html#docs/creating-a-world/Create%20a%20Versatile%20Holster%20System%20in%20Worlds.md" },
+    { title: "Mobile Worlds Crash Course", link: "docs-preview.html#docs/creating-a-world/Mobile%20Worlds%20Crash%20Course.md" },
+    { title: "Worlds Tools Overview", link: "docs-preview.html#docs/creating-a-world/Worlds%20Tools%20Overview.md" },
+    { title: "15 Worlds TypeScript API 2.0 Tips And Tricks", link: "docs-preview.html#docs/getting-started-with-scripting/15%20Worlds%20TypeScript%20API%202.0%20Tips%20and%20Tricks.md" },
+    { title: "Codeblock To TypeScript", link: "docs-preview.html#docs/getting-started-with-scripting/Codeblock%20to%20TypeScript.md" },
+    { title: "TypeScript Best Practices 101", link: "docs-preview.html#docs/getting-started-with-scripting/TypeScript%20Best%20Practices%20101.md" },
+    { title: "Json Ppvs And Versioning", link: "docs-preview.html#docs/getting-started-with-scripting/json-ppvs-and-versioning.md" },
+    { title: "Text Entry Tutorial", link: "docs-preview.html#docs/getting-started-with-scripting/text-entry-tutorial.md" },
+  
+    // ➕ Add more as needed
+  ];
+
+  function showSuggestions(matches) {
+    suggestionsContainer.innerHTML = "";
+    if (matches.length === 0) {
+      const noMatch = document.createElement("div");
+      noMatch.className = "suggestion-item";
+      noMatch.textContent = "No matching docs found.";
+      suggestionsContainer.appendChild(noMatch);
+      suggestionsContainer.style.display = "block";
+      return;
+    }
+
+    matches.forEach(doc => {
+      const item = document.createElement("div");
+      item.className = "suggestion-item";
+      item.textContent = "📄 " + doc.title;
+      item.addEventListener("click", () => {
+        window.location.href = doc.link;
+      });
+      suggestionsContainer.appendChild(item);
+    });
+
+    suggestionsContainer.style.display = "block";
+  }
+
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.trim().toLowerCase();
+    if (query.length < 2) {
+      suggestionsContainer.style.display = "none";
+      return;
+    }
+
+    const matches = docsIndex.filter(doc => doc.title.toLowerCase().includes(query));
+    showSuggestions(matches);
+  });
+
   searchToggle.addEventListener("click", () => {
     searchContainer.classList.toggle("active");
+    suggestionsContainer.innerHTML = "";
+    suggestionsContainer.style.display = "none";
+
     if (searchContainer.classList.contains("active")) {
       searchInput.focus();
     } else {
@@ -444,15 +530,18 @@
     }
   });
 
-  // === Mobile Menu ===
-  const hamburger = document.querySelector(".hamburger");
-  const siteHeader = document.querySelector(".site-header");
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      suggestionsContainer.style.display = "none";
+    }
+  });
 
-  hamburger.addEventListener("click", () => {
-    siteHeader.classList.toggle("active");
+  document.addEventListener("click", (e) => {
+    if (!searchContainer.contains(e.target)) {
+      suggestionsContainer.style.display = "none";
+    }
   });
 </script>
-
     
 </body>
 </html>

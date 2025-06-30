@@ -613,7 +613,7 @@ body[data-theme="dark"] .hamburger {
     "getting-started-with-scripting": ["15 Worlds TypeScript API 2.0 Tips and Tricks.md", "Codeblock to TypeScript.md", "TypeScript Best Practices 101.md", "json-ppvs-and-versioning.md", "text-entry-tutorial.md"],
     "understanding-the-desktop-editor": ["Boost Performance - Top 7 Spawning & Streaming Tricks.md", "Collaboratively Build with Shared Asset Templates.md", "Improve Frame Rates and Custom Asset Bloat.md", "Trace, Fix, & Optimize World Performance Issues.md", "Worlds Desktop Editor 101.md", "Worlds Desktop Tools Basics.md"],
     "manuals-and-cheat-sheets": ["Contribute to Creator Documentation.md", "How To Make Your World Go Viral.md", "MHCP_Publishing_Checklist_r2v1.pdf", "MHCP_WorldPlanningGuide.pdf", "Publishing Checklist for Horizon Worlds.md", "World Building & Pre-Production Guide.md", "Worlds Creator Manual Essentials Made Easy.md", "worlds-workarounds.md"],
-    "scripting-concepts-persistence-apis": ["Custom UI Basics to Boost Interaction.md", "cui-api-introduction.md", "Pro Tips & Tricks for a High-Performance Custom UI"],
+    "scripting-concepts-persistence-apis": ["custom-ui/Custom UI Basics to Boost Interaction.md", "custom-ui/cui-api-introduction.md", "custom-ui/Pro Tips & Tricks for a High-Performance Custom UI.md"],    
     "meshes-materials-import": ["15 Blender Tips for Horizon Assets.md", "3D Modeling in Worlds 101.md", "Custom Skydomes Guide - Cinematic Horizons.md", "Improve Custom Model Imports.md", "Optimize IWP Assets for Peak Performance.md", "Roads & Fences in Horizon - Paths 101.md", "import-images-and-add-texture-animation.md"],
     "asset-library-import": [],
     "lighting-colliders-audio": [],
@@ -710,8 +710,19 @@ function loadDocByPath(path) {
 
   currentIndex = index;
 
-  // Construct the correct raw GitHub URL
-  const fullUrl = `${GITHUB_RAW_BASE}/${encodeURI(path)}`;
+  // If PDF, directly embed in iframe without fetch
+if (path.endsWith(".pdf")) {
+  const pdfUrl = `https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main/${encodeURIComponent(path)}`;
+  content.innerHTML = `
+    <p>PDF document: <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open PDF in new tab</a></p>
+  `;
+  return;
+}
+
+
+
+  // For markdown and other types, fetch and parse
+  const fullUrl = `${GITHUB_RAW_BASE}/${encodeURIComponent(path)}`;
 
   fetch(fullUrl)
     .then(res => {
@@ -719,7 +730,18 @@ function loadDocByPath(path) {
       return res.text();
     })
     .then(md => {
+      // Render markdown
       content.innerHTML = marked.parse(md);
+
+      // Fix relative image paths in markdown (like your PNGs)
+      const basePath = path.split("/").slice(0, -1).join("/");
+      content.querySelectorAll("img").forEach(img => {
+        const src = img.getAttribute("src");
+        if (src && !src.startsWith("http") && !src.startsWith("data:")) {
+          img.src = `${GITHUB_RAW_BASE}/${basePath}/${src}`;
+        }
+      });
+
       generateTOC();
       updateButtons();
       updateActiveLink();
@@ -732,6 +754,7 @@ function loadDocByPath(path) {
       console.error(err);
     });
 }
+
 
 function loadDoc(index) {
   if (index >= 0 && index < flatDocs.length) {

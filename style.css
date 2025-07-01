@@ -127,7 +127,7 @@ body[data-theme="dark"] .small-header {
   color: #f3f3f3;
 }
 body[data-theme="dark"] .video-description {
-  color: #f3f3f3;
+  color: #ccc;
 }
 body[data-theme="dark"] .video-title {
   color: #f3f3f3;
@@ -228,11 +228,11 @@ body[data-theme="light"] {
   color: #0064E0;
 }
 .search-container {
-  display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-left: 2rem;
   position: relative; /* Anchor for absolute suggestions */
+  display: none;
 }
 /* Hide input by default */
 #search-input {
@@ -248,6 +248,7 @@ body[data-theme="light"] {
   position: relative;
   box-sizing: border-box;
   z-index: 2;
+  display: none;
 }
   .suggestions-list {
     position: absolute;
@@ -268,9 +269,13 @@ body[data-theme="light"] {
   .suggestions-list li {
     padding: 0.5rem;
     cursor: pointer;
+    display: none;
+
   }
   .suggestions-list li:hover {
     background-color: var(--hover, #eee);
+    display: none;
+   
   }
 .search-btn {
   background: none;
@@ -278,12 +283,15 @@ body[data-theme="light"] {
   cursor: pointer;
   padding: 0;
   margin: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
+
 }
 .search-btn svg {
   vertical-align: middle;
+  display: none;
+
 }
 .search-icon {
   height: 1.5rem;
@@ -372,16 +380,16 @@ header {
 }
 .main-heading {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   padding: 0.5rem;
   padding-top: 1rem;
   font-weight: 300;
   color: #333;
+  line-height: 1.4
 }
 .main-heading-featured {
   text-align: center;
   font-size: 2.5rem;
-  padding: 0.5rem;
   padding-top: 1rem;
   font-weight: 300;
   color: white;
@@ -452,6 +460,8 @@ header {
   font-size: 1rem;
   margin: 0.25rem 0;
   margin-top: 0.75rem;
+  padding-bottom: 0.25rem;
+  line-height: 1.4;
 }
 .play-button {
   opacity: 0;
@@ -478,40 +488,13 @@ header {
   opacity: 0.5;
 }
 .video-description {
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: #333;
   margin: 0.25rem 0 0.5rem;
   line-height: 1.4;
+  font-weight: thin;
 }
-.creator-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-size: 0.85rem;
-  color: #333;
-  margin-top: 1rem;
-}
-.creator-avatar {
-  width: 16px;
-  height: 16px;
-  background-color: #000;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.creator-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.creator-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-top: 0.5rem;
-}
+
 .carousel-btn {
   position: absolute;
   transform: translateY(-50%);
@@ -567,9 +550,13 @@ body {
   display: block;
   line-height: 1.5rem;
   border: 1px solid transparent;
-  
 }
-
+.card ul {
+  padding-left: 1rem;
+}
+.hidden-card {
+  display: none;
+}
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
@@ -613,8 +600,7 @@ body {
   color: #333;
 }
 .get-started-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
   font-weight: 300;
 }
 .get-started-text p {
@@ -684,12 +670,13 @@ h3 a:hover {
   .get-started .container {
     flex-direction: column;
     align-items: center;
-    padding: 2rem 1rem;
+    padding: 2rem;
   }
 
   .get-started-text {
     max-width: 100%;
     text-align: center;
+    padding-top: 2rem;
   }
 
   .get-started-grid {
@@ -721,7 +708,11 @@ h3 a:hover {
     padding-left: 0;  /* no extra padding */
     max-width: 100%;
   }
-    
+   .get-started-text {
+    max-width: 100%;
+    text-align: center;
+    padding-top: 2rem;
+  } 
   .site-header {
     flex-direction: column;
     align-items: stretch;
@@ -737,11 +728,12 @@ h3 a:hover {
   }
   .nav-links,
   .search-container {
-    display: none; /* hide nav and search */
+    display: none;
   }
   
   .search-container {
     margin-top: 0.5rem;
+    display: none;
   }
 
   .hamburger {
@@ -764,6 +756,8 @@ h3 a:hover {
 
   .site-header.active .search-container {
     margin-top: 0.5rem;
+    display: none;
+
   }
 
   .nav-links a {
@@ -830,6 +824,11 @@ h3 a:hover {
 
   .get-started-grid {
     grid-template-columns: 1fr;
+  }
+    .get-started-text {
+    max-width: 80vw;;
+    text-align: center;
+    padding-top: 2rem;
   }
 }
 .featured-articles {

@@ -1,3 +1,5 @@
+**Looking for the home of MHCP Creator Made docs? Head to - https://mhcpcreators.github.io/worlds-documentation/**
+
 # Adding Creator Made Documentation to GitHub
 
 This document outlines the standard procedure for adding or updating documentation for this project. It involves forking the main repository, making changes in your fork, and then submitting a Pull Request to the main repository, all using the GitHub web interface.

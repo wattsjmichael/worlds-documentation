@@ -15,4 +15,4 @@ Source high-quality HDRIs for your projects from this free library.
 
 ➡️ PNG to EXR Converter: https://convertio.co/png-exr/
 
-[Assets](MHCPCreators/worlds-documentation/docs/meshes-materials-import/assets/custom-skydomes-guide)
+[Assets](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/meshes-materials-import/assets/custom-skydomes-guide)

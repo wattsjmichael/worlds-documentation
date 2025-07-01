@@ -4,6 +4,9 @@
 <iframe width="1014" height="579" src="https://www.youtube.com/embed/WKGJQr8SEN4" title="Gen AI Sound Design with SeeingBlue" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 📚 **RESOURCES & DOCUMENTATION**
+
 This session explores the Generative AI audio tools available in the desktop editor.
+
 ➡️ **Generative AI Creation Code Tool:** https://developers.meta.com/horizon-worlds/learn/documentation/desktop-editor/generative-ai-creation-tools/generative-ai-creation-code-tool
+
 ➡️ **The Meta Horizon Worlds Creator Manual:** https://github.com/MHCPCreators/horizonCreatorManual

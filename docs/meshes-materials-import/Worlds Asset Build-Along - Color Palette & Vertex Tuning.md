@@ -13,4 +13,4 @@ This session uses Blender and external tools for asset optimization and texturin
 
 ➡️ **The Meta Horizon Worlds Creator Manual:** https://github.com/MHCPCreators/horizonCreatorManual
 
-[Suz Texture Bake Demo](MHCPCreators/worlds-documentation/docs/meshes-materials-import/assets/suz-texture-bake-demo)
+[Suz Texture Bake Demo](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/meshes-materials-import/assets/suz-texture-bake-demo)

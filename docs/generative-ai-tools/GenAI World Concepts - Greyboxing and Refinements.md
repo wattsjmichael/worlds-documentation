@@ -1,3 +1,4 @@
+# GenAI World Concepts - Greyboxing and Refinements
 **Cut your world design and concepting time in half by harnessing the power of Generative AI.** In this practical workshop, mentors MKE_TheGuru and SpaceGlitterUnicorn show you how to treat AI as a creative partner in your development process. Learn a complete workflow for greyboxing, landscape planning, and iterative asset creation to take your ideas from a simple layout to a fully realized concept faster than ever.
 
 <iframe width="1014" height="579" src="https://www.youtube.com/embed/odMld8mTaXs" title="Build World Concepts with Gen AI, with MKE_TheGuru &amp;SpaceGlitterUnicorn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

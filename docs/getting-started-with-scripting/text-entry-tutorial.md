@@ -207,7 +207,7 @@ This tutorial uses the Meta Horizon Worlds TypeScript 2.0 API. which as of July 
 
     ![](images/text-entry-tutorial_13.png)
 
-1. If you have never used TypeScript before, you should download this script by [clicking here](text-entry-utils/SendStringToCodeblocks_Entity.ts).
+1. If you have never used TypeScript before, you should download this script by [clicking here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/SendStringToCodeblocks_Entity.ts).
 
 1. Open the Scripts folder. Click on the **Scripts** drop-down, then select the three-dot icon, and “**Open the Scripts Folder in Explorer**.
 
@@ -217,7 +217,7 @@ This tutorial uses the Meta Horizon Worlds TypeScript 2.0 API. which as of July 
 
     ![](images/text-entry-tutorial_15.png)
 
-As you are writing or downloading these scripts, here is the second script you will want to [click here](text-entry-utils/SendStringsToCodeblocks_Entity.ts) to download.
+As you are writing or downloading these scripts, here is the second script you will want to [click here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/SendStringsToCodeblocks_Entity.ts) to download.
 
 Create a new script. Name it `SendStringsToCodeblocks_Entity`.
 
@@ -265,9 +265,9 @@ In this example, you’ll expand on what you learned in the first two sections. 
 
 You’ll need to create a new type of data called QuestionData that stores this string question and string array of answers. You might imagine this is a game show, and only the first answer in the array is the right answer, you could then randomly select wrong answers to mix in, scrambling them when displayed to the contestants.
 
-You won’t be diving too deep into this script, which you can download [here](text-entry-utils/GetQuestionData_Entity.ts), as it does show off some more advanced features, but if you have managed to do script 1 or 2 in the previous step, you should have no problem implementing this code.
+You won’t be diving too deep into this script, which you can download [here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/GetQuestionData_Entity.ts), as it does show off some more advanced features, but if you have managed to do script 1 or 2 in the previous step, you should have no problem implementing this code.
 
-**Mentor’s Note:** The “getRandomItemFromArray” function comes from a file that I add to all my worlds, and when it gets updated is shared in Discord. You can download the arrayUtils (created by the Vidyuu team) by clicking [here](text-entry-utils/UtilArray_Func.ts). Feel free to ask questions in Discord if you’d like to learn more.
+**Mentor’s Note:** The “getRandomItemFromArray” function comes from a file that I add to all my worlds. You can download the arrayUtils (created by the Vidyuu team) by clicking [here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilArray_Func.ts).
 
 ![](images/text-entry-tutorial_26.png)
 
@@ -291,7 +291,7 @@ In this case, you’ll send a message to TypeScript from Codeblocks. You can ima
 
 ![](images/text-entry-tutorial_29.png)
 
-Then to receive the message in TypeScript, you will need to create a new CodeBlockEvent, which includes a parameter (slightly different from the previous example with no parameters). Then just connect the event like before, and in this case, you will log it to the console to show that it was received. You can download this script [here](text-entry-utils/TypeScriptReceiver_Entity.ts).
+Then to receive the message in TypeScript, you will need to create a new CodeBlockEvent, which includes a parameter (slightly different from the previous example with no parameters). Then just connect the event like before, and in this case, you will log it to the console to show that it was received. You can download this script [here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/TypeScriptReceiver_Entity.ts).
 
 ![](images/text-entry-tutorial_30.png)
 
@@ -299,7 +299,7 @@ Then to receive the message in TypeScript, you will need to create a new CodeBlo
 
 ## Script 5: MegaText
 
-If you haven’t used MegaText in Horizon, it a script written by the  Vidyuu team in the Asset Library under interactive. It allows you to write text on a Text Gizmo with multiple lines. This makes formatting so much easier. The example below is the same script, rewritten in TypeScript, you can download it [here](text-entry-utils/MegaText_Entity.ts).
+If you haven’t used MegaText in Horizon, it a script written by the  Vidyuu team in the Asset Library under interactive. It allows you to write text on a Text Gizmo with multiple lines. This makes formatting so much easier. The example below is the same script, rewritten in TypeScript, you can download it [here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/MegaText_Entity.ts).
 
 ![](images/text-entry-tutorial_31.png)
 
@@ -311,7 +311,7 @@ To use MegaText, attach this script to a TextGizmo, and on the properties panel 
 
 ## Script 6: Writing Text With Formatting In TypeScript
 
-In this section,  you’re going to write text in TypeScript, and apply it to a TextGizmo that is running the script. You can download this example [here](text-entry-utils/EasyText_Entity.ts).
+In this section,  you’re going to write text in TypeScript, and apply it to a TextGizmo that is running the script. You can download this example [here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/EasyText_Entity.ts).
 
 You’ve defined font and lineBreak string variables. This makes our lives a little easier, by making it so that you don’t have to remember or retype the angle brackets and this also makes our script easier to read. In addition, outside our class, you’ll notice the bold function allows us to easily apply bold to a string.
 
@@ -329,9 +329,9 @@ This example script has shown you how you can take the formatting options shown 
 
 ## Script 7: Write Text With a Formatting Library
 
-This next script for you to [download](text-entry-utils/UtilTextGizmo_Func.ts) is from the Formatting Library (written, a Utility script that you can use to make writing text with formatting a lot easier). If you have never used a library before, it is similar to an API, in that it provides you with additional functionality. To use, simply copy the UtilTextGizmo_Func.ts file from the above download link into your scripts folder. You can then use the provided “formatting,” “Formats,” “Fonts,” “Materials, and “Gradients.”
+This next script for you to [download](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilTextGizmo_Func.ts) is from the Formatting Library (written, a Utility script that you can use to make writing text with formatting a lot easier). If you have never used a library before, it is similar to an API, in that it provides you with additional functionality. To use, simply copy the UtilTextGizmo_Func.ts file from the above download link into your scripts folder. You can then use the provided “formatting,” “Formats,” “Fonts,” “Materials, and “Gradients.”
 
-Below is a simple demo, which can be downloaded by clicking [here](text-entry-utils/EasyTextWithFormatting_Entity.ts).
+Below is a simple demo, which can be downloaded by clicking [here](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/EasyTextWithFormatting_Entity.ts).
 
 In this example, you imported “Formats” and “formatting” from the UtilTextGizmo_Func.ts file. For the “title”, you have a string that gets three formatting options applied. After typing “formatting” when you type “.” a list of formatting options appear. Including a second list of “specialFormats.” You’ll notice that “Formats.bold” allows the applyFormat function to apply the bold format on your title. “Formats,” similar to “formatting,” also has a drop-down list after typing period.
 
@@ -339,7 +339,7 @@ And then similar to Script 6, you add the title and lines together. In this case
 
 ![](images/text-entry-tutorial_36.png)
 
-Using this on multiple TextGizmos will require you to duplicate the script. give it a good name, and then attach the new script to the relevant TextGizmo. This isn’t the only method, as you could have one text manager that has the TextGizmos referenced on its properties panel. So depending on your needs, be creative and feel free to ask for help in Discord.
+Using this on multiple TextGizmos will require you to duplicate the script. give it a good name, and then attach the new script to the relevant TextGizmo. This isn’t the only method, as you could have one text manager that has the TextGizmos referenced on its properties panel.
 
 In addition to “Formats” there are three other enums, which have their own formatting.apply functions you can use:
 
@@ -357,10 +357,10 @@ This next section may feel a bit intimidating because you’ll be using multiple
 
 You can download the files here:
 
-* [EasyStoryTrigger_Entity.ts](text-entry-utils/EasyStoryTrigger_Entity.ts)
-* [Story_Data.ts](text-entry-utils/Story_Data.ts)
-* [UtilArray_Func.ts](text-entry-utils/UtilArray_Func.ts)
-* [UtilTextGizmo_Func.ts](text-entry-utils/UtilTextGizmo_Func.ts)
+* [EasyStoryTrigger_Entity.ts](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/EasyStoryTrigger_Entity.ts)
+* [Story_Data.ts](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/Story_Data.ts)
+* [UtilArray_Func.ts](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilArray_Func.ts)
+* [UtilTextGizmo_Func.ts](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/UtilTextGizmo_Func.ts)
 
 Let’s start with `Story_Data.ts`, which is a relatively simple file that creates four string arrays, and then stores them in an exported JSON object called storyData. You can access all of these strings from your main script by importing storyData. You can imagine having as many of these string arrays as you need for your story.
 
@@ -394,7 +394,7 @@ Display story is similar to what you’ve done earlier in this tutorial, except 
 
 ![](images/text-entry-tutorial_47.png)
 
-From this, you can extrapolate to create your own custom ad lib story. If you have questions or need help, don’t hesitate to ask in Discord.
+From this, you can extrapolate to create your own custom ad lib story.
 
 ## Script 10 & 11: Random Ad-Lib Story Example
 
@@ -402,8 +402,8 @@ In this section, you’ll elevate your ad lib story generation by randomly selec
 
 You can download the new files here:
 
-* [AdvancedStoryTrigger_Entity.ts](text-entry-utils/AdvancedStoryTrigger_Entity.ts)
-* [Story_Func.ts](text-entry-utils/Story_Func.ts)
+* [AdvancedStoryTrigger_Entity.ts](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/AdvancedStoryTrigger_Entity.ts)
+* [Story_Func.ts](https://github.com/MHCPCreators/worlds-documentation/tree/main/docs/getting-started-with-scripting/text-entry-utils/Story_Func.ts)
 
 Let’s start with something familiar, looking at Story_Func. This is similar to our data file in that you have an exported variable, but instead of storing string data, it stores an array of functions. The creation of storyFunc declares itself to be an Array of functions that take a string parameter and return a string. This is just like our getStory method from script 8\. In fact, line 10 is the same method, but as a function called story1. You can then duplicate this for as many stories as you want. Just make sure they are included in the array on line 5.
 
@@ -423,7 +423,7 @@ And like that, you can have as many random ad-lib stories as you want.
 
 ## Extended Learning
 
-Below are challenges that you can implement on your own. The Advanced task might require some outside knowledge. We encourage you to ask questions in Discord if you get stuck or are unsure how to complete any of these.
+Below are challenges that you can implement on your own. The Advanced task might require some outside knowledge. We encourage you to ask questions in the [creator forum](https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums) if you get stuck or are unsure how to complete any of these.
 
 **Novice**
 Fix spelling mistakes and add formatting to pre-existing large blocks of text in TextGizmos.

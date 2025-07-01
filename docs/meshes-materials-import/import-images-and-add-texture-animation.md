@@ -289,7 +289,7 @@ If your world is currently set to 1.0, or another version, you can change this f
 
 ### AnimatedGIF.ts
 
-You can copy and paste this code into a new script, or download the code as a file by clicking [here](utils/AnimatedGIF.ts). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
+You can copy and paste this code into a new script, or download the code as a file by clicking [here](https://github.com/MHCPCreators/worlds-documentation/blob/main/docs/meshes-materials-import/utils/AnimatedGIF.ts). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
 
 ```typescript
 import { Asset, Component, MeshEntity, PropTypes, TextureAsset } from "horizon/core";
@@ -379,7 +379,7 @@ Component.register(AnimatedGIF);
 
 ### TextureSwappingTrigger.ts
 
-You can copy and paste this code into a new script, or download the code as a file by clicking [here](utils/TextureSwappingTrigger.ts). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
+You can copy and paste this code into a new script, or download the code as a file by clicking [here](https://github.com/MHCPCreators/worlds-documentation/blob/main/docs/meshes-materials-import/utils/TextureSwappingTrigger.ts). Then drag the Typescript file into the scripts folder (Scripts > Three Dot Icon > Open Scripts Folder).
 
 ```typescript
 import { Asset, CodeBlockEvents, Component, MeshEntity, Player, PropTypes, TextureAsset } from "horizon/core";

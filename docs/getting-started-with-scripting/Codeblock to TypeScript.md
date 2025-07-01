@@ -375,4 +375,4 @@ hz.Component.register(VIPOnlyTrigger);
 ---
 
 ## Further Assistance
-For any questions or further assistance, you are encouraged to join the official Worlds creator forums. Happy scripting!
+For any questions or further assistance, you are encouraged to join the official [Worlds creator forums](https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums). Happy scripting!

@@ -276,7 +276,7 @@ Consider trying the extra credit tasks below to solidify your learning and take 
 
 ## Next Steps
 
-Below we have provided some challenges for you to try implementing on your own. These do require some outside knowledge, and we encourage you to ask questions in the community forums if you get stuck or are unsure how to complete these
+Below we have provided some challenges for you to try implementing on your own. These do require some outside knowledge, and we encourage you to ask questions in the [community forums](https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums) if you get stuck or are unsure how to complete these
 
 ### Novice
 

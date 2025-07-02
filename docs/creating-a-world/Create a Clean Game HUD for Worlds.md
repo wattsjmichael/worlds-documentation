@@ -1,4 +1,4 @@
-# Create a Clean Game HUD for Worlds
+# Create a clean game HUD for Worlds
 **Learn what it takes to build a great mobile Heads-Up Display (HUD) in a session driven by real creator questions and expert answers.** Join mentor PigeonNo12 as she answers the community's most pressing questions about designing and scripting mobile UIs. This technical Q&A provides the building blocks for more advanced UIs, with a focus on scripting interactive animations and optimizing your UI for performance on any device.
 
 <iframe width="1014" height="579" src="https://www.youtube.com/embed/r3KKwVr6fzY" title="MHCP Mentor Office Hour Video: Challenge AMA HUD with PigeonNo12" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

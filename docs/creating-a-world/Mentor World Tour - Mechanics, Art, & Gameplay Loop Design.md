@@ -1,4 +1,4 @@
-# Mentor World Tour: Mechanics, Art, & Gameplay Loop Design
+# Mentor world tour: mechanics, art, & gameplay loop design
 **See what's possible in Meta Horizon Worlds by taking a guided tour of today’s most innovative experiences.** Join the MHCP mentors (Pigeon No12, MKE_TheGuru, SeeingBlue, Tellous, and SpaceGlitterUnicorn) as they showcase and deconstruct several standout worlds, and break down the unique elements that make them successful. This tour is packed with real-world examples and practical insights you can apply to your own projects.
 
 <iframe width="1014" height="579" src="https://www.youtube.com/embed/cRUclDxqha4" title="Mentor World Tour" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

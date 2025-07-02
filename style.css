@@ -188,7 +188,6 @@ body[data-theme="light"] {
   z-index: 1000;
   flex-wrap: nowrap;
   flex-direction: row;
-  width: 100%;
   border-bottom: 1px solid #ccc;
 }
   #theme-toggle {

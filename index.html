@@ -13,11 +13,11 @@
     <div class="left-nav">
     <div class="logo"><a href="https://mhcpcreators.github.io/worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
     <nav class="nav-links">
-      <a href="docs-preview.html#docs/manuals-and-cheat-sheets/Get%20Started.md">Creator Docs</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FGet%20Started.md">Creator Docs</a>
       <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
       <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
       <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
-      <a href="docs-preview.html#docs/manuals-and-cheat-sheets/Contribute%20to%20Creator%20Documentation.md">Contribute</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FContribute%20to%20Creator%20Documentation.md">Contribute</a>
     </nav>
       </div>
     
@@ -498,6 +498,30 @@ if (searchToggle && searchContainer && suggestionsContainer && searchInput) {
   });
 }
 
+// === Logo Click Always Reloads if URL and Hash Are the Same ===
+document.addEventListener("DOMContentLoaded", () => {
+  const logoLink = document.querySelector(".logo a");
+  if (!logoLink) return;
+
+  logoLink.addEventListener("click", (e) => {
+    const targetHref = logoLink.getAttribute("href");
+    const fullTargetURL = new URL(targetHref, window.location.origin).href;
+
+    // Compare the full target URL to current location
+    if (window.location.href === fullTargetURL) {
+      e.preventDefault();
+      location.reload();
+    }
+    // Otherwise let browser handle normal navigation
+  });
+});
+
+window.addEventListener("hashchange", () => {
+  const newPath = decodeURIComponent(location.hash.slice(1));
+  if (flatDocs.some(doc => doc.path === newPath)) {
+    loadDocByPath(newPath);
+  }
+});
 
 </script>
 

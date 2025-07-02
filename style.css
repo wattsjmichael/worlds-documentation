@@ -197,6 +197,7 @@ body[data-theme="light"] {
   border: none;
   cursor: pointer;
   padding: 0.5rem;
+  padding-bottom: 0.75rem;
 }
 .nav-links {
     margin-top: 1rem;
@@ -339,6 +340,16 @@ body[data-theme="light"] {
 .right-controls {
   display: flex;
   align-items: center;
+}
+.fa-youtube {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  color: #FF0000;
+  transition: color 0.2s;
+  padding: 1rem;
+}
+.fa-youtube:hover {
+  color: #990000;
 }
 
 header {

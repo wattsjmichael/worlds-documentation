@@ -1,4 +1,4 @@
-# 3D Modeling in Worlds 101
+# 3D modeling in Worlds 101
 ## 3D Modeling 101: Introduction to Blender (Part 1)
 
 Ready to start your 3D modeling journey in Meta Horizon Worlds? This hands-on crash course with **MHCP mentor SpaceGlitterUnicorn** is the perfect introduction for absolute beginners, demystifying the Blender interface and its essential tools from the ground up. You'll follow a step-by-step guide to navigating the workspace, manipulating geometry with key hotkeys, and building your very first model—a simple house—all while learning the best practices for creating VR-ready assets.

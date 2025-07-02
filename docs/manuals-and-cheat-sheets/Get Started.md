@@ -1,4 +1,4 @@
-# Get Started With Creator Made Documentation
+# Get started With Creator made documentation
 
 Welcome to the MHCP Creator GitHub Repository. This is your hub for all creator and mentor made documentation. The community has created and crafted these resources to unblock your building progress, and help you learn new tools and techniques to build the best worlds you can imagine.
 

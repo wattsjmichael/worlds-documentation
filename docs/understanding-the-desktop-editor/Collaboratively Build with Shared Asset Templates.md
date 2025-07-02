@@ -1,4 +1,4 @@
-# Collaboratively Build with Shared Asset Templates
+# Collaboratively build with shared asset templates
 **Tired of merge conflicts and waiting for teammates to finish their work?* Learn how to use Shared Asset Templates to build in parallel and streamline your team's entire workflow. In this build-along session, *MHCP mentors PigeonNo12 and SpaceGlitterUnicorn* demonstrate a real-world process for efficient teamwork. You'll learn to set up templates, manage pivots, and update assets so that changes propagate seamlessly for everyone.
 
 

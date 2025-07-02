@@ -1,4 +1,4 @@
-# Text Entry Tutorial
+# Text entry tutorial
 Author: Laex05
 
 In this tutorial, you'll explore efficient methods for importing and manipulating text in Meta Horizon Worlds using TypeScript. You'll learn the simplest ways to integrate large blocks of text, to format text using TypeScript code, and you'll even learn how to create text dynamically.

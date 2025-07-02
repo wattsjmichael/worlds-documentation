@@ -1,4 +1,4 @@
-# Custom Skydomes Guide - Cinematic Horizons
+# Custom skydomes guide - cinematic horizons
 *Take full creative control of your world’s atmosphere by moving beyond the stock skybox.* In this deep-dive workshop, *MHCP mentor MKE_TheGuru* shares the complete professional workflow for creating Custom Skydomes. Perfect for any skill level, this guide covers the entire process: you'll learn to source high-quality HDRIs, assemble the four essential maps *(Display, Radiance, Reflection, and Fog),* and troubleshoot common upload errors.
 
 <iframe width="890" height="500" src="https://www.youtube.com/embed/mMaqtL2StzY" title="Custom Skydomes Guide: Cinematic Horizons" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -19,6 +19,10 @@
   font-style: normal;
 }
 
+html {
+  scroll-padding-top: 2rem;
+}
+
 /* Default dark mode */
 body[data-theme="dark"] {
   background-color: #121212;
@@ -141,10 +145,13 @@ body[data-theme="dark"] .subheading {
 body[data-theme="dark"] .community {
   background-color: #1e1e1e;
 }
-[data-theme="dark"] .site-footer {
+body[data-theme="dark"] .site-footer {
   border-top: 1px solid #333;
   background-color: #1a1a1a;
-
+}
+body[data-theme="dark"] {
+  scrollbar-color: #555 #000000; /* thumb and track */
+  scrollbar-width: thin;
 }
 .search-icon {
   height: 1.5rem;
@@ -701,6 +708,9 @@ h3 a:hover {
     gap: 1rem;
     justify-content: flex-start;
   }
+  html {
+  scroll-padding-top: 4rem;
+}
 }
 
 
@@ -959,5 +969,7 @@ button:focus-visible {
   .carousel-item {
     min-width: 250px;
   }
-
+html {
+  scroll-padding-top: 4rem;
+}
 }

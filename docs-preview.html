@@ -328,7 +328,7 @@
       margin-top: 2rem;
     }
     .nav-buttons button {
-      padding: 1rem 4rem;
+      padding: 1rem 2rem;
       font-size: 1rem;
       cursor: pointer;
       background-color: white;
@@ -485,12 +485,13 @@ body[data-theme="dark"] #doc-content pre {
     transform: translateX(-100%);
     width: 80vw;
     max-width: 300px;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     z-index: 1001;
 }
 .sidebar.open {
     transform: translateX(0);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+
 }
   .sidebar-backdrop {
     display: none;
@@ -594,6 +595,83 @@ body[data-theme="dark"]  .mobile-title a {
     text-decoration: none !important;
     color: white;
     }
+/* === Footer === */
+.site-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+  background-color: #f1f1f1;
+  border-top: 1px solid #ccc;
+  padding: 1rem;
+}
+.site-footer p {
+  margin: 0 !important;
+  border: none !important;
+}
+.site-footer a {
+  color: #4DA3FF !important;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+  color: #0064E0 !important;
+}
+body[data-theme="dark"] .site-footer {
+  border-top: 1px solid #333;
+  background-color: #1a1a1a;
+}
+.site-footer .footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-footer .fab.fa-youtube {
+  font-size: 1.2rem;
+  color: #FF0000;
+  padding: 0.5rem;
+}
+.site-footer .fab.fa-youtube:hover {
+  color: #990000;
+}
+@media (max-width: 1100px) {
+.mobile-sidebar-divider {
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+.mobile-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-sidebar-nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.mobile-sidebar-nav a:hover {
+  background-color: #d9e9ff;
+  color: #0064E0;
+}
+
+body[data-theme="dark"] .mobile-sidebar-nav a {
+  color: #e0e0e0;
+}
+
+body[data-theme="dark"] .mobile-sidebar-nav a:hover {
+  background-color: #333;
+  color: #4DA3FF;
+}
+}
+
 
   </style>
 </head>
@@ -628,6 +706,15 @@ body[data-theme="dark"]  .mobile-title a {
     <h2>Overview</h2>
 <input type="text" id="search-input" placeholder="Search documents..." />
     <ul id="doc-list"></ul>
+    <hr class="mobile-sidebar-divider mobile-only" />
+<div class="mobile-sidebar-nav mobile-only">
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FGet%20Started.md">Creator Docs</a>
+  <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
+  <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
+  <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
+  <a href="https://mhcpcreators.github.io/worlds-documentation/docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FContribute%20to%20Creator%20Documentation.md">Contribute</a>
+</div>
+
   </aside>
 
   <main class="content">
@@ -640,14 +727,24 @@ body[data-theme="dark"]  .mobile-title a {
     </div>
   </main>
 
-
-  
   <aside class="right-sidebar">
     <h3>On this page</h3>
     <ul id="doc-toc"></ul>
   </aside>
   </div>
 
+  <!-- Footer -->
+  <footer class="site-footer">
+  <div class="footer-links">
+    <p>Built by MHCP Creators • 
+      <a href="https://github.com/MHCPCreators/worlds-documentation">GitHub</a> • 
+      <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a> •
+    </p>
+    <a href="https://www.youtube.com/@creatorprograms" target="_blank" aria-label="Creator Programs YouTube Channel">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  </footer>
 
   <script>
     const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main";

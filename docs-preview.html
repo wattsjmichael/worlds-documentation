@@ -126,6 +126,7 @@
       background-repeat: no-repeat;
       background-position: 0.6rem center;
       background-size: 1rem;
+      
     }
     .sidebar ul {
       list-style: none;
@@ -161,14 +162,14 @@
   transition: transform 0.2s ease;
   margin-left: 0.5rem;
   vertical-align: middle;
-  transform: rotate(270deg);
-  scale: 150%;
-
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
 }
 
 .dropdown.open + .chevron-icon,
 .folder-toggle.open .chevron-icon {
-  transform: rotate(360deg);
+  transform: rotate(90deg);
 }
 
     .dropdown {
@@ -547,7 +548,7 @@ body[data-theme="dark"] #doc-content pre {
     padding-left: 0;
   }
   .right-sidebar {
-    display: none;
+    display: none !important;
   }
   .sidebar-close {
     display: block;
@@ -567,6 +568,7 @@ body[data-theme="dark"] .hamburger {
   color: white;
 }
 }
+
 
   </style>
 </head>
@@ -610,11 +612,14 @@ body[data-theme="dark"] .hamburger {
     </div>
   </main>
 
+
+  
   <aside class="right-sidebar">
     <h3>On this page</h3>
     <ul id="doc-toc"></ul>
   </aside>
   </div>
+
 
   <script>
     const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main";
@@ -645,8 +650,11 @@ body[data-theme="dark"] .hamburger {
 
 function createFolder(folderName, filesOrSubfolders, parentPath = "docs", level = 0) {
   const container = document.createElement("li");
-  const toggle = document.createElement("span");
-  toggle.className = "folder-toggle";
+  const toggle = document.createElement("div");
+  toggle.classList.add("folder-toggle");
+
+toggle.setAttribute("role", "button");
+toggle.setAttribute("tabindex", "0");
 
   const subList = document.createElement("ul");
   subList.className = "dropdown";
@@ -659,8 +667,8 @@ function createFolder(folderName, filesOrSubfolders, parentPath = "docs", level 
 toggle.innerHTML = `
   <span class="folder-name">${folderDisplayName}</span>
   ${isExpandable ? `
-    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="6 9 12 15 18 9"></polyline>
+    <svg class="chevron-icon" width="12" height="12" viewBox="0 0 320 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/>
     </svg>` : ''}
 `;
 
@@ -729,9 +737,12 @@ function loadDocByPath(path) {
 
   // If PDF, directly embed in iframe without fetch
 if (path.endsWith(".pdf")) {
-  const pdfUrl = `https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main/${encodeURIComponent(path)}`;
+  const pdfUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).join("/");
+
+  const filename = path.split("/").pop().replace(/[-_]/g, " ").replace(/\.pdf$/i, "");
   content.innerHTML = `
-    <p>PDF document: <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open PDF in new tab</a></p>
+    <h2>${filename}</h2>
+    <p><a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Open PDF in new tab</a></p>
   `;
   return;
 }
@@ -765,6 +776,13 @@ const fullUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).
       autoExpandFolders();
 
       history.replaceState(null, "", `#${encodeURIComponent(path)}`);
+      
+     const contentContainer = document.querySelector("main.content");
+      if (contentContainer) {
+      contentContainer.scrollTop = 0;
+      }
+ 
+
     })
     .catch(err => {
       content.innerHTML = `<p>Error loading document: ${err.message}</p>`;
@@ -831,7 +849,8 @@ function autoExpandFolders() {
       const dropdown = toggle.nextElementSibling;
       dropdown.classList.add("open");
       const icon = toggle.querySelector(".chevron-icon");
-      if (icon) icon.style.transform = "rotate(360deg)";      
+      toggle.classList.add("open");
+
       current = dropdown;
     }
   });
@@ -852,57 +871,39 @@ function autoExpandFolders() {
   });
 
 searchInput.addEventListener("input", () => {
-  const query = searchInput.value.toLowerCase();
-  
-  if (!query) {
-    // If search is cleared, collapse all folders
-    document.querySelectorAll("#doc-list > li").forEach(folderLi => {
-      const folderToggle = folderLi.querySelector(".folder-toggle");
-      const folderDropdown = folderLi.querySelector(".dropdown");
-      if (folderDropdown) {
-        folderDropdown.classList.remove("open");
-      }
-      if (folderToggle) {
-        const icon = folderToggle.querySelector(".icon");
-        if (icon) icon.textContent = "▶";
-      }
-      folderLi.style.display = "block"; // show all folders
-      // Also show all file links inside
-      folderDropdown?.querySelectorAll("li").forEach(itemLi => {
-        itemLi.style.display = "block";
-      });
-    });
-    return;
-  }
+  const query = searchInput.value.trim().toLowerCase();
 
   document.querySelectorAll("#doc-list > li").forEach(folderLi => {
-    let folderMatches = false;
-
-    const folderToggle = folderLi.querySelector(".folder-toggle");
     const folderDropdown = folderLi.querySelector(".dropdown");
+    const folderToggle = folderLi.querySelector(".folder-toggle");
+    const folderNameEl = folderToggle?.querySelector(".folder-name");
+    const folderName = folderNameEl?.textContent.toLowerCase() || "";
+    let folderHasMatch = false;
 
-    if (!folderDropdown) return;
+    // Match against folder name itself
+    const folderNameMatches = folderName.includes(query);
 
-    folderDropdown.querySelectorAll("li").forEach(itemLi => {
-      const link = itemLi.querySelector("a");
-      const match = link && link.textContent.toLowerCase().includes(query);
-      itemLi.style.display = match ? "block" : "none";
-      if (match) folderMatches = true;
+    const fileLinks = folderLi.querySelectorAll("a");
+    fileLinks.forEach(link => {
+      const title = link.textContent.toLowerCase();
+      const match = title.includes(query);
+
+      const li = link.closest("li");
+      if (li) li.style.display = match || folderNameMatches || !query ? "block" : "none";
+
+      if (match) folderHasMatch = true;
     });
 
-    // Show/hide the whole folder
-    folderLi.style.display = folderMatches ? "block" : "none";
+    const shouldShowFolder = folderHasMatch || folderNameMatches || !query;
+    folderLi.style.display = shouldShowFolder ? "block" : "none";
 
-    // Expand or collapse the folder
-    if (folderMatches) {
-      folderDropdown.classList.add("open");
-      if (folderToggle) folderToggle.querySelector(".icon").textContent = "▼";
-    } else {
-      folderDropdown.classList.remove("open");
-      if (folderToggle) folderToggle.querySelector(".icon").textContent = "▶";
+    if (folderDropdown) {
+      folderDropdown.classList.toggle("open", shouldShowFolder && query);
+      folderToggle?.classList.toggle("open", shouldShowFolder && query);
     }
   });
 });
+
 
   buildSidebar();
 

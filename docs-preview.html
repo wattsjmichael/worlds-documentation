@@ -289,7 +289,7 @@
   width: 100%;
   max-width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;s
+  aspect-ratio: 16 / 9;
   display: block;
   margin: 1rem 0;
 }
@@ -339,7 +339,10 @@
   color: #f3f3f3;
   border-bottom: 1px solid #333;
 }
-
+body[data-theme="dark"] {
+  scrollbar-color: #555 #000000; /* thumb and track */
+  scrollbar-width: thin;
+}
 body[data-theme="dark"] .nav-links a {
   color: #f3f3f3;
 }
@@ -577,11 +580,11 @@ body[data-theme="dark"] .hamburger {
     <div class="logo"><a href="https://mhcpcreators.github.io/worlds-documentation/" id="logo-link">MHCP Creator Made Docs</a></div>
     <div class="mobile-title mobile-only">Creator Docs</div>
     <nav class="nav-links">
-      <a href="docs-preview.html#docs/manuals-and-cheat-sheets/Get%20Started.md">Creator Docs</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FGet%20Started.md">Creator Docs</a>
       <a href="https://developers.meta.com/horizon-worlds/learn">Meta Docs</a>
       <a href="https://github.com/MHCPCreators/horizonCreatorManual">Creator Manual</a>
       <a href="https://communityforums.atmeta.com/t5/Creator-Forum/ct-p/Meta_Horizon_Creator_Forums">Forums</a>
-      <a href="docs-preview.html#docs/manuals-and-cheat-sheets/Contribute%20to%20Creator%20Documentation.md">Contribute</a>
+      <a href="https://mhcpcreators.github.io/worlds-documentation/docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FContribute%20to%20Creator%20Documentation.md">Contribute</a>
     </nav>
     </div>
           <div class="right-controls">
@@ -705,7 +708,15 @@ toggle.innerHTML = `
     for (const [folder, value] of Object.entries(docs)) {
       docList.appendChild(createFolder(folder, value));
     }
+
+      const hashPath = decodeURIComponent(location.hash.slice(1));
+  if (hashPath && flatDocs.some(doc => doc.path === hashPath)) {
+    loadDocByPath(hashPath);
+  } else {
+    loadDocByPath(flatDocs[0].path);
+   } 
   }
+
 
 function loadDocByPath(path) {
   const index = flatDocs.findIndex(doc => doc.path === path);
@@ -728,7 +739,7 @@ if (path.endsWith(".pdf")) {
 
 
   // For markdown and other types, fetch and parse
-  const fullUrl = `${GITHUB_RAW_BASE}/${encodeURIComponent(path)}`;
+const fullUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).join("/");
 
   fetch(fullUrl)
     .then(res => {
@@ -895,12 +906,6 @@ searchInput.addEventListener("input", () => {
 
   buildSidebar();
 
-  const hashPath = decodeURIComponent(location.hash.slice(1));
-  if (hashPath && flatDocs.some(doc => doc.path === hashPath)) {
-    loadDocByPath(hashPath);
-  } else {
-    loadDocByPath(flatDocs[0].path);
-  }
 
   // Apply default dark theme if no preference is saved
   if (!localStorage.getItem("theme")) {
@@ -955,6 +960,52 @@ document.getElementById("sidebar-close").addEventListener("click", () => {
   backdrop.classList.remove("show");
   body.classList.remove("sidebar-open");
 });
+
+// === Logo Click Always Reloads if URL and Hash Are the Same ===
+document.addEventListener("DOMContentLoaded", () => {
+  const logoLink = document.querySelector(".logo a");
+  if (!logoLink) return;
+
+  logoLink.addEventListener("click", (e) => {
+    const targetHref = logoLink.getAttribute("href");
+    const fullTargetURL = new URL(targetHref, window.location.origin).href;
+
+    // Compare the full target URL to current location
+    if (window.location.href === fullTargetURL) {
+      e.preventDefault();
+      location.reload();
+    }
+    // Otherwise let browser handle normal navigation
+  });
+});
+
+window.addEventListener("hashchange", () => {
+  const newPath = decodeURIComponent(location.hash.slice(1));
+  if (flatDocs.some(doc => doc.path === newPath)) {
+    loadDocByPath(newPath);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinksToReload = [
+    "docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FGet%20Started.md",
+    "docs-preview.html#docs%2Fmanuals-and-cheat-sheets%2FContribute%20to%20Creator%20Documentation.md"
+  ];
+
+  document.querySelectorAll("nav.nav-links a").forEach(link => {
+    link.addEventListener("click", (e) => {
+      const currentUrl = window.location.href;
+      const linkHref = link.href;
+
+      // If clicked link's href is exactly the current page URL, reload page
+      if (linkHref === currentUrl && navLinksToReload.some(nr => linkHref.includes(nr))) {
+        e.preventDefault();
+        window.location.reload();
+      }
+    });
+  });
+});
+
 
 </script>
 </body>

@@ -244,7 +244,8 @@
       border-left: 1px solid #ddd;
       position: sticky;
       top: 0;
-      height: 100vh;
+      max-height: 100vh;
+
     }
     .right-controls {
   display: flex;
@@ -260,7 +261,7 @@
     .right-sidebar ul {
       list-style: none;
       padding: 0;
-      font-size: 0.9rem;
+      font-size: 0.875rem;
     }
     .right-sidebar li {
       margin: 0.25rem 0;
@@ -268,7 +269,7 @@
     .right-sidebar a {
       text-decoration: none;
       color: black;
-      font-weight: 600;
+      font-weight: 300;
       padding: 0.25rem 0.5rem;
       display: block;
       border-radius: 4px;
@@ -295,8 +296,9 @@
     #doc-content {
     flex: 1;
     max-width: 100%;
-
     }
+
+
     #doc-content iframe {
   width: 100%;
   max-width: 100%;
@@ -335,6 +337,7 @@
       color: black;
       border: 1px solid black;
       border-radius: 4px;
+      margin-bottom: 2rem;
     }
     .nav-buttons button:disabled {
       background-color: #ccc;
@@ -685,7 +688,7 @@ body[data-theme="dark"] .mobile-sidebar-nav a:hover {
 }
 
 main.content {
-  min-height: 100vh;
+  min-height: 0;
   display: flex;
   flex-direction: column;
 }
@@ -917,6 +920,7 @@ const fullUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).
       updateActiveLink();
       autoExpandFolders();
 
+
       history.replaceState(null, "", `#${encodeURIComponent(path)}`);
       
      const contentContainer = document.querySelector("main.content");
@@ -957,13 +961,45 @@ function loadDoc(index) {
       const a = document.createElement("a");
       a.href = `#${header.id}`;
       a.textContent = header.textContent;
-      a.addEventListener("click", (e) => {
-        document.querySelectorAll('#doc-toc a').forEach(el => el.classList.remove("active"));
-        e.target.classList.add("active");
-      });
+
+
+
+a.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  // Get the target heading element
+  const targetId = a.getAttribute("href").substring(1);
+  const targetEl = document.getElementById(targetId);
+  const scrollContainer = document.querySelector("main.content");
+
+  if (targetEl && scrollContainer) {
+    const scrollOffset = 80; // Adjust for header height if needed
+    const targetScrollTop = targetEl.offsetTop - scrollContainer.offsetTop - scrollOffset;
+
+    scrollContainer.scrollTo({
+      top: targetScrollTop,
+      behavior: "smooth"
+    });
+
+    // Update the URL hash without jumping
+    history.replaceState(null, "", `#${targetId}`);
+
+    // Highlight active link
+    document.querySelectorAll('#doc-toc a').forEach(el => el.classList.remove("active"));
+    a.classList.add("active");
+
+      // ✅ Scroll TOC item into view within sidebar
+    a.scrollIntoView({ block: "nearest", behavior: "smooth" });
+
+  }
+});
+
+
+
       li.appendChild(a);
       tocList.appendChild(li);
     });
+    
   }
 
   function updateButtons() {
@@ -1148,6 +1184,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 </script>
 </body>
 </html>

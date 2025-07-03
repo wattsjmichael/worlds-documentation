@@ -576,7 +576,7 @@ body {
   border: 1px solid transparent;
 }
 .card ul {
-  padding-top: 0.5rem;
+  padding-top: 0.25rem;
   padding-left: 2rem;
 }
 .hidden-card {

@@ -945,7 +945,6 @@ button:focus-visible {
 .site-footer a:hover {
   text-decoration: underline;
 }
-
 /* === Desktop Breakpoint === */
 @media (min-width: 1024px) {
   
@@ -959,8 +958,6 @@ button:focus-visible {
     gap: 6rem;
     padding: 4rem 1rem;
   }
-
-  
   .get-started-text {
     text-align: left;
     max-width: 40%;
@@ -969,13 +966,10 @@ button:focus-visible {
   .get-started-grid {
     grid-template-columns: repeat(2, minmax(250px, 1fr));
   }
-
-
   .main-heading {
     font-size: 2.5rem;
     padding-top: 2rem;
   }
-
   .carousel-item {
     min-width: 250px;
   }

@@ -3,4 +3,4 @@ Prepare your World for a successful launch with this deep dive into the official
 
 <iframe width="890" height="501" src="https://www.youtube.com/embed/rwuS31e3qOw" title="Publishing Checklist for Horizon Worlds" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-➡️ [**The World Publishing Guide & Checklist:**](https://mhcpcreators.github.io/worlds-documentation/docs.html#docs%2Fmanuals-and-cheat-sheets%2FPublishing%20Checklist%20for%20Horizon%20Worlds.md)
+➡️ [**The World Publishing Guide & Checklist:**](https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main/docs/manuals-and-cheat-sheets/MHCP_Publishing_Checklist.pdf)

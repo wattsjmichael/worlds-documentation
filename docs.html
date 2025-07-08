@@ -118,7 +118,6 @@
       overflow-y: auto;
       border-right: 1px solid #ddd;
       padding-left: 2rem;
-      text-transform: capitalize;
     }
     .sidebar h2 {
       font-size: 1.5rem;
@@ -165,6 +164,9 @@
       background-color: white;
       color: #0064E0;
       font-weight: 600;
+    }
+    .sidebar a::first-letter{
+      text-transform: capitalize;
     }
     .sidebar-close {
   display: none;
@@ -235,6 +237,9 @@
     }
     .folder-name.indent-level-2 { 
       padding-left: 2.4rem; 
+    }
+    span.folder-name::first-letter{
+      text-transform: capitalize;
     }
     .right-sidebar {
       width: 220px;

@@ -8,5 +8,3 @@ https://developers.meta.com/horizon-worlds/learn/documentation/get-started/creat
 
 ➡️ **Build Your First World Creator Challenge**
 https://communityforums.atmeta.com/t5/Events-Competitions/Weekly-Creator-Challenge-1/m-p/1294952/highlight/true#M3
-v2
-!!! warning Destroyed instances are permanently gone and so is their data. When an instance is destroyed there is no way for players to get back that specific instance. Any data they had "acquired" in that instance is permanently lost. You can use Horizon persistence to track data across instances and visits.

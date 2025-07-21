@@ -136,7 +136,7 @@ Use the same indentation level amounts in your code. Do not indent some levels b
 
 **✅ Do this:**
 
-```ts
+```typescript
 function myFunction() {
   if (someCondition) {
     // do some things
@@ -151,7 +151,7 @@ function myFunction() {
 
 **🚫 Not this:**
 
-```ts
+```typescript
 function myFunction() {
  if (someCondition) {
     // do some things
@@ -169,7 +169,7 @@ for (let i = 0; i < 10; i++) {
 When you have a sub-block of code, such as with an `if`, `else`, `for`, or `while` block, always use curly braces to enclose it. Critical errors can be prevented by always enclosing blocks in curly braces rather than leaving them hanging naked where someone might erroneously add a line that executes when unexpected.
 
 ✅ Do this:
-```ts
+```typescript
 if (someBoolean) {
  return;
 } 
@@ -185,7 +185,7 @@ for (let i = 0; i < 10; i++) {
 
 🚫 Not this:
 
-```ts
+```typescript
 if (someBoolean) 
  return;
 
@@ -202,7 +202,7 @@ It is difficult to see the end of one method and the start of another if they ru
 
 ✅ Do this:
 
-```ts
+```typescript
 class MyClass {
 
   method1() {
@@ -217,7 +217,7 @@ class MyClass {
 
 🚫 Not this:
 
-```ts
+```typescript
 class MyClass {
   method1() {
     // do stuff
@@ -232,14 +232,14 @@ class MyClass {
 
 ✅ Do this:
 
-```ts
+```typescript
 const string = "A very long string" +
     "crossing multiple lines."
 ```
 
 🚫 Not this:
 
-```ts
+```typescript
 const string = "A very long string\
     crossing multiple lines."
 ```
@@ -252,13 +252,13 @@ If you don’t know the type of something, use `unknown`. Use of the `any` keywo
 
 ✅ Do this:
 
-```ts
+```typescript
 const somethingUnknown: unknown
 ```
 
 🚫 Not this:
 
-```ts
+```typescript
 const somethingUnknown: any
 ```
 
@@ -268,7 +268,7 @@ Use `let` or `const` for all variable declarations. The use of `var` has unexpec
 
 ✅ Do this:
 
-```ts
+```typescript
 let value: number = 0
 if (somethingTrue) {
   value = 2
@@ -278,7 +278,7 @@ console.log(value)
 
 🚫 Not this::
 
-```ts
+```typescript
 if (somethingTrue)
   var value: number = 2
 }
@@ -291,7 +291,7 @@ Likewise, the `as` keyword is you telling typescript that the type is different 
 
 Assuming these definitions:
 
-```ts
+```typescript
 class SomeType {
 }
 
@@ -304,7 +304,7 @@ class SubType extends SomeType {
 
 ✅ Do this:
 
-```ts
+```typescript
 function doIfSubType(thing: SomeType) {
   if (foo instanceof SubType) {
     foo.doThing();
@@ -314,7 +314,7 @@ function doIfSubType(thing: SomeType) {
 
 🚫 Not this:
 
-```ts
+```typescript
 function doIfSubType(thing: SomeType) {
   (thing as SubType).doThing();
 }
@@ -322,7 +322,7 @@ function doIfSubType(thing: SomeType) {
 
 There are a few rare cases where using `as` is important, such as when you mark an explicit structure `as const` to indicate the values cannot be changed.
 
-```ts
+```typescript
 const Events = {
    myEvent1: new LocalEvent('event1'),
    myEvent2: new LocalEvent('event2'),
@@ -339,7 +339,7 @@ Preferably, rewrite your code using an if statement to check for undefined or `n
 
 ✅ Do this:
 
-```ts
+```typescript
 if (thing !== undefined && thing !== null) { // explicit check
   thing.callFunction();
 }
@@ -353,7 +353,7 @@ thing?.callFunction(); // optional chaining
 
 🚫 Not this:
 
-```ts
+```typescript
 thing!.callFunction();
 ```
 
@@ -361,7 +361,7 @@ Unfortunately, the `props` on Components may be undefined if nothing was wired u
 
 Example:
 
-```ts
+```typescript
 class MyComponent extends Component<typeof MyComponent> {
   static propsDefinition = {
     prop1: { type: PropTypes.Entity },
@@ -390,21 +390,21 @@ These capitalized versions of `number`, `boolean`, `string`, and `object` are wr
 
 ✅ Do this:
 
-```ts
+```typescript
 const someNum: number = 3
 function doThing(someString: string): boolean
 ```
 
 🚫 Not this::
 
-```ts
+```typescript
 const someNum: Number = 3
 function doThing(someString: String): Boolean
 ```
 
 These classes _do_ have a lot of useful functions for manipulating `number`s, `strings`s, etc. It is ok to use those functions on the classes.
 
-```ts
+```typescript
 // ok
 if (Number.isInteger(someNumber)) {
   // do integer things with someNumber
@@ -420,14 +420,14 @@ Never use the `==` and `!=` operators to compare values. They will sometimes do 
 
 ✅ Do this:
 
-```ts
+```typescript
 if (someNumber === 3 && someString !== "foo") {
   // do stuff
 }
 ```
 
 🚫 Not this:
-```ts
+```typescript
 if (someNumber == 3 && someString != "foo") {
   // do stuff
 }
@@ -438,7 +438,7 @@ if (someNumber == 3 && someString != "foo") {
 Never assign a variable value using `=` in a conditional statement. It leaves people wondering whether you really meant to use an equality check rather than assignment. Also, a side effect of assigning a value within a conditional statement is unexpected and makes your code difficult to understand.
 
 ✅ Do this:
-```ts
+```typescript
 let storedValue: boolean;
 function setAndCheckValue(value: boolean) {
   storedValue = value;
@@ -450,7 +450,7 @@ function setAndCheckValue(value: boolean) {
 ```
 
 🚫 Not this::
-```ts
+```typescript
 let storedValue: boolean;
 function setAndCheckValue(value: boolean) {
   if (storedValue = value) {
@@ -465,7 +465,7 @@ This is similar to using `===` and `!==`, as the automatic type conversion of `|
 
 ✅ Do this:
 
-```ts
+```typescript
 function defaultIfUnset(value?: number): number {
   return value ?? 5;
 }
@@ -473,7 +473,7 @@ function defaultIfUnset(value?: number): number {
 
 🚫 Not this:
 
-```ts
+```typescript
 function defaultIfUnset(value?: number): number {
   return value || 5;
 }
@@ -484,7 +484,7 @@ function defaultIfUnset(value?: number): number {
 The `for…in` construct loops over the keys of an array, which is rarely what you want. Instead, use `for…of`, or `forEach()`
 
 ✅ Do this:
-```ts
+```typescript
 function printNumberMembers(values: number[]) {
   for (const value of values) {
     console.log(value);
@@ -500,7 +500,7 @@ function printStringMembers(values: string[]) {
 
 🚫 Not this:
 
-```ts
+```typescript
 function printBooleanMembers(values: boolean[]) {
   for (const index in values) {
     console.log(values[index]);
@@ -514,7 +514,7 @@ Boolean values are already `true` or `false`, so it makes no sense to compare th
 
 ✅ Do this:
 
-```ts
+```typescript
 if (myBoolean1 && !myBoolean2) {
   // do stuff
 }
@@ -522,7 +522,7 @@ if (myBoolean1 && !myBoolean2) {
 
 🚫 Not this:
 
-```ts
+```typescript
 if (myBoolean1 === true && myBoolean2 === false) {
 }
 ```
@@ -533,7 +533,7 @@ If you have a `switch`/`case` statement, it is a common error to forget to write
 
 ✅ Do this:
 
-```ts
+```typescript
 switch (someValue) {
   case 1:
     doThing1();
@@ -554,7 +554,7 @@ switch (someValue) {
 
 🚫 Not this:
 
-```ts
+```typescript
 switch (someValue) {
   case 1:
     doThing1();
@@ -580,7 +580,7 @@ The last case in a switch statement should always be `default`, even if empty. I
 
 ✅ Do this:
 
-```ts
+```typescript
 switch (someValue) {
   case 1:
     doThing1();
@@ -596,7 +596,7 @@ switch (someValue) {
 
 🚫 Not this:
 
-```ts
+```typescript
 switch (someValue) {
   case 1:
     doThing1();
@@ -613,7 +613,7 @@ The `{}` type is a bit like `any`, but for `object`s. When you don’t know the 
 
 ✅ Do this:
 
-```ts
+```typescript
 let someUnknownThing: unknown;
 let someRecordThing: Record<string, Type>;
 let someObjectThing: object;
@@ -621,7 +621,7 @@ let someObjectThing: object;
 
 🚫 Not this:
 
-```ts
+```typescript
 let someThing: {}
 ```
 
@@ -631,14 +631,14 @@ The constructor arguments for the `Array` class are not terribly consistent and 
 
 ✅ Do this:
 
-```ts
+```typescript
 const myPrefilledArray = Array.from<number>({ length: 5 }).fill(3)
 const myArray = [5, 6, 7]
 ```
 
 🚫 Not this:
 
-```ts
+```typescript
 const myArray = new Array(true) // 1 element boolean[] array containing [ "true" ]
 const myArray = new Array(5) // 5 element empty array of any[] type
 const myArray = new Array(5, 6, 7) // 3 element number[] array containing [ 5, 6, 7]
@@ -657,14 +657,14 @@ Do not use unicode characters in identifiers, or other special characters (such 
 Due to a design flaw in the `LocalEvent` and `NetworkEvent` types, the typescript compiler cannot always correctly type check the parameters for functions bound to event handlers if you use `bind()`. Instead, use an arrow function for registering the event. You can either explicitly pass the data object payload to a handler function, or destructure the data object so that the handler function signature is more convenient.
 
 Given this definition:
-```ts
+```typescript
 const myEvent1 = new LocalEvent<{thing: Entity, name: string}>('myEvent1');
 const myEvent2 = new NetworkEvent<{ player: Player }>('myEvent2');
 ```
 
 ✅ Do this:
 
-```ts
+```typescript
 override preStart() {
   this.connectLocalEvent(this.entity, myEvent1, data => this.onEvent1(data));
   this.connectNetworkEvent(this.entity, myEvent2, ({player}) => this.onEvent2(player));
@@ -683,7 +683,7 @@ onEvent2(player: Player) {
 
 🚫 Not this:
 
-```ts
+```typescript
 override preStart() {
   this.connectLocalEvent(this.entity, myEvent1, this.onEvent1.bind(this));
   this.connectLocalEvent(this.entity, myEvent2, this.onEvent2.bind(this));
@@ -708,7 +708,7 @@ To avoid race conditions, make sure you run your `connect*Event()` code in `preS
 
 ✅ Do this:
 
-```ts
+```typescript
 override preStart() {
   this.connectLocalEvent(this.entity, someEvent, () => console.log('event received'));
 }
@@ -718,7 +718,7 @@ override start() {
 ```
 
 🚫 Not this:
-```ts
+```typescript
 override preStart() {
 }
 
@@ -733,7 +733,7 @@ Similar to the above, never call `send*Event()` in `preStart()`, as some Compone
 
 ✅ Do this:
 
-```ts
+```typescript
 override preStart() {
 }
 
@@ -744,7 +744,7 @@ override start() {
 
 🚫 Not this:
 
-```ts
+```typescript
 override preStart() {
   this.sendLocalEvent(this.props.target, someEvent, {});
 }
@@ -761,7 +761,7 @@ Do not re-declare the same `CodeBlockEvents`, `LocalEvents`, or `NetworkEvents` 
 One common pattern is to have a single Events.ts module and dump _all_ the events for the entire world in there as exported objects.
 
 Events.ts
-```ts
+```typescript
 import { LocalEvent, NetworkEvent, CodeBlockEvent } from "horizon/core";
 
 export const MyEvents = {
@@ -772,7 +772,7 @@ export const MyEvents = {
 ```
 
 MyComponent.ts
-```ts
+```typescript
 import { Component } from "horizon/core";
 import { MyEvents } from "Events";
 
@@ -806,12 +806,12 @@ Note that NetworkEvents arrive, at earliest, in the next frame, while LocalEvent
 When using asset ids to construct Asset objects in code, always treat them as strings, never as numbers. The id space of assets is 2^64, but the maximum integer for a number is 2^56, so there are some asset ids that can’t be represented as numbers.
 
 ✅ Do this:
-```ts
+```typescript
 const myAsset = new Asset(BigInt("123456678901234"))
 ```
 
 🚫 Not this:
-```ts
+```typescript
 const myAsset = new Asset(Bigint(12345678901234))
 ```
 
@@ -831,7 +831,7 @@ Insert a space after all keywords (`if`, `while`, `for`). Insert a space after c
 
 ✅ Do this:
 
-```ts
+```typescript
 for (let i = 0; i < 10; i++) {
    callFunction(arg1, i / 10 + 20);
 }
@@ -845,7 +845,7 @@ while (notDone()) {
 
 🚫 Not this:
 
-```ts
+```typescript
 for(let i=0;i<10;++){
   callFunction(arg1,i/10+20)
 }
@@ -863,7 +863,7 @@ Always put sub-blocks (such as with `if`, `else`, `for`, etc) on the next line. 
 
 ✅ Do this:
 
-```ts
+```typescript
 if (condition) {
   doAction();
 }
@@ -871,7 +871,7 @@ if (condition) {
 
 🚫 Not this::
 
-```ts
+```typescript
 if (condition) doAction();
 ```
 
@@ -899,7 +899,7 @@ Rather than writing boilerplate code to plumb through an assignment from a const
 
 ✅ Do this:
 
-```ts
+```typescript
 class Foo {
   constructor(private bar: string, readonly protected foo: number, public naf: boolean)
 }
@@ -907,7 +907,7 @@ class Foo {
 
 🚫 Not this:
 
-```ts
+```typescript
 class Foo {
   private bar: string;
   readonly protected foo: number;
@@ -939,14 +939,14 @@ When writing non-interpolated string values, use the appropriate quotation marks
 
 ✅ Do this:
 
-```ts
+```typescript
 const str1 = 'This string "has quotes" and stuff'
 const str2 = "This string 'has apostrophes' and stuff"
 ```
 
 🚫 Not this:
 
-```ts
+```typescript
 const str1 = "This string \"has quotes\" and stuff"
 const str2 = 'This string \'has apostrophes\' and stuff'
 ```
@@ -957,7 +957,7 @@ Don’t use backticks for quoting strings unless you are actually interpolating 
 
 ✅ Do this:
 
-```ts
+```typescript
 const num = 3
 const str1 = `This string interpolates ${num} a number`
 const str2 = 'This string does not'
@@ -965,7 +965,7 @@ const str2 = 'This string does not'
 
 🚫 Not this:
 
-```ts
+```typescript
 const str3 = `This string has no interpolation`
 ```
 
@@ -975,7 +975,7 @@ If you need to return two values from a function, return a tuple `[a, b]` rather
 
 ✅ Do this:
 
-```ts
+```typescript
 function splitInHalf(input: string): [string, string] {
   ... code to split string into x and y
   return [x, y]
@@ -986,7 +986,7 @@ const [left, right] = splitInHalf('my string');
 
 🚫 Not this:
 
-```ts
+```typescript
 type Pair {
   first: string;
   second: string;
@@ -1008,13 +1008,13 @@ Just use arrow functions.
 
 ✅ Do this:
 
-```ts
+```typescript
 const myFunction = (arg1: bool) => { ... stuff ... }
 ```
 
 🚫 Not this:
 
-```ts
+```typescript
 const myFunction = function(arg1: bool) { ... stuff ...}
 ```
 
@@ -1024,7 +1024,7 @@ Instead, just write a method on the class.
 
 ✅ Do this:
 
-```ts
+```typescript
 class MyClass {
   method(arg1: boolean) {
     ... body ...
@@ -1034,7 +1034,7 @@ class MyClass {
 
 🚫 Not this:
 
-```ts
+```typescript
 class MyClass {
   method = (arg1: boolean) => {
     ... body ...
@@ -1048,7 +1048,7 @@ If you are initializing a variable to a number of boolean or specific class or w
 
 ✅ Do this:
 
-```ts
+```typescript
 const foo = 3
 function foo() {
   return true;
@@ -1057,7 +1057,7 @@ function foo() {
 
 🚫 Not this:
 
-```ts
+```typescript
 const foo: number = 3
 function foo(): boolean {
   return true;
@@ -1070,7 +1070,7 @@ It is easier to read the `T[]` form, so prefer that, even for non readonly multi
 
 ✅ Do this:
 
-```ts
+```typescript
 let myStringArray: string[];
 let myMatrix: number[][];
 let myReadonlyMatrix: ReadonlyArray<number[]>;
@@ -1079,7 +1079,7 @@ let myArrayOfStringOrNumber: Array<string | number>;
 
 🚫 Not this:
 
-```ts
+```typescript
 let myStringArray: Array<string>;
 let myMatrix: Array<Array<number>>;
 let myReadonlyMatrix: readonly number[][];
@@ -1092,7 +1092,7 @@ These functional programming constructs are easier to understand and less prone 
 
 ✅ Do this:
 
-```ts
+```typescript
 myArray.forEach(entry => {
   doSomething(entry)
 }
@@ -1106,7 +1106,7 @@ const sum = myArray.reduce((acc, value) => acc + value, 0)
 
 🚫 Not this:
 
-```ts
+```typescript
 for (let i = 0; i < myArray.length; i++) {
   doSomething(myArray[i])
 }
@@ -1145,7 +1145,7 @@ When combining a number of arrays together into a new array, use the `...` opera
 
 ✅ Do this:
 
-```ts
+```typescript
 View({
   style: {
     ...defaultViewStyle,
@@ -1157,7 +1157,7 @@ View({
 
 🚫 Not this:
 
-```ts
+```typescript
 View({
   style: defaultViewStyle.concat({
     margin: 10, 
@@ -1181,7 +1181,7 @@ Rather than doing `import * as hz from 'horizon/core'`, import specific types/cl
 Classes and type declarations should use PascalCase (each word capitalized). Variable and function names should use camelCase (first word lower case, remaining words capitalized). Global constants should use CAPITALIZED_SNAKE_CASE (each word capitalized, separated by an underscore). Do not use snake_case mixed with PascalCase, or PascalCase for variables/functions. It should be immediately identifiable whether something is a type or a variable/function based on the naming.
 
 Examples:
-```ts
+```typescript
 const DEFAULT_POINTS = 3;
 
 type UserData = {
@@ -1217,7 +1217,7 @@ Having a standardized organization for where different sorts of things are in a 
 
 Having a standardized organization for where different things are in your class will make orienting people to your code easier when they first encounter it. Put static variables first (e.g. propsDefinition), followed by any static method. Then put instance variables, and finally put instance methods.
 
-```ts
+```typescript
 import { Component, PropTypes } from "horizon/core";
 
 type MyData = {
@@ -1268,7 +1268,7 @@ When you use the TSDoc comment format, the VSCode editor will be able to pick th
 
 Comments on functions and methods should be of the form:
 
-```ts
+```typescript
 /**
  * Description of what myFunction does
  * @param paramName parameter purpose
@@ -1280,7 +1280,7 @@ function myFunction(paramName: type): returnValue {
 
 On variables or classes, it should just be a block of descriptive text
 
-```ts
+```typescript
 /**
  * Information about myVariable
  */
@@ -1305,7 +1305,7 @@ A line comment starts with two slashes // and continues to the end of the curren
 
 ✅ Do this:
 
-```ts
+```typescript
 class MyClass {
     
   someMethod() {
@@ -1325,7 +1325,7 @@ class MyClass {
 
 🚫 Not this:
 
-```ts
+```typescript
 class MyClass {
     
   someMethod() {
@@ -1386,7 +1386,7 @@ If there are particular files that you need Prettier to ignore, you can add them
 
 If you have precious but non-standard formatting somewhere in your file that you want to preserve, you can precede that block of code with a comment of the following form:
 
-```ts
+```typescript
 // prettier-ignore
 ```
 
@@ -1432,13 +1432,13 @@ Download the latest Node.js LTS package from [https://nodejs.org/en/](https://no
 
 Open a Terminal prompt (e.g. run ‘cmd’ from the system search bar), change directory to the `scripts` directory of your world you obtained above, e.g.
 
-```bash
+```shell
 cd C:\\Users\\live\\AppData\\LocalLow\\Meta\\Horizon Worlds\\eslint test_10160832935606146\\scripts
 ```
 
 and run:
 
-```bash
+```shell
 npm install \--no-save eslint@^8.56.0 @eslint/js typescript@4.7.4 typescript-eslint@^7.18.0 eslint-config-prettier
 ```
 
@@ -1454,7 +1454,7 @@ As above, you **must** install locally to the `scripts` directory for _each_ wor
 
 Create a `eslint.config.mjs` file in your world’s scripts directory. Be sure to exclude the `types/*.d.ts` files, as the code there is not well formatted and will cause _lots_ of error messages, and the `.backups` directory that contains old deleted code.
 
-```ts
+```typescript
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
@@ -1477,19 +1477,19 @@ export default tseslint.config(
 
 Create a file in your `scripts` directory (e.g. `ESLintTest.ts`) with valid typescript, but an obviously inadvisable language construct, such as the following variable declaration that uses the any type.
 
-```ts
+```typescript
 export const foo: any = true;
 ```
 
 Test that you are able to run eslint from the command line from your scripts directory, and that it detects this error
 
-```bash
+```shell
 npx eslint .
 ```
 
 This command should generate an error message on the above file:
 
-```bash
+```shell
 C:\\Users\\name\\AppData\\LocalLow\\Meta\\Horizon Worlds\\eslint test_10160832935606146\\scripts\\ESLintTest.ts
  1:19 error Unexpected any. Specify a different type @typescript\-eslint/no\-explicit\-any
 ✖ 1 problem (1 error, 0 warnings)
@@ -1535,13 +1535,13 @@ The ESLint plugin to VSCode also has configuration options as well. By default, 
 
 If you find that some linter error is incorrect or too aggressive for your code, you can insert a comment above the line causing the problem to tell the linter to ignore it. The Quick Fix in VSCode can help you format these comments, but they are generally of the form:
 
-```ts
+```typescript
 /* eslint-disable-disable-next-line <rule-name-here> */
 ```
 
 Where `<rule-name-here>` is the name of the eslint rule that is reporting an error. You can disable eslint errors or the entire file using the following comment at the top of the file.
 
-```ts
+```typescript
 /* eslint-disable <rule-name-here> */
 ```
 
@@ -1575,7 +1575,7 @@ Additionally, though it will work without changes, to avoid errors in VSCode, we
 
 Change your `eslint.config.mjs` to the following:
 
-```ts
+```typescript
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import eslint from '@eslint/js';

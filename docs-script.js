@@ -51,7 +51,7 @@ const docs = {
     "15-blender-tips-for-Horizon-assets.md",
     "blender-basics-&-UV-unwrapping.md",
     "custom-skydomes-guide-cinematic-horizons.md",
-    "how-to-use-LODs-to-boost-your-world's-performance.md",
+    "how-to-use-LODs-to-boost-your-worlds-performance.md",
     "import-images-and-add-texture-animation.md",
     "improve-custom-model-imports.md",
     "masked-texture-3D-asset-challenge-AMA-session.md",
@@ -200,19 +200,6 @@ function loadDocByPath(path) {
     fetch(htmlUrl)
       .then(res => {
         if (!res.ok) {
-          // If GitHub Pages HTML fails, try fallback for special character files
-          if (path.includes("world's-performance")) {
-            // Try with straight apostrophe fallback
-            const fallbackPath = path.replace("world's-performance", "world's-performance");
-            const fallbackUrl = `${GITHUB_PAGES_BASE}/${fallbackPath.replace('.md', '.html')}`;
-            return fetch(fallbackUrl).then(fallbackRes => {
-              if (!fallbackRes.ok) {
-                // If still fails, show error message for this specific file
-                throw new Error(`This document has a character encoding issue. The file exists on GitHub but GitHub Pages cannot serve it properly due to the curly apostrophe in the filename.`);
-              }
-              return fallbackRes.text();
-            });
-          }
           throw new Error(`HTTP ${res.status}`);
         }
         return res.text();

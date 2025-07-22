@@ -106,7 +106,6 @@ const NavigationManager = {
   init() {
     this.bindHamburgerMenu();
     this.bindLogoReload();
-    this.bindHashChange();
   },
 
   bindHamburgerMenu() {
@@ -136,15 +135,6 @@ const NavigationManager = {
       });
     });
   },
-
-  bindHashChange() {
-    window.addEventListener("hashchange", () => {
-      const newPath = decodeURIComponent(location.hash.slice(1));
-      if (flatDocs.some(doc => doc.path === newPath)) {
-        loadDocByPath(newPath);
-      }
-    });
-  }
 };
 
 // ========================================

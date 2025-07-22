@@ -1,4 +1,4 @@
-const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main";
+const GITHUB_PAGES_BASE = "https://mhcpcreators.github.io/worlds-documentation";
 const docs = {
   "understanding-the-desktop-editor": [
     "asset-spawning-&-world-streaming.md",
@@ -51,18 +51,21 @@ const docs = {
     "15-blender-tips-for-Horizon-assets.md",
     "blender-basics-&-UV-unwrapping.md",
     "custom-skydomes-guide-cinematic-horizons.md",
-    "how-to-use-LODs-to-boost-your-world's-performance.md",
+    "how-to-use-LODs-to-boost-your-worlds-performance.md",
     "import-images-and-add-texture-animation.md",
     "improve-custom-model-imports.md",
     "masked-texture-3D-asset-challenge-AMA-session.md",
     "optimize-IWP-assets-for-peak-performance.md",
     "roads-&-fences-in-Horizon-paths-101.md",
+    "Space Glitters Blender Basics Hotkey Sheet.pdf",
     "Worlds-asset-build-along-color-palette-&-vertex-tuning.md",
   ],
   "manuals-and-cheat-sheets": [
     "contribute-to-creator-documentation.md",
     "get-started.md",
     "how-to-make-your-world-go-viral.md",
+    "MHCP_Publishing_Checklist.pdf",
+    "MHCP_WorldPlanningGuide.pdf",
     "plan-your-world-game-design-&-monetization-sheet.md",
     "publishing-checklist-for-Horizon-Worlds.md",
     "world-building-&-pre-production-guide.md",
@@ -178,9 +181,9 @@ function loadDocByPath(path) {
     });
   }
 
-  // If PDF, directly embed in iframe without fetch
+  // Handle PDFs
   if (path.endsWith(".pdf")) {
-    const pdfUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).join("/");
+    const pdfUrl = `${GITHUB_PAGES_BASE}/${path}`; // Use Pages URL instead of RAW
     const filename = path.split("/").pop().replace(/[-_]/g, " ").replace(/\.pdf$/i, "");
     content.innerHTML = `
       <h2>${filename}</h2>
@@ -189,43 +192,87 @@ function loadDocByPath(path) {
     return;
   }
 
-  // For markdown and other types, fetch and parse
-  const fullUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).join("/");
-
-  fetch(fullUrl)
-    .then(res => {
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.text();
-    })
-    .then(md => {
-      // Render markdown
-      content.innerHTML = marked.parse(md);
-
-      // Fix relative image paths in markdown (like your PNGs)
-      const basePath = path.split("/").slice(0, -1).join("/");
-      content.querySelectorAll("img").forEach(img => {
-        const src = img.getAttribute("src");
-        if (src && !src.startsWith("http") && !src.startsWith("data:")) {
-          img.src = `${GITHUB_RAW_BASE}/${basePath}/${src}`;
+  try {
+    // Use GitHub Pages pre-rendered HTML
+    const htmlPath = path.replace('.md', '.html');
+    const htmlUrl = `${GITHUB_PAGES_BASE}/${htmlPath}`;
+    
+    fetch(htmlUrl)
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
         }
+        return res.text();
+      })
+      .then(githubRenderedHTML => {
+      // Create a temporary element to parse the HTML
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = githubRenderedHTML;
+
+      // Try multiple selectors to find the content
+      const markdownContent = 
+          tempDiv.querySelector('article.markdown-body') ||  // Try GitHub's article first
+          tempDiv.querySelector('.markdown-body') ||        // Then just markdown-body class
+          tempDiv.querySelector('article') ||              // Then any article
+          tempDiv.querySelector('main');                   // Finally try main content
+
+      if (!markdownContent) {
+          throw new Error('Could not find markdown content in the page');
+      }
+
+      // Set the content with proper markdown-body class
+      const docContent = document.getElementById('doc-content');
+      docContent.className = 'markdown-body'; // Always use markdown-body class
+      
+      // Try to preserve more of GitHub's structure by cloning the entire content
+      docContent.innerHTML = '';
+      const clonedContent = markdownContent.cloneNode(true);
+      
+      // Remove the large "worlds-documentation" header that appears at the top of GitHub Pages
+      const repoHeader = clonedContent.querySelector('h1');
+      if (repoHeader && repoHeader.textContent.trim().toLowerCase().includes('worlds-documentation')) {
+        repoHeader.remove();
+      }
+      
+      docContent.appendChild(clonedContent);
+
+      // Fix relative image paths (only for truly relative paths)
+      const basePath = path.split("/").slice(0, -1).join("/");
+      docContent.querySelectorAll("img").forEach(img => {
+          const src = img.getAttribute("src");
+          
+          // Check if it's a relative GitHub Pages path that starts with /worlds-documentation
+          if (src && src.startsWith("/worlds-documentation/")) {
+              // Convert GitHub relative paths to absolute URLs
+              const newSrc = `https://mhcpcreators.github.io${src}`;
+              img.src = newSrc;
+          } else if (src && !src.startsWith("http") && !src.startsWith("data:") && !src.includes("github")) {
+              // Only fix truly relative paths that don't start with http, https, or data
+              const newSrc = `${GITHUB_PAGES_BASE}/${basePath}/${src}`;
+              img.src = newSrc;
+          }
       });
 
-      generateTOC();
-      updateButtons();
-      updateActiveLink();
-      autoExpandFolders();
+        generateTOC();
+        updateButtons();
+        updateActiveLink();
+        autoExpandFolders();
 
-      history.replaceState(null, "", `#${encodeURIComponent(path)}`);
-      
-      const contentContainer = document.querySelector("main.content");
-      if (contentContainer) {
-        contentContainer.scrollTop = 0;
-      }
-    })
-    .catch(err => {
-      content.innerHTML = `<p>Error loading document: ${err.message}</p>`;
-      console.error(err);
-    });
+        history.replaceState(null, "", `#${encodeURIComponent(path)}`);
+        
+        const contentContainer = document.querySelector("main.content");
+        if (contentContainer) {
+          contentContainer.scrollTop = 0;
+        }
+      })
+      .catch(error => {
+        console.error('Failed to load pre-rendered HTML:', error);
+        content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+      });
+  } catch (error) {
+    console.error('Error in loadDocByPath:', error);
+    content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+  }
 }
 
 function loadDoc(index) {

@@ -60,15 +60,13 @@ If you adopt nothing else, you should at least do (or not do) the following:
 
 | [Horizon Worlds Features](#horizon-worlds-features) |
 | ---- |
-✅ Define Events once and export to all users
-✅ Prefer NetworkEvents and LocalEvents over CodeBlockEvents
-✅ Always quote asset ids as strings
-🚫 Do not use bind() when registering event handlers, use arrow functions
-🚫 Don’t connect to events in start(), use preStart()
-❌ Never send events in preStart(), use start() instead.
-❌ Never subclass a Horizon Worlds API class other than Component or UIComponent
-
-
+| ✅ Define Events once and export to all users
+| ✅ Prefer NetworkEvents and LocalEvents over CodeBlockEvents
+| ✅ Always quote asset ids as strings
+| 🚫 Do not use bind() when registering event handlers, use arrow functions
+| 🚫 Don’t connect to events in start(), use preStart()
+| ❌ Never send events in preStart(), use start() instead.
+| ❌ Never subclass a Horizon Worlds API class other than Component or UIComponent
 
 # 👉🏻 Extended Recommendations TL;DR
 

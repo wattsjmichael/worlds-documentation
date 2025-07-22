@@ -1,12 +1,77 @@
-const GITHUB_RAW_BASE = "https://raw.githubusercontent.com/MHCPCreators/worlds-documentation/main";
+const GITHUB_PAGES_BASE = "https://mhcpcreators.github.io/worlds-documentation";
 const docs = {
-  "understanding-the-desktop-editor": ["asset-spawning-&-world-streaming.md", "boost-performance-top-7-spawning-&-streaming-tricks.md", "collaboratively-build-with-shared-asset-templates.md", "improve-frame-rates-and-custom-asset-bloat.md", "trace,-fix,-&-optimize-world-performance-issues.md", "Worlds-desktop-editor-101.md", "Worlds-desktop-tools-basics.md"],
-  "creating-a-world": ["building-your-first-world.md", "create-a-clean-game-HUD-for-Worlds.md", "create-a-versatile-holster-system-in-Worlds.md", "designing-worlds-for-mobile-AMA-session.md", "inventory-systems-unlock-the-power-of-player-inventories.md", "mentor-world-tour-mechanics,--art,--&--gameplay-loop-design.md", "mobile-worlds-crash-course.md", "what-makes-a-hit-mobile-game-4-winning-examples.md", "worlds-tools-overview.md"],
-  "generative-ai-tools": ["build-a-player-guided-lobby-with-mesh-gen.md", "code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode.md", "genAI-sound-design-in-Worlds-audio-tools-tour.md", "genAI-world-concepts-greyboxing-and-refinements.md", "hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour.md", "prompt-Meta-AI-in-the-Worlds-desktop-editor.md", "scripting-with-AI-support-GenAI-TypeScript.md", "topology-tune-up-for-GenAI-props-and-sets.md"],
-  "getting-started-with-scripting": ["15-Worlds-TypeScript-API-2.0-tips-and-tricks.md", "codeblocks-to-TypeScript.md", "json-ppvs-and-versioning.md", "PlayerControls-API-&-focused-interaction-in-Worlds.md", "text-entry-tutorial.md", "TypeScript-basics-beginner-friendly-session-for-Worlds.md", "TypeScript-best-practices-101.md"],
-  "scripting-concepts-persistence-apis": ["custom-ui/custom-UI-basics-to-boost-interaction.md", "custom-ui/cui-api-introduction.md", "custom-ui/pro-tips-&-tricks-for-a-high-performance-custom-UI.md", "interactive-laser-pen-for-mobile-worlds-build-along.md"],    
-  "meshes-materials-import": ["3D-modeling-in-Worlds-101.md", "15-blender-tips-for-Horizon-assets.md", "blender-basics-&-UV-unwrapping.md", "custom-skydomes-guide-cinematic-horizons.md", "how-to-use-LODs-to-boost-your-world's-performance.md", "import-images-and-add-texture-animation.md", "improve-custom-model-imports.md", "masked-texture-3D-asset-challenge-AMA-session.md", "optimize-IWP-assets-for-peak-performance.md", "roads-&-fences-in-Horizon-paths-101.md", "Worlds-asset-build-along-color-palette-&-vertex-tuning.md"],
-  "manuals-and-cheat-sheets": ["contribute-to-creator-documentation.md", "get-started.md", "how-to-make-your-world-go-viral.md", "plan-your-world-game-design-&-monetization-sheet.md", "publishing-checklist-for-Horizon-Worlds.md", "world-building-&-pre-production-guide.md", "worlds-creator-manual-essentials-made-easy.md", "worlds-workarounds.md"]
+  "understanding-the-desktop-editor": [
+    "asset-spawning-&-world-streaming.md",
+    "boost-performance-top-7-spawning-&-streaming-tricks.md",
+    "collaboratively-build-with-shared-asset-templates.md",
+    "improve-frame-rates-and-custom-asset-bloat.md",
+    "trace,-fix,-&-optimize-world-performance-issues.md",
+    "Worlds-desktop-editor-101.md",
+    "Worlds-desktop-tools-basics.md",
+  ],
+  "creating-a-world": [
+    "building-your-first-world.md",
+    "create-a-clean-game-HUD-for-Worlds.md",
+    "create-a-versatile-holster-system-in-Worlds.md",
+    "designing-worlds-for-mobile-AMA-session.md",
+    "inventory-systems-unlock-the-power-of-player-inventories.md",
+    "mentor-world-tour-mechanics,--art,--&--gameplay-loop-design.md",
+    "mobile-worlds-crash-course.md",
+    "what-makes-a-hit-mobile-game-4-winning-examples.md",
+    "worlds-tools-overview.md",
+  ],
+  "generative-ai-tools": [
+    "build-a-player-guided-lobby-with-mesh-gen.md",
+    "code-faster-with-copilot-in-the-Worlds-desktop-editor-&-VSCode.md",
+    "genAI-sound-design-in-Worlds-audio-tools-tour.md",
+    "genAI-world-concepts-greyboxing-and-refinements.md",
+    "hands-on-with-GenAI-toolkit-for-Worlds-full-feature-tour.md",
+    "prompt-Meta-AI-in-the-Worlds-desktop-editor.md",
+    "scripting-with-AI-support-GenAI-TypeScript.md",
+    "topology-tune-up-for-GenAI-props-and-sets.md",
+  ],
+  "getting-started-with-scripting": [
+    "15-Worlds-TypeScript-API-2.0-tips-and-tricks.md",
+    "codeblocks-to-TypeScript.md",
+    "json-ppvs-and-versioning.md",
+    "PlayerControls-API-&-focused-interaction-in-Worlds.md",
+    "text-entry-tutorial.md",
+    "TypeScript-basics-beginner-friendly-session-for-Worlds.md",
+    "TypeScript-best-practices-101.md",
+  ],
+  "scripting-concepts-persistence-apis": [
+    "custom-ui/custom-UI-basics-to-boost-interaction.md",
+    "custom-ui/cui-api-introduction.md",
+    "custom-ui/pro-tips-&-tricks-for-a-high-performance-custom-UI.md",
+    "typescript-conventions-best-practices.md",
+    "interactive-laser-pen-for-mobile-worlds-build-along.md",
+  ],
+  "meshes-materials-import": [
+    "3D-modeling-in-Worlds-101.md",
+    "15-blender-tips-for-Horizon-assets.md",
+    "blender-basics-&-UV-unwrapping.md",
+    "custom-skydomes-guide-cinematic-horizons.md",
+    "how-to-use-LODs-to-boost-your-world's-performance.md",
+    "import-images-and-add-texture-animation.md",
+    "improve-custom-model-imports.md",
+    "masked-texture-3D-asset-challenge-AMA-session.md",
+    "optimize-IWP-assets-for-peak-performance.md",
+    "roads-&-fences-in-Horizon-paths-101.md",
+    "Space Glitters Blender Basics Hotkey Sheet.pdf",
+    "Worlds-asset-build-along-color-palette-&-vertex-tuning.md",
+  ],
+  "manuals-and-cheat-sheets": [
+    "contribute-to-creator-documentation.md",
+    "get-started.md",
+    "how-to-make-your-world-go-viral.md",
+    "MHCP_Publishing_Checklist.pdf",
+    "MHCP_WorldPlanningGuide.pdf",
+    "plan-your-world-game-design-&-monetization-sheet.md",
+    "publishing-checklist-for-Horizon-Worlds.md",
+    "world-building-&-pre-production-guide.md",
+    "worlds-creator-manual-essentials-made-easy.md",
+    "worlds-workarounds.md",
+  ],
 };
 
 const docList = document.getElementById("doc-list");
@@ -116,9 +181,9 @@ function loadDocByPath(path) {
     });
   }
 
-  // If PDF, directly embed in iframe without fetch
+  // Handle PDFs
   if (path.endsWith(".pdf")) {
-    const pdfUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).join("/");
+    const pdfUrl = `${GITHUB_PAGES_BASE}/${path}`; // Use Pages URL instead of RAW
     const filename = path.split("/").pop().replace(/[-_]/g, " ").replace(/\.pdf$/i, "");
     content.innerHTML = `
       <h2>${filename}</h2>
@@ -127,43 +192,132 @@ function loadDocByPath(path) {
     return;
   }
 
-  // For markdown and other types, fetch and parse
-  const fullUrl = GITHUB_RAW_BASE + "/" + path.split("/").map(encodeURIComponent).join("/");
-
-  fetch(fullUrl)
-    .then(res => {
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return res.text();
-    })
-    .then(md => {
-      // Render markdown
-      content.innerHTML = marked.parse(md);
-
-      // Fix relative image paths in markdown (like your PNGs)
-      const basePath = path.split("/").slice(0, -1).join("/");
-      content.querySelectorAll("img").forEach(img => {
-        const src = img.getAttribute("src");
-        if (src && !src.startsWith("http") && !src.startsWith("data:")) {
-          img.src = `${GITHUB_RAW_BASE}/${basePath}/${src}`;
+  try {
+    // Use GitHub Pages pre-rendered HTML
+    const htmlPath = path.replace('.md', '.html');
+    const htmlUrl = `${GITHUB_PAGES_BASE}/${htmlPath}`;
+    
+    fetch(htmlUrl)
+      .then(res => {
+        if (!res.ok) {
+          // If GitHub Pages HTML fails, try fallback for special character files
+          if (path.includes("world's-performance")) {
+            // Try with straight apostrophe fallback
+            const fallbackPath = path.replace("world's-performance", "world's-performance");
+            const fallbackUrl = `${GITHUB_PAGES_BASE}/${fallbackPath.replace('.md', '.html')}`;
+            return fetch(fallbackUrl).then(fallbackRes => {
+              if (!fallbackRes.ok) {
+                // If still fails, show error message for this specific file
+                throw new Error(`This document has a character encoding issue. The file exists on GitHub but GitHub Pages cannot serve it properly due to the curly apostrophe in the filename.`);
+              }
+              return fallbackRes.text();
+            });
+          }
+          throw new Error(`HTTP ${res.status}`);
         }
+        return res.text();
+      })
+      .then(githubRenderedHTML => {
+      // Create a temporary element to parse the HTML
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = githubRenderedHTML;
+
+      // Extract GitHub's CSS for syntax highlighting
+      const githubHead = tempDiv.querySelector('head');
+      if (githubHead) {
+        // Extract all stylesheets from GitHub's rendered page
+        const stylesheets = githubHead.querySelectorAll('link[rel="stylesheet"]');
+        stylesheets.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href && !document.head.querySelector(`link[href="${href}"]`)) {
+            const newLink = document.createElement('link');
+            newLink.rel = 'stylesheet';
+            newLink.href = href.startsWith('http') ? href : `https://github.githubassets.com${href}`;
+            // Insert before our docs-style.css to ensure proper precedence
+            const docsStyle = document.querySelector('link[href="docs-style.css"]');
+            if (docsStyle) {
+              document.head.insertBefore(newLink, docsStyle);
+            } else {
+              document.head.appendChild(newLink);
+            }
+          }
+        });
+
+        // Extract inline styles for syntax highlighting
+        const inlineStyles = githubHead.querySelectorAll('style');
+        inlineStyles.forEach((style, index) => {
+          if (!document.head.querySelector(`style[data-github-style="${style.textContent.substring(0, 50)}"]`)) {
+            const clonedStyle = style.cloneNode(true);
+            clonedStyle.setAttribute('data-github-style', style.textContent.substring(0, 50));
+            document.head.appendChild(clonedStyle);
+          }
+        });
+      }
+
+      // Try multiple selectors to find the content
+      const markdownContent = 
+          tempDiv.querySelector('article.markdown-body') ||  // Try GitHub's article first
+          tempDiv.querySelector('.markdown-body') ||        // Then just markdown-body class
+          tempDiv.querySelector('article') ||              // Then any article
+          tempDiv.querySelector('main');                   // Finally try main content
+
+      if (!markdownContent) {
+          throw new Error('Could not find markdown content in the page');
+      }
+
+      // Set the content with proper markdown-body class
+      const docContent = document.getElementById('doc-content');
+      docContent.className = 'markdown-body'; // Always use markdown-body class
+      
+      // Try to preserve more of GitHub's structure by cloning the entire content
+      docContent.innerHTML = '';
+      const clonedContent = markdownContent.cloneNode(true);
+      
+      // Remove the large "worlds-documentation" header that appears at the top of GitHub Pages
+      const repoHeader = clonedContent.querySelector('h1');
+      if (repoHeader && repoHeader.textContent.trim().toLowerCase().includes('worlds-documentation')) {
+        repoHeader.remove();
+      }
+      
+      docContent.appendChild(clonedContent);
+
+      // Fix relative image paths (only for truly relative paths)
+      const basePath = path.split("/").slice(0, -1).join("/");
+      docContent.querySelectorAll("img").forEach(img => {
+          const src = img.getAttribute("src");
+          
+          // Check if it's a relative GitHub Pages path that starts with /worlds-documentation
+          if (src && src.startsWith("/worlds-documentation/")) {
+              // Convert GitHub relative paths to absolute URLs
+              const newSrc = `https://mhcpcreators.github.io${src}`;
+              img.src = newSrc;
+          } else if (src && !src.startsWith("http") && !src.startsWith("data:") && !src.includes("github")) {
+              // Only fix truly relative paths that don't start with http, https, or data
+              const newSrc = `${GITHUB_PAGES_BASE}/${basePath}/${src}`;
+              img.src = newSrc;
+          }
       });
 
-      generateTOC();
-      updateButtons();
-      updateActiveLink();
-      autoExpandFolders();
+        generateTOC();
+        updateButtons();
+        updateActiveLink();
+        autoExpandFolders();
 
-      history.replaceState(null, "", `#${encodeURIComponent(path)}`);
-      
-      const contentContainer = document.querySelector("main.content");
-      if (contentContainer) {
-        contentContainer.scrollTop = 0;
-      }
-    })
-    .catch(err => {
-      content.innerHTML = `<p>Error loading document: ${err.message}</p>`;
-      console.error(err);
-    });
+        history.replaceState(null, "", `#${encodeURIComponent(path)}`);
+        
+        const contentContainer = document.querySelector("main.content");
+        if (contentContainer) {
+          contentContainer.scrollTop = 0;
+        }
+      })
+      .catch(error => {
+        console.error('Failed to load pre-rendered HTML:', error);
+        content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+      });
+  } catch (error) {
+    console.error('Error in loadDocByPath:', error);
+    content.innerHTML = `<p>Error loading document: ${error.message}</p>`;
+  }
 }
 
 function loadDoc(index) {

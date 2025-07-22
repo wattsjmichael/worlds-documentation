@@ -222,38 +222,6 @@ function loadDocByPath(path) {
       const tempDiv = document.createElement('div');
       tempDiv.innerHTML = githubRenderedHTML;
 
-      // Extract GitHub's CSS for syntax highlighting
-      const githubHead = tempDiv.querySelector('head');
-      if (githubHead) {
-        // Extract all stylesheets from GitHub's rendered page
-        const stylesheets = githubHead.querySelectorAll('link[rel="stylesheet"]');
-        stylesheets.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href && !document.head.querySelector(`link[href="${href}"]`)) {
-            const newLink = document.createElement('link');
-            newLink.rel = 'stylesheet';
-            newLink.href = href.startsWith('http') ? href : `https://github.githubassets.com${href}`;
-            // Insert before our docs-style.css to ensure proper precedence
-            const docsStyle = document.querySelector('link[href="docs-style.css"]');
-            if (docsStyle) {
-              document.head.insertBefore(newLink, docsStyle);
-            } else {
-              document.head.appendChild(newLink);
-            }
-          }
-        });
-
-        // Extract inline styles for syntax highlighting
-        const inlineStyles = githubHead.querySelectorAll('style');
-        inlineStyles.forEach((style, index) => {
-          if (!document.head.querySelector(`style[data-github-style="${style.textContent.substring(0, 50)}"]`)) {
-            const clonedStyle = style.cloneNode(true);
-            clonedStyle.setAttribute('data-github-style', style.textContent.substring(0, 50));
-            document.head.appendChild(clonedStyle);
-          }
-        });
-      }
-
       // Try multiple selectors to find the content
       const markdownContent = 
           tempDiv.querySelector('article.markdown-body') ||  // Try GitHub's article first

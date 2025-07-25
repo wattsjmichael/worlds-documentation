@@ -6,6 +6,11 @@ This document outlines the standard procedure for adding or updating documentati
 
 When contributing documentation, please ensure your additions or edits fit into one of the existing high-level documentation folders/categories. If you are unsure where your contribution belongs, please discuss it with the project maintainers.
 
+For a video tutorial on contributing to the repo:
+
+[![How to Contribute to the MHCP GitHub](https://img.youtube.com/vi/V655i5sfxZQ/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://youtu.be/V655i5sfxZQ))
+
+
 ## 1\. Prerequisites
 
 * A GitHub account.  

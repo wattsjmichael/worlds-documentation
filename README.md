@@ -8,7 +8,7 @@ When contributing documentation, please ensure your additions or edits fit into 
 
 For a video tutorial on contributing to the repo:
 
-[![How to Contribute to the MHCP GitHub](https://img.youtube.com/vi/V655i5sfxZQ/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://youtu.be/V655i5sfxZQ))
+[![How to Contribute to the MHCP GitHub](https://img.youtube.com/vi/V655i5sfxZQ/0.jpg)](https://youtu.be/V655i5sfxZQ)
 
 
 ## 1\. Prerequisites

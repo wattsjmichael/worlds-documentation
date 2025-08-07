@@ -169,3 +169,7 @@ A: Yes, you can submit more than one tutorial, but longer, more detailed, and hi
 **Q: Can one submission win more than one prize?**
 
 A: Each submission is limited to one top prize (“Best Overall Tutorial”) and a max of one additional special category, aligning to the overall rules of the competition.
+
+**Q: Will my contribution to the Doc Mini Challenge automatically be merged into the main MHCPCreators/wolds-documentation repo?**
+
+A: Winning submissions as well as other submissions of sufficiently high quality will be candidates for merging to the MHCPCreators documentation repo. You may be asked to do some additional editing before it is ready to merge into the main documentation site (such as minor typo fixes, clarifications, figuring out which category it goes into, etc). The maintainers of the MHCPCreators repo will reach out to you when your document is selected for incorporation into the main repo.

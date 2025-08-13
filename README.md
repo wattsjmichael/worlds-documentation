@@ -40,43 +40,43 @@ Forking creates your own copy of the project repository where you can make chang
 
 ### 2.2. Contribution Workflow (For Each Documentation Change)
 
-Once you have your fork set up, follow these steps for each new piece of documentation or update you wish to contribute.
+Once you have your fork set up, follow these steps to submit or update your tutorial for the MHCP Doc Mini Challenge.
 
 #### 2.2.1. Add or Edit Documentation Files (in Your Fork)
 
 On your main branch, add or edit documentation files. **Crucially, place your files in the correct category folder that corresponds with the tutorial challenge category you are creating content for.** If you're unsure about the correct category, please consult with project maintainers before proceeding.
 
-**Note**: This list only focuses on the categories that align with the MHCP doc mini challenge.
-
 **Documentation Categories:**
 
 | Category Folder Name | Description | Challenge Category |
 | :---- | :---- | :---- |
-| `gizmos` | Explores various gizmos for interaction, audio, and advanced world mechanics. | Best Lighting |
+| `lighting-colliders-audio` | Details lighting techniques, collider setup for interaction, and audio integration. | Best Lighting |
 | `asset-library-import` | Focuses on using the asset library, templates, and managing assets. | Best Creating and Importing Assets and Best Using Asset Templates |
 | `monetization` | Discusses monetization options, in-world purchases, and player progression. | Best Monetization |
 | `performance` | Addresses performance optimization, debugging, and best practices. | Best Optimizing World Performance |
 | `npcs` | Details NPC creation, AI, and behavior. | Best NPC Enemy Wave |
 
-1. Verify you are in **your forked repository** and on the branch created for these specific changes.
-2. To **add a new file**:
+Before beginning, verify you are in **your forked repository** and on the branch created for these specific changes.
 
-   * Using the table above, identify the **appropriate category folder** for your new file (e.g., `docs/gizmos/`).
-   * Navigate to this folder. If it doesn't exist, GitHub allows you to create it when naming the file: simply type the desired folder path followed by your filename (e.g., `docs/new-category/your-file.md` will create the `new-category` folder if it's not present).
-   * Click the **"Add file"** button and select either **"Create new file"** or **"Upload files"**.
+To **add a new file**:
+
+   1. Using the table above, identify the **appropriate category folder** for your new file (e.g., `docs/npcs/`).
+   1. Navigate to the folder.
+   1. Click the **"Add file"** button and select either **"Create new file"** or **"Upload files"**.
      ![](images/image8.png)
-   * If creating a new file:
-     * Enter the name for your file in the name field (e.g., `new-guide.md`).
-     * Write or paste your Markdown content into the editor.
-       ![](images/image6.png)
-   * If uploading files:
-     * Drag and drop your file(s) or use the file chooser to select them.
+      * If creating a new file:
+         * Enter the name for your file in the name field (e.g., `new-guide.md`).
+         * Write or paste your Markdown content into the editor.
+            ![](images/image6.png)
+      * If uploading files:
+         * Drag and drop your file(s) or use the file chooser to select them.
 
-3. To **edit an existing file**:
-   * Navigate to the file you want to edit within your fork.
-   * Click the **pencil icon** (which usually says "Edit this file") on the right side of the file view.
-   * Make your desired changes in the editor.
-     ![](images/image1.png)
+To **edit an existing file**:
+   1. Navigate to the file you want to edit within your fork.
+   1. Click the **pencil icon** (which usually says "Edit this file") on the right side of the file view.
+   1. Make your desired changes in the editor.
+
+      ![](images/image1.png)
 
 #### 2.2.2. Linking to YouTube Videos
 
@@ -100,15 +100,14 @@ Save your work by committing the changes to your branch in your fork.
 1. After creating, uploading, or editing a file **in your fork**, press the **"Commit changes"** button.
    ![](images/image9.png)
 2. **Commit message:** Write a clear and concise commit message.
-   * The first line should be a short summary (max 50-72 characters is a good guideline), e.g., `docs: Add guide for Feature X`.
-   * If more detail is needed, leave a blank line after the summary and then provide a more detailed explanation in the larger text box.
+   * The first line should be a short summary (max 50-72 characters is a good guideline), e.g., `docs: New tutorial on lighting`.
    * *Good commit message practice:* Start with a prefix indicating the type of change (e.g., `docs:`, `fix:`), followed by a concise description.
 3. Ensure the option **"Commit directly to the `main` branch"** is selected. This refers to the branch in your fork.
 4. Click the green **"Commit changes"** button.
 
 #### 2.2.4. Create a Pull Request (PR) from Your Fork to the MHCPPrograms/worlds-documentation Repository
 
-A Pull Request (PR) is how you propose your changes to the original project.
+You are almost done! The Pull Request (PR) submission process is how you propose your changes to the doc mini challenge Github repo.
 
 1. After committing your changes to your branch **in your fork**, navigate to the main page of **your forked repository** on GitHub.
 2. You should see a prominent notification bar for your recently pushed branch, often with a **"Contribute"** button. Click this button.
@@ -128,9 +127,8 @@ A Pull Request (PR) is how you propose your changes to the original project.
 5. **Title:** Write a clear and descriptive title for your PR and incluce the challenge category in your title. The main commit message is often a good starting point.
    * Example: `lighting: Cool uses of Dynamic Lighting`
 6. **Description:** In the text area, provide a summary of your changes.
-   * Explain the purpose of the documentation being added or updated.
-   * If fixing a reported issue, link to any relevant issues in the **original repository** (e.g., "Closes original-owner/repository-name\#123" to automatically close issue \#123 when the PR is merged).
-   * Clearly state that you've added or updated documentation.
+   * When submitting your tutorial for the first time, list the tutorial category and what your tutorial covers.
+   * When updating an existing tutorial, describe the changes.
 7. Click **"Create pull request"**. This submits your changes for review to the maintainers of the original repository.
    ![](images/image7.png)
 
@@ -138,7 +136,7 @@ A Pull Request (PR) is how you propose your changes to the original project.
 
 After submitting your PR, project maintainers will review your contribution.
 
-1. Maintainers of the original repository will review your changes. They may ask questions, request modifications, or suggest improvements directly on the PR page using comments and review tools.
+1. Maintainers of the MHCP competition repository will review your changes. They may ask questions, request modifications, or suggest improvements directly on the PR page using comments and review tools.
 2. Monitor your PR for feedback. You will typically receive notifications from GitHub.
 3. If changes are requested, address the feedback by making further edits and commits to your branch **in your forked repository**. New commits pushed to that branch in your fork will automatically update the existing Pull Request.
 
@@ -147,11 +145,12 @@ After submitting your PR, project maintainers will review your contribution.
 Once your PR is approved and any automated checks pass, a maintainer will merge it.
 
 1. After any necessary discussions and revisions, if the maintainers are satisfied, they will merge your PR into the `main` (or target) branch of the MHCPPrograms/worlds-documentation repository used for this doc mini challenge.
-2. Your tutorial has now been successfully submitted!
+2. Your tutorial has now been successfully submitted for the MHCP Doc Mini Challenge! If you need to make updates to your submission, you can do so until the contest ends.
 
 #### 2.2.7. Keep Fork Up-to-Date
 
 If you need to make further updates, it's a good practice to keep your fork's main branch in sync with the upstream repository. Occasionally, press the "Sync Fork" button on **your forked repository's** main page to retrieve any updates to the **original (upstream) repository**.
+
 ![](images/image10.png)
 
 ---
